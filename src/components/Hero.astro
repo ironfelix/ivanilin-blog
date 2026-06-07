@@ -18,7 +18,7 @@ const { imageUrl } = Astro.props;
   </div>
   <div class="hero-text">
     <p class="hero-greeting">Привет! Меня зовут <strong>Иван Ильин.</strong></p>
-    <p class="hero-bio">Занимаюсь <span class="accent">маркетингом,</span> строю <span class="accent">AI-продукты,</span> разбираюсь как технологии меняют бизнес и тело.</p>
+    <p class="hero-bio">Занимаюсь маркетингом, строю AI-продукты, разбираюсь как технологии меняют бизнес и тело.</p>
     <p class="hero-desc">Веду этот блог — про AI, маркетинг, здоровье, книги и эксперименты. Без лекций. С фактами и вопросами.</p>
   </div>
 </div>
@@ -72,17 +72,6 @@ const { imageUrl } = Astro.props;
     margin: 0;
     color: var(--color-foreground);
     opacity: 0.75;
-  }
-
-  .accent {
-    color: #d49a4d;
-    font-weight: 500;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .accent {
-      color: #e8b86d;
-    }
   }
 
   @media (max-width: 600px) {
