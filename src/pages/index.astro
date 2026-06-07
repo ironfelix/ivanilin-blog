@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
 import PostCard from '../components/PostCard.astro';
 import { site } from '../site.config';
 import { t } from '../i18n';
@@ -14,7 +13,6 @@ const canonicalUrl = new URL('/', Astro.site).href;
 ---
 
 <BaseLayout title={i18n.pageHome} pageId="index" canonicalUrl={canonicalUrl} hiddenPageTitle>
-  <Hero />
   <div class="post-list">
     {indexPosts.length === 0 ? (
       <p class="empty-state">{i18n.noPosts}</p>
