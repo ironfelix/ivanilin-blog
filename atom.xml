@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Иван Ильин</title>
+  <subtitle>Личный блог: заметки, мысли, эксперименты.</subtitle>
+  <link href="https://ironfelix.github.io/ivanilin-blog/" rel="alternate" type="text/html" />
+  <link href="https://ironfelix.github.io/ivanilin-blog/atom.xml" rel="self" type="application/atom+xml" />
+  <link href="https://ironfelix.github.io/ivanilin-blog/rss.xml" rel="alternate" type="application/rss+xml" />
+  <id>https://ironfelix.github.io/ivanilin-blog/</id>
+  <updated>2026-01-12T00:00:00.000Z</updated>
+  <author><name>Иван Ильин</name></author>
+  
+  <entry>
+    <title>Tables and native components</title>
+    <link href="https://ironfelix.github.io/ivanilin-blog/posts/tables-and-components/" />
+    <id>https://ironfelix.github.io/ivanilin-blog/posts/tables-and-components/</id>
+    <published>2026-01-12T00:00:00.000Z</published>
+    <updated>2026-01-12T00:00:00.000Z</updated>
+    <author><name>Иван Ильин</name></author>
+    <category term="basic" /><category term="markdown" />
+    <summary>Simple and wide tables, scroll regions, and native details/summary.</summary>
+    <content type="html">&lt;p&gt;This page covers tables and native HTML components. Simple tables can omit a caption; wide or complex tables should use a &lt;code&gt;Table: …&lt;/code&gt; caption line.&lt;/p&gt;
+&lt;h1 id=&quot;tables&quot;&gt;Tables&lt;/h1&gt;
+&lt;h2 id=&quot;simple-table-no-caption&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#simple-table-no-caption&quot; aria-label=&quot;Link to “Simple table (no caption)”&quot;&gt;Simple table (no caption)&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;table-wrapper&quot; role=&quot;region&quot; tabindex=&quot;0&quot; aria-label=&quot;Horizontally scrollable table&quot;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th align=&quot;left&quot;&gt;Item&lt;/th&gt;&lt;th align=&quot;left&quot;&gt;Status&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td align=&quot;left&quot;&gt;Simple table&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;Caption optional&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;| Item | Status |&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;| :--- | :--- |&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;| Simple table | Caption optional |&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;table-with-caption&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#table-with-caption&quot; aria-label=&quot;Link to “Table with caption”&quot;&gt;Table with caption&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;table-wrapper&quot; role=&quot;region&quot; tabindex=&quot;0&quot; aria-label=&quot;Horizontally scrollable table: Markdown column alignment&quot;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;table data-caption=&quot;Markdown column alignment&quot;&gt;&lt;caption&gt;&lt;span class=&quot;table-caption-prefix&quot; aria-hidden=&quot;true&quot;&gt;Table: &lt;/span&gt;Markdown column alignment&lt;/caption&gt;&lt;thead&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Center&lt;/th&gt;&lt;th align=&quot;right&quot;&gt;Right&lt;/th&gt;&lt;th align=&quot;left&quot;&gt;Left&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;Center (&lt;code&gt;:-:&lt;/code&gt;)&lt;/td&gt;&lt;td align=&quot;right&quot;&gt;Right (&lt;code&gt;-:&lt;/code&gt;)&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;Left (&lt;code&gt;:-&lt;/code&gt;)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;b&lt;/td&gt;&lt;td align=&quot;right&quot;&gt;aaaaaaaaa&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;aaaa&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;c&lt;/td&gt;&lt;td align=&quot;right&quot;&gt;aaaa&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;a&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;Table: Markdown column alignment&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;|     Center      |         Right | Left           |&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;| :-------------: | ------------: | :------------- |&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;| Center (&lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#6CB6FF&quot;&gt;`:-:`&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;)  | Right (&lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#6CB6FF&quot;&gt;`-:`&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;)  | Left (&lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#6CB6FF&quot;&gt;`:-`&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;)    |&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;| b               |      aaaaaaaaa | aaaa           |&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;| c               |           aaaa | a              |&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;wide-table&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#wide-table&quot; aria-label=&quot;Link to “Wide table”&quot;&gt;Wide table&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;table-wrapper&quot; role=&quot;region&quot; tabindex=&quot;0&quot; aria-label=&quot;Horizontally scrollable table: Post list horizontal scroll demo&quot;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;table data-caption=&quot;Post list horizontal scroll demo&quot;&gt;&lt;caption&gt;&lt;span class=&quot;table-caption-prefix&quot; aria-hidden=&quot;true&quot;&gt;Table: &lt;/span&gt;Post list horizontal scroll demo&lt;/caption&gt;&lt;thead&gt;&lt;tr&gt;&lt;th align=&quot;left&quot;&gt;Date&lt;/th&gt;&lt;th align=&quot;left&quot;&gt;Title&lt;/th&gt;&lt;th align=&quot;left&quot;&gt;Category&lt;/th&gt;&lt;th align=&quot;left&quot;&gt;Tags&lt;/th&gt;&lt;th align=&quot;left&quot;&gt;Status&lt;/th&gt;&lt;th align=&quot;left&quot;&gt;Link&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td align=&quot;left&quot;&gt;2026-05-17&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;Extended Markdown sample&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;Docs&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;markdown, style&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;Published&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;https://example.com/posts/markdown-style-example&quot;&gt;https://example.com/posts/markdown-style-example&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;left&quot;&gt;2026-05-18&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;Pure CSS component test&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;UI&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;css, html, static&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;Draft&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;https://example.com/posts/css-only-components&quot;&gt;https://example.com/posts/css-only-components&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;Table: Post list horizontal scroll demo&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;| Date | Title | Category | Tags | Status | Link |&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;| :--- | :--- | :--- | :--- | :--- | :--- |&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;| 2026-05-17 | Extended Markdown sample | Docs | markdown, style | Published | https://example.com/posts/markdown-style-example |&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;| 2026-05-18 | Pure CSS component test | UI | css, html, static | Draft | https://example.com/posts/css-only-components |&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;native-collapsible&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#native-collapsible&quot; aria-label=&quot;Link to “Native collapsible”&quot;&gt;Native collapsible&lt;/a&gt;&lt;/h2&gt;
+&lt;details&gt;
+&lt;summary&gt;Show more&lt;/summary&gt;
+Collapsible content using native HTML `&lt;details&gt;`.
+&lt;/details&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;HTML&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;html&quot; aria-label=&quot;Code block&quot; data-lang=&quot;HTML&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;&amp;#x3C;&lt;/span&gt;&lt;span style=&quot;color:#22863A;--shiki-dark:#8DDB8C&quot;&gt;details&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;&amp;#x3C;&lt;/span&gt;&lt;span style=&quot;color:#22863A;--shiki-dark:#8DDB8C&quot;&gt;summary&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;&gt;Show more&amp;#x3C;/&lt;/span&gt;&lt;span style=&quot;color:#22863A;--shiki-dark:#8DDB8C&quot;&gt;summary&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;Collapsible content using native HTML `&amp;#x3C;&lt;/span&gt;&lt;span style=&quot;color:#22863A;--shiki-dark:#8DDB8C&quot;&gt;details&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;&gt;`.&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;&amp;#x3C;/&lt;/span&gt;&lt;span style=&quot;color:#22863A;--shiki-dark:#8DDB8C&quot;&gt;details&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/details&gt;</content>
+  </entry>
+  <entry>
+    <title>Code blocks and media examples</title>
+    <link href="https://ironfelix.github.io/ivanilin-blog/posts/code-and-media-examples/" />
+    <id>https://ironfelix.github.io/ivanilin-blog/posts/code-and-media-examples/</id>
+    <published>2026-01-11T00:00:00.000Z</published>
+    <updated>2026-01-11T00:00:00.000Z</updated>
+    <author><name>Иван Ильин</name></author>
+    <category term="basic" /><category term="markdown" /><category term="code" />
+    <summary>Images, admonitions, fenced code, titles, line highlights, diff highlights, and long lines.</summary>
+    <content type="html">&lt;p&gt;This page focuses on media and code presentation: images, admonitions, language labels, file titles, line highlights, diff markers, and long lines.&lt;/p&gt;
+&lt;h1 id=&quot;admonitions-1&quot;&gt;Admonitions&lt;/h1&gt;
+&lt;div class=&quot;admonition tip&quot;&gt;&lt;p class=&quot;admonition-title&quot;&gt;Tip&lt;/p&gt;&lt;p&gt;VuePress/VitePress-style &lt;code&gt;tip&lt;/code&gt; admonition.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;admonition note&quot;&gt;&lt;p class=&quot;admonition-title&quot;&gt;Note&lt;/p&gt;&lt;p&gt;Python-Markdown-style &lt;code&gt;note&lt;/code&gt; admonition.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;admonition warning&quot;&gt;&lt;p class=&quot;admonition-title&quot;&gt;Warning&lt;/p&gt;&lt;p&gt;Use for information readers should not miss.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;admonition danger&quot;&gt;&lt;p class=&quot;admonition-title&quot;&gt;Danger&lt;/p&gt;&lt;p&gt;Use for destructive actions or serious risks.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;:::: tip Tip&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;VuePress/VitePress-style &lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#6CB6FF&quot;&gt;`tip`&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt; admonition.&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;::::&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;!!! note &quot;Note&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;    Python-Markdown-style &lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#6CB6FF&quot;&gt;`note`&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt; admonition.&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;!!! warning &quot;Warning&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;    Use for information readers should not miss.&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;!!! danger &quot;Danger&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;    Use for destructive actions or serious risks.&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;images&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#images&quot; aria-label=&quot;Link to “Images”&quot;&gt;Images&lt;/a&gt;&lt;/h2&gt;
+&lt;img src=&quot;/static/example-image.svg&quot; alt=&quot;Local SVG placeholder with hills and “Markdown Image Example”&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1200&quot; height=&quot;630&quot;&gt;&lt;em&gt;Caption text for image styling tests.&lt;/em&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;![&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#96D0FF;--shiki-dark-text-decoration:inherit&quot;&gt;Local SVG placeholder with hills and “Markdown Image Example”&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;](&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-light-text-decoration:underline;--shiki-dark:#ADBAC7;--shiki-dark-text-decoration:underline&quot;&gt;/static/example-image.svg&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-light-font-style:italic;--shiki-dark:#ADBAC7;--shiki-dark-font-style:italic&quot;&gt;*Caption text for image styling tests.*&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;code-1&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#code-1&quot; aria-label=&quot;Link to “Code”&quot;&gt;Code&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Inline code: &lt;code&gt;code&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;Inline code: &lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#6CB6FF&quot;&gt;`code`&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;plain-fence&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#plain-fence&quot; aria-label=&quot;Link to “Plain fence”&quot;&gt;Plain fence&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;Sample text here...&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;titled-block&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#titled-block&quot; aria-label=&quot;Link to “Titled block”&quot;&gt;Titled block&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot; data-title=&quot;hello.py&quot; data-lang=&quot;PYTHON&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;python&quot; data-title=&quot;hello.py&quot; aria-label=&quot;Code block&quot; data-lang=&quot;PYTHON&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;def&lt;/span&gt;&lt;span style=&quot;color:#6F42C1;--shiki-dark:#DCBDFB&quot;&gt; greet&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;(name):&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;    return&lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt; f&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt;&quot;Hello, &lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#F47067&quot;&gt;{&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#F47067&quot;&gt;}&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt;!&quot;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;```python title=&quot;hello.py&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;def&lt;/span&gt;&lt;span style=&quot;color:#6F42C1;--shiki-dark:#DCBDFB&quot;&gt; greet&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;(name):&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;    return&lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt; f&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt;&quot;Hello, &lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#F47067&quot;&gt;{&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#F47067&quot;&gt;}&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt;!&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;```&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;line-highlights&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#line-highlights&quot; aria-label=&quot;Link to “Line highlights”&quot;&gt;Line highlights&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot; data-title=&quot;highlight.py&quot; data-hl-lines=&quot;2 4 5&quot; data-lang=&quot;PYTHON&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;python&quot; data-title=&quot;highlight.py&quot; data-hl-lines=&quot;2 4 5&quot; aria-label=&quot;Code block&quot; data-lang=&quot;PYTHON&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;def&lt;/span&gt;&lt;span style=&quot;color:#6F42C1;--shiki-dark:#DCBDFB&quot;&gt; greet&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;(name):&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line hll&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;    message &lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt; f&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt;&quot;Hello, &lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#F47067&quot;&gt;{&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#F47067&quot;&gt;}&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt;!&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#6CB6FF&quot;&gt;    print&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;(message)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line hll&quot;&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;    return&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt; message&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;```python title=&quot;highlight.py&quot; hl_lines=&quot;2 4-5&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;def&lt;/span&gt;&lt;span style=&quot;color:#6F42C1;--shiki-dark:#DCBDFB&quot;&gt; greet&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;(name):&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;    message &lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt; f&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt;&quot;Hello, &lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#F47067&quot;&gt;{&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#F47067&quot;&gt;}&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt;!&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#6CB6FF&quot;&gt;    print&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;(message)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;    return&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt; message&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;```&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;diff-highlights&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#diff-highlights&quot; aria-label=&quot;Link to “Diff highlights”&quot;&gt;Diff highlights&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot; data-title=&quot;example.patch&quot; data-lang=&quot;DIFF&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;diff&quot; data-title=&quot;example.patch&quot; aria-label=&quot;Code block&quot; data-lang=&quot;DIFF&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt; function greet(name) {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line gd&quot;&gt;&lt;span class=&quot;diff-line-label visually-hidden&quot;&gt;Removed line: &lt;/span&gt;&lt;span style=&quot;color:#B31D28;--shiki-dark:#FF938A&quot;&gt;&lt;span style=&quot;user-select: none;&quot;&gt;-&lt;/span&gt;  return &quot;Hello, &quot; + name;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line gi&quot;&gt;&lt;span class=&quot;diff-line-label visually-hidden&quot;&gt;Added line: &lt;/span&gt;&lt;span style=&quot;color:#22863A;--shiki-dark:#8DDB8C&quot;&gt;&lt;span style=&quot;user-select: none;&quot;&gt;+&lt;/span&gt;  return `Hello, ${name}!`;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt; }&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;```diff title=&quot;example.patch&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt; function greet(name) {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#B31D28;--shiki-dark:#FF938A&quot;&gt;-  return &quot;Hello, &quot; + name;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#22863A;--shiki-dark:#8DDB8C&quot;&gt;+  return `Hello, ${name}!`;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt; }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;```&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;indented-code-block&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#indented-code-block&quot; aria-label=&quot;Link to “Indented code block”&quot;&gt;Indented code block&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;PLAINTEXT&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;plaintext&quot; aria-label=&quot;Code block&quot; data-lang=&quot;PLAINTEXT&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span&gt;// Some comments&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;line 1 of code&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;line 2 of code&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span&gt;line 3 of code&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;    // Some comments&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;    line 1 of code&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;    line 2 of code&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;    line 3 of code&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;nested-fences&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#nested-fences&quot; aria-label=&quot;Link to “Nested fences”&quot;&gt;Nested fences&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;Outer fence&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;```&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;Sample text here...&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;```&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;long-line&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#long-line&quot; aria-label=&quot;Link to “Long line”&quot;&gt;Long line&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;SHELL&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;bash&quot; aria-label=&quot;Code block&quot; data-lang=&quot;SHELL&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#6F42C1;--shiki-dark:#F69D50&quot;&gt;curl&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt; &quot;https://example.com/api/articles?category=markdown&amp;#x26;tag=markdown&amp;#x26;include=metadata,summary,content,links,license&amp;#x26;sort=published_at_desc&quot;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;```bash&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#6F42C1;--shiki-dark:#F69D50&quot;&gt;curl&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt; &quot;https://example.com/api/articles?category=markdown&amp;#x26;tag=markdown&amp;#x26;include=metadata,summary,content,links,license&amp;#x26;sort=published_at_desc&quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;```&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>Markdown showcase</title>
+    <link href="https://ironfelix.github.io/ivanilin-blog/posts/markdown-basics/" />
+    <id>https://ironfelix.github.io/ivanilin-blog/posts/markdown-basics/</id>
+    <published>2026-01-10T00:00:00.000Z</published>
+    <updated>2026-01-10T00:00:00.000Z</updated>
+    <author><name>Иван Ильин</name></author>
+    <category term="basic" /><category term="markdown" />
+    <summary>A polished tour of headings, text, code, tables, media, math, quotes, and footnotes.</summary>
+    <content type="html">&lt;p&gt;Markdown should feel calm when it is read and expressive when it is scanned. This page is arranged as a compact visual sample for screenshots: typography first, then rich blocks, code, data, math, and notes.&lt;/p&gt;
+&lt;div class=&quot;admonition tip&quot;&gt;&lt;p class=&quot;admonition-title&quot;&gt;Use this page as a quick visual checklist after changing typography, colors, spacing, or Markdown plugins.&lt;/p&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A good writing interface keeps structure visible without letting decoration overpower the text.&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;Aonote theme preview&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;headings&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#headings&quot; aria-label=&quot;Link to “Headings”&quot;&gt;Headings&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;level-1-heading-for-article-sections&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#level-1-heading-for-article-sections&quot; aria-label=&quot;Link to “Level 1 heading for article sections”&quot;&gt;Level 1 heading for article sections&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;level-2-heading-with-a-calm-accent&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#level-2-heading-with-a-calm-accent&quot; aria-label=&quot;Link to “Level 2 heading with a calm accent”&quot;&gt;Level 2 heading with a calm accent&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;level-3-heading-for-grouped-ideas&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#level-3-heading-for-grouped-ideas&quot; aria-label=&quot;Link to “Level 3 heading for grouped ideas”&quot;&gt;Level 3 heading for grouped ideas&lt;/a&gt;&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;MD&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;md&quot; aria-label=&quot;Code block&quot; data-lang=&quot;MD&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#6CB6FF;--shiki-dark-font-weight:bold&quot;&gt;## Level 1 heading for article sections&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#6CB6FF;--shiki-dark-font-weight:bold&quot;&gt;### Level 2 heading with a calm accent&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#6CB6FF;--shiki-dark-font-weight:bold&quot;&gt;#### Level 3 heading for grouped ideas&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;typography&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#typography&quot; aria-label=&quot;Link to “Typography”&quot;&gt;Typography&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Readable paragraphs benefit from generous line height, modest measure, and consistent rhythm. Inline elements should be visible but not noisy: &lt;strong&gt;bold text&lt;/strong&gt; for emphasis, &lt;em&gt;italic text&lt;/em&gt; for nuance, &lt;del&gt;deleted text&lt;/del&gt; for revision, &lt;code&gt;inline_code()&lt;/code&gt; for symbols, &lt;mark&gt;highlighted text&lt;/mark&gt; for attention, and &lt;kbd&gt;⌘&lt;/kbd&gt; + &lt;kbd&gt;K&lt;/kbd&gt; for shortcuts.&lt;/p&gt;
+&lt;p&gt;Classic emoji convert cleanly: 😉 😢 😆 😋&lt;/p&gt;
+&lt;p&gt;Shorthand emoji also work: 😎 🙂 😘 ☹️ 🙂 ☹️ 😉&lt;/p&gt;
+&lt;p&gt;This sentence ends with a manual break&lt;br&gt;
+so the next line stays visually connected.&lt;/p&gt;
+&lt;h2 id=&quot;links-and-media&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#links-and-media&quot; aria-label=&quot;Link to “Links and Media”&quot;&gt;Links and Media&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;, &lt;a href=&quot;/archive/&quot;&gt;Archive&lt;/a&gt;, and &lt;a href=&quot;/about/&quot;&gt;About&lt;/a&gt; are internal links. Long URLs such as &lt;a href=&quot;https://astro-theme-aonote.vercel.app/posts/markdown-basics/&quot;&gt;https://astro-theme-aonote.vercel.app/posts/markdown-basics/&lt;/a&gt; should wrap without breaking the layout.&lt;/p&gt;
+&lt;img src=&quot;/static/example-image.svg&quot; alt=&quot;Aonote local image example&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1200&quot; height=&quot;630&quot;&gt;&lt;em&gt;A local SVG image with an automatic caption style.&lt;/em&gt;
+&lt;h2 id=&quot;lists&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#lists&quot; aria-label=&quot;Link to “Lists”&quot;&gt;Lists&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;reading-checklist&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#reading-checklist&quot; aria-label=&quot;Link to “Reading checklist”&quot;&gt;Reading checklist&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Keep paragraphs short enough to scan.&lt;/li&gt;
+&lt;li&gt;Use headings to build a visible outline.&lt;/li&gt;
+&lt;li&gt;Group related examples before showing source.&lt;/li&gt;
+&lt;li&gt;Let code blocks breathe with enough vertical spacing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;ordered-workflow&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#ordered-workflow&quot; aria-label=&quot;Link to “Ordered workflow”&quot;&gt;Ordered workflow&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Draft the article.&lt;/li&gt;
+&lt;li&gt;Add supporting examples.&lt;/li&gt;
+&lt;li&gt;Preview light and dark mode.&lt;/li&gt;
+&lt;li&gt;Publish only after checking anchors, feeds, and mobile layout.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;task-list&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#task-list&quot; aria-label=&quot;Link to “Task list”&quot;&gt;Task list&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class=&quot;contains-task-list&quot;&gt;
+&lt;li class=&quot;task-list-item&quot; data-task-state=&quot;completed&quot;&gt;&lt;span class=&quot;task-state-label visually-hidden&quot;&gt;Completed task: Typography renders consistently&lt;/span&gt;&lt;input type=&quot;checkbox&quot; checked disabled aria-disabled=&quot;true&quot;&gt; Typography renders consistently&lt;/li&gt;
+&lt;li class=&quot;task-list-item&quot; data-task-state=&quot;completed&quot;&gt;&lt;span class=&quot;task-state-label visually-hidden&quot;&gt;Completed task: Code blocks show titles and language labels&lt;/span&gt;&lt;input type=&quot;checkbox&quot; checked disabled aria-disabled=&quot;true&quot;&gt; Code blocks show titles and language labels&lt;/li&gt;
+&lt;li class=&quot;task-list-item&quot; data-task-state=&quot;incomplete&quot;&gt;&lt;span class=&quot;task-state-label visually-hidden&quot;&gt;Incomplete task: Final screenshot has enough visual variety&lt;/span&gt;&lt;input type=&quot;checkbox&quot; disabled aria-disabled=&quot;true&quot;&gt; Final screenshot has enough visual variety&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;definition-list&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#definition-list&quot; aria-label=&quot;Link to “Definition list”&quot;&gt;Definition list&lt;/a&gt;&lt;/h3&gt;
+&lt;dl&gt;&lt;dt&gt;Static site&lt;/dt&gt;&lt;dd&gt;Built from HTML, CSS, and assets only, so reading does not require a client-side app runtime.&lt;/dd&gt;&lt;dt&gt;RSS&lt;/dt&gt;&lt;dd&gt;A feed format that readers can subscribe to for updates.&lt;/dd&gt;&lt;/dl&gt;
+&lt;h2 id=&quot;tables-1&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#tables-1&quot; aria-label=&quot;Link to “Tables”&quot;&gt;Tables&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;table-wrapper&quot; role=&quot;region&quot; tabindex=&quot;0&quot; aria-label=&quot;Horizontally scrollable table: Markdown features in this theme&quot;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;table data-caption=&quot;Markdown features in this theme&quot;&gt;&lt;caption&gt;&lt;span class=&quot;table-caption-prefix&quot; aria-hidden=&quot;true&quot;&gt;Table: &lt;/span&gt;Markdown features in this theme&lt;/caption&gt;&lt;thead&gt;&lt;tr&gt;&lt;th align=&quot;left&quot;&gt;Feature&lt;/th&gt;&lt;th align=&quot;left&quot;&gt;Example&lt;/th&gt;&lt;th align=&quot;left&quot;&gt;Status&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td align=&quot;left&quot;&gt;Typography&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;headings, emphasis, inline code&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;Polished&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;left&quot;&gt;Components&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;admonitions, task lists, captions&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;Ready&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;left&quot;&gt;Navigation&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;heading anchors and side TOC&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;Ready&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;left&quot;&gt;Feeds&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;RSS and Atom output&lt;/td&gt;&lt;td align=&quot;left&quot;&gt;Ready&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;h2 id=&quot;admonitions&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#admonitions&quot; aria-label=&quot;Link to “Admonitions”&quot;&gt;Admonitions&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;admonition note&quot;&gt;&lt;p class=&quot;admonition-title&quot;&gt;A note is useful for background context that helps readers understand the article.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;admonition warning&quot;&gt;&lt;p class=&quot;admonition-title&quot;&gt;A warning should be short, specific, and visually distinct without feeling alarming.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;admonition danger&quot;&gt;&lt;p class=&quot;admonition-title&quot;&gt;A danger block is reserved for destructive actions, security risks, or data loss.&lt;/p&gt;&lt;/div&gt;
+&lt;h2 id=&quot;code&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#code&quot; aria-label=&quot;Link to “Code”&quot;&gt;Code&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot; data-title=&quot;theme-preview.ts&quot; data-hl-lines=&quot;2 6&quot; data-lang=&quot;TS&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;ts&quot; data-title=&quot;theme-preview.ts&quot; data-hl-lines=&quot;2 6&quot; aria-label=&quot;Code block&quot; data-lang=&quot;TS&quot;&gt;&lt;code&gt;&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;type&lt;/span&gt;&lt;span style=&quot;color:#6F42C1;--shiki-dark:#F69D50&quot;&gt; ThemeMode&lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt; =&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt; 'light'&lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt; |&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt; 'dark'&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line hll&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;export&lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt; function&lt;/span&gt;&lt;span style=&quot;color:#6F42C1;--shiki-dark:#DCBDFB&quot;&gt; describeTheme&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color:#E36209;--shiki-dark:#F69D50&quot;&gt;mode&lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;:&lt;/span&gt;&lt;span style=&quot;color:#6F42C1;--shiki-dark:#F69D50&quot;&gt; ThemeMode&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;) {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;  const&lt;/span&gt;&lt;span style=&quot;color:#005CC5;--shiki-dark:#6CB6FF&quot;&gt; accent&lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt; =&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt; mode &lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;===&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt; 'dark'&lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt; ?&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt; '#80cbc4'&lt;/span&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt; :&lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt; '#00796b'&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;line hll&quot;&gt;&lt;span style=&quot;color:#D73A49;--shiki-dark:#F47067&quot;&gt;  return&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;    mode,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;    accent,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;    readingWidth: &lt;/span&gt;&lt;span style=&quot;color:#032F62;--shiki-dark:#96D0FF&quot;&gt;'68ch'&lt;/span&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;  };&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line&quot;&gt;&lt;span style=&quot;color:#24292E;--shiki-dark:#ADBAC7&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot; data-lang=&quot;DIFF&quot;&gt;&lt;pre class=&quot;astro-code astro-code-themes github-light github-dark-dimmed&quot; style=&quot;background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;&quot; tabindex=&quot;0&quot; data-language=&quot;diff&quot; aria-label=&quot;Code block&quot; data-lang=&quot;DIFF&quot;&gt;&lt;code&gt;&lt;span class=&quot;line gd&quot;&gt;&lt;span class=&quot;diff-line-label visually-hidden&quot;&gt;Removed line: &lt;/span&gt;&lt;span style=&quot;color:#B31D28;--shiki-dark:#FF938A&quot;&gt;&lt;span style=&quot;user-select: none;&quot;&gt;-&lt;/span&gt; .post-content h3 { color: var(--color-main-text); }&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;line gi&quot;&gt;&lt;span class=&quot;diff-line-label visually-hidden&quot;&gt;Added line: &lt;/span&gt;&lt;span style=&quot;color:#22863A;--shiki-dark:#8DDB8C&quot;&gt;&lt;span style=&quot;user-select: none;&quot;&gt;+&lt;/span&gt; .post-content h3 { color: var(--color-primary); }&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;math&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#math&quot; aria-label=&quot;Link to “Math”&quot;&gt;Math&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Inline math stays in the sentence: &lt;span class=&quot;arithmatex&quot;&gt;&lt;math display=&quot;inline&quot;&gt;&lt;mrow&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;msup&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mn class=&quot;tml-sml-pad&quot;&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/mrow&gt;&lt;/math&gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Display math has its own rhythm:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre tabindex=&quot;0&quot; aria-label=&quot;Code block&quot;&gt;&lt;div class=&quot;arithmatex&quot;&gt;&lt;math display=&quot;block&quot; class=&quot;tml-display&quot; style=&quot;display:block math;&quot;&gt;&lt;mrow&gt;&lt;msubsup&gt;&lt;mo movablelimits=&quot;false&quot;&gt;∫&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msubsup&gt;&lt;msup&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn class=&quot;tml-sml-pad&quot;&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/mfrac&gt;&lt;/mrow&gt;&lt;/math&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;block-quotes&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#block-quotes&quot; aria-label=&quot;Link to “Block quotes”&quot;&gt;Block quotes&lt;/a&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Quotes can be simple, but they should still respect the article rhythm.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nested quotes remain readable when spacing and borders are restrained.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;cite&gt;Markdown layout sample&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;footnotes&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#footnotes&quot; aria-label=&quot;Link to “Footnotes”&quot;&gt;Footnotes&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Footnotes are useful for citations, side notes, and links that should not interrupt the main paragraph.&lt;sup&gt;&lt;a href=&quot;#user-content-fn-markdown-footnote&quot; id=&quot;user-content-fnref-markdown-footnote&quot; data-footnote-ref=&quot;&quot; aria-describedby=&quot;footnote-label&quot; class=&quot;footnote-ref&quot; aria-label=&quot;Footnote 1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&quot;mixed-scripts&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#mixed-scripts&quot; aria-label=&quot;Link to “Mixed scripts”&quot;&gt;Mixed scripts&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This paragraph mixes 中文, English, digits 123, inline code &lt;code&gt;inline_code()&lt;/code&gt;, and a long URL &lt;a href=&quot;https://example.com/path/to/resource&quot;&gt;https://example.com/path/to/resource&lt;/a&gt; so line height, wrapping, punctuation, and mixed-script spacing can be reviewed together.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;The page intentionally mixes compact examples with a few longer blocks so screenshots can show the theme's rhythm rather than only isolated syntax samples.&lt;/p&gt;
+&lt;section data-footnotes=&quot;&quot; class=&quot;footnotes footnote&quot;&gt;&lt;h2 class=&quot;sr-only visually-hidden&quot; id=&quot;footnotes-1&quot;&gt;Footnotes&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li id=&quot;user-content-fn-markdown-footnote&quot;&gt;
+&lt;p&gt;Footnote body text for asides, sources, or further reading. &lt;a href=&quot;#user-content-fnref-markdown-footnote&quot; data-footnote-backref=&quot;&quot; aria-label=&quot;Back to footnote 1 reference&quot; class=&quot;data-footnote-backref footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;</content>
+  </entry>
+  <entry>
+    <title>Welcome to Aonote</title>
+    <link href="https://ironfelix.github.io/ivanilin-blog/posts/welcome-to-aonote/" />
+    <id>https://ironfelix.github.io/ivanilin-blog/posts/welcome-to-aonote/</id>
+    <published>2025-12-01T00:00:00.000Z</published>
+    <updated>2025-12-01T00:00:00.000Z</updated>
+    <author><name>Иван Ильин</name></author>
+    <category term="intro" />
+    <summary>What astro-theme-aonote is, what it includes, and how to get started.</summary>
+    <content type="html">&lt;p&gt;&lt;strong&gt;astro-theme-aonote&lt;/strong&gt; is an Astro port of &lt;a href=&quot;https://github.com/runsli/Aonote&quot;&gt;runsli/Aonote&lt;/a&gt;: the Python static blog’s layout and Markdown features rebuilt on &lt;a href=&quot;https://astro.build&quot;&gt;Astro&lt;/a&gt;, ready for Vercel, Netlify, GitHub Pages, or any static host.&lt;/p&gt;
+&lt;p&gt;The goal is not a heavy web app—it is a calm, maintainable writing baseline. Content stays in Markdown, styles in CSS, and the build output is plain static files you can publish anywhere.&lt;/p&gt;
+&lt;h2 id=&quot;good-fits&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#good-fits&quot; aria-label=&quot;Link to “Good fits”&quot;&gt;Good fits&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Personal blogs: learning notes, projects, reading lists, long-form thinking.&lt;/li&gt;
+&lt;li&gt;Technical notes: snippets, postmortems, tool configs, and workflows.&lt;/li&gt;
+&lt;li&gt;Lightweight docs: changelogs, guides, and design decisions.&lt;/li&gt;
+&lt;li&gt;Existing Astro sites: reuse Aonote’s layout and Markdown extensions without a Python build script.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you already use Astro—or want its deploy and plugin ecosystem—this branch is usually simpler than the upstream Python generator.&lt;/p&gt;
+&lt;h2 id=&quot;included-out-of-the-box&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#included-out-of-the-box&quot; aria-label=&quot;Link to “Included out of the box”&quot;&gt;Included out of the box&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Home, posts, archive, tags, about, and 404 pages.&lt;/li&gt;
+&lt;li&gt;Markdown: GFM, Shiki highlighting, tables, footnotes, task lists, admonitions, and MathML math.&lt;/li&gt;
+&lt;li&gt;RSS, Atom, sitemap, canonical URLs, Open Graph, and Twitter cards.&lt;/li&gt;
+&lt;li&gt;Light/dark theme, mobile navigation, and in-page table of contents.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;getting-started&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#getting-started&quot; aria-label=&quot;Link to “Getting started”&quot;&gt;Getting started&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Edit site name, description, author, and &lt;code&gt;baseUrl&lt;/code&gt; in &lt;code&gt;src/site.config.ts&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Add or replace posts under &lt;code&gt;src/content/posts/&lt;/code&gt; (kebab-case filenames recommended).&lt;/li&gt;
+&lt;li&gt;Tune colors, fonts, and spacing in &lt;code&gt;src/styles/aonote.css&lt;/code&gt; if needed.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;npm run dev&lt;/code&gt; locally or &lt;code&gt;npm run build&lt;/code&gt; to produce &lt;code&gt;dist/&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Deploy &lt;code&gt;dist/&lt;/code&gt; to your static host.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To make the site yours, start by replacing this welcome post and &lt;code&gt;about.md&lt;/code&gt;, then trim the sample posts.&lt;/p&gt;
+&lt;h2 id=&quot;upstream-mapping&quot;&gt;&lt;a class=&quot;toclink&quot; href=&quot;#upstream-mapping&quot; aria-label=&quot;Link to “Upstream mapping”&quot;&gt;Upstream mapping&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;table-wrapper&quot; role=&quot;region&quot; tabindex=&quot;0&quot; aria-label=&quot;Horizontally scrollable table&quot;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Upstream (Python)&lt;/th&gt;&lt;th&gt;This branch (Astro)&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;config.py&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;src/site.config.ts&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;markdown/&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;src/content/posts/&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;templates/base.html&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;src/layouts/BaseLayout.astro&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;assets/style.css&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;src/styles/aonote.css&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;python autobuild.py&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;npm run build&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;p&gt;We aim to track upstream Aonote; differences mostly come from Astro’s content and build pipeline. Issues and PRs for parity gaps are welcome.&lt;/p&gt;</content>
+  </entry>
+</feed>
