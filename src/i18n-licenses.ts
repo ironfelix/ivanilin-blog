@@ -84,4 +84,46 @@ export const COPYRIGHT_LICENSE_NOTICES = {
     AGPL_3_0:
       'This article is licensed under the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="license noopener noreferrer">GNU Affero General Public License v3.0</a>.',
   },
+  ru: {
+    CC_BY_4_0:
+      'Статья опубликована по лицензии <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer">CC BY 4.0</a>.',
+    CC_BY_SA_4_0:
+      'Статья опубликована по лицензии <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0</a>.',
+    CC_BY_NC_4_0:
+      'Статья опубликована по лицензии <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-NC 4.0</a>.',
+    CC_BY_NC_SA_4_0:
+      'Статья опубликована по лицензии <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-NC-SA 4.0</a>.',
+    CC_BY_NC_ND_4_0:
+      'Статья опубликована по лицензии <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-NC-ND 4.0</a>.',
+    CC_BY_ND_4_0:
+      'Статья опубликована по лицензии <a href="https://creativecommons.org/licenses/by-nd/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-ND 4.0</a>.',
+    CC_ZERO_1_0:
+      'Статья посвящается общественному достоянию по <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="license noopener noreferrer">CC0 1.0 Universal</a>.',
+    MIT:
+      'Статья опубликована под <a href="https://opensource.org/licenses/MIT" target="_blank" rel="license noopener noreferrer">лицензией MIT</a>.',
+    BSD_2_CLAUSE:
+      'Статья опубликована под <a href="https://opensource.org/licenses/BSD-2-Clause" target="_blank" rel="license noopener noreferrer">лицензией BSD 2-Clause</a>.',
+    BSD_3_CLAUSE:
+      'Статья опубликована под <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank" rel="license noopener noreferrer">лицензией BSD 3-Clause</a>.',
+    APACHE_2_0:
+      'Статья опубликована по <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="license noopener noreferrer">лицензии Apache 2.0</a>.',
+    GPL_2_0:
+      'Статья опубликована по <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html" target="_blank" rel="license noopener noreferrer">лицензии GNU GPL v2.0</a>.',
+    GPL_3_0:
+      'Статья опубликована по <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" rel="license noopener noreferrer">лицензии GNU GPL v3.0</a>.',
+    LGPL_2_1:
+      'Статья опубликована по <a href="https://www.gnu.org/licenses/lgpl-2.1.en.html" target="_blank" rel="license noopener noreferrer">лицензии GNU LGPL v2.1</a>.',
+    LGPL_3_0:
+      'Статья опубликована по <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html" target="_blank" rel="license noopener noreferrer">лицензии GNU LGPL v3.0</a>.',
+    MPL_2_0:
+      'Статья опубликована под <a href="https://www.mozilla.org/en-US/MPL/2.0/" target="_blank" rel="license noopener noreferrer">лицензией Mozilla Public License 2.0</a>.',
+    EPL_2_0:
+      'Статья опубликована под <a href="https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.txt" target="_blank" rel="license noopener noreferrer">лицензией Eclipse Public License 2.0</a>.',
+    UNLICENSE:
+      'Статья посвящается общественному достоянию по <a href="https://unlicense.org/" target="_blank" rel="license noopener noreferrer">Unlicense</a>.',
+    WTFPL:
+      'Статья опубликована под <a href="http://www.wtfpl.net/about/" target="_blank" rel="license noopener noreferrer">DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE</a>.',
+    AGPL_3_0:
+      'Статья опубликована по <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="license noopener noreferrer">лицензии GNU AGPL v3.0</a>.',
+  },
 } as const;

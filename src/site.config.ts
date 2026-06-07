@@ -9,7 +9,7 @@ export const site = {
     'Личный блог: заметки, мысли, эксперименты.',
   author: 'Иван Ильин',
   /** UI language: "zh-CN" | "en" */
-  language: 'en' as 'zh-CN' | 'en',
+  language: 'ru' as 'zh-CN' | 'en' | 'ru',
   maxPostsOnIndex: 5,
   copyright: {
     enable: true,
