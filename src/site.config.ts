@@ -1,9 +1,9 @@
 /** Site configuration — edit this file to customize your blog. */
 export const site = {
   /** Production URL (no trailing slash). */
-  baseUrl: 'https://ironfelix.github.io',
+  baseUrl: 'https://ivanilin.ru',
   /** GitHub Pages subpath, e.g. "/repo-name". Leave empty for root deploy. */
-  repoSubpath: '/ivanilin-blog',
+  repoSubpath: '',
   title: 'Иван Ильин',
   description:
     'Личный блог: заметки, мысли, эксперименты.',

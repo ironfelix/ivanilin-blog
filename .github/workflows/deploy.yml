@@ -1,12 +1,9 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
-
-permissions:
-  contents: write
 
 jobs:
   build-and-deploy:
@@ -19,7 +16,12 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy to server
+        uses: easingthemes/ssh-deploy@main
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          ARGS: "-avz --delete"
+          SOURCE: "dist/"
+          REMOTE_HOST: "146.103.116.66"
+          REMOTE_USER: "root"
+          TARGET: "/var/www/ivanilin.ru/"
