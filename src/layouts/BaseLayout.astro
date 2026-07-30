@@ -90,8 +90,6 @@ function navCurrent(path: string) {
         <a href={homeHref} class="site-title">{site.title}</a>
         <nav class="desktop-nav" aria-label={i18n.mainNavigation}>
           <a href={siteHref('/')} aria-current={navCurrent('/') ? 'page' : undefined}>{i18n.navHome}</a>
-          <a href={siteHref('/archive/')} aria-current={navCurrent('/archive') ? 'page' : undefined}>{i18n.navArchive}</a>
-          <a href={siteHref('/tags/')} aria-current={navCurrent('/tags') ? 'page' : undefined}>{i18n.navTags}</a>
           <a href={siteHref('/about/')} aria-current={navCurrent('/about') ? 'page' : undefined}>{i18n.navAbout}</a>
         </nav>
         <details class="mobile-nav-menu">
@@ -101,8 +99,6 @@ function navCurrent(path: string) {
           </summary>
           <nav class="mobile-nav-links" aria-label={i18n.mainNavigation}>
             <a href={siteHref('/')} aria-current={navCurrent('/') && pageId === 'index' ? 'page' : undefined}>{i18n.navHome}</a>
-            <a href={siteHref('/archive/')} aria-current={navCurrent('/archive') ? 'page' : undefined}>{i18n.navArchive}</a>
-            <a href={siteHref('/tags/')} aria-current={navCurrent('/tags') ? 'page' : undefined}>{i18n.navTags}</a>
             <a href={siteHref('/about/')} aria-current={navCurrent('/about') ? 'page' : undefined}>{i18n.navAbout}</a>
           </nav>
         </details>

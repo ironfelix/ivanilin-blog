@@ -1,28 +1,17 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PostCard from '../components/PostCard.astro';
-import { site } from '../site.config';
-import { t } from '../i18n';
 import { siteHref } from '../utils/paths';
-import { getBlogPosts } from '../utils/posts';
 
-const blogPosts = await getBlogPosts();
-const indexPosts = blogPosts.slice(0, site.maxPostsOnIndex);
-const i18n = t(site.language);
-const canonicalUrl = new URL('/', Astro.site).href;
+const aboutUrl = siteHref('/about/');
 ---
-
-<BaseLayout title={i18n.pageHome} pageId="index" canonicalUrl={canonicalUrl} hiddenPageTitle>
-  <div class="post-list">
-    {indexPosts.length === 0 ? (
-      <p class="empty-state">{i18n.noPosts}</p>
-    ) : (
-      indexPosts.map((post) => <PostCard post={post} />)
-    )}
-  </div>
-  {blogPosts.length >= site.maxPostsOnIndex && (
-    <div class="read-more-link-area">
-      <a href={siteHref('/archive/')} class="button button-secondary">{i18n.readAllArchive} →</a>
-    </div>
-  )}
-</BaseLayout>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${aboutUrl}`} />
+    <link rel="canonical" href={new URL('/about/', Astro.site).href} />
+    <title>Иван Ильин</title>
+  </head>
+  <body>
+    <p>Перенаправление на <a href={aboutUrl}>страницу обо мне</a>…</p>
+  </body>
+</html>
