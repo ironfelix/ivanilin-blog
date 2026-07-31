@@ -47,14 +47,10 @@
   <text x="653" y="78" class="name" text-anchor="middle">Терминал по ssh</text>
   <text x="653" y="98" class="sub"  text-anchor="middle">управление сервером</text>
 
-  <rect x="784" y="50" width="176" height="62" rx="10" class="card"/>
-  <text x="872" y="78" class="name" text-anchor="middle">Почта</text>
-  <text x="872" y="98" class="sub"  text-anchor="middle">и Slack, Discord, Signal</text>
+  <text x="790" y="86" class="sub">память общая на всех входах</text>
 
-  <text x="976" y="86" class="sub">память общая на всех входах</text>
-
-  <path d="M424,112 L424,130 M653,112 L653,130 M872,112 L872,130" class="flow"/>
-  <path d="M424,130 L872,130" class="flow"/>
+  <path d="M424,112 L424,130 M653,112 L653,130" class="flow"/>
+  <path d="M424,130 L653,130" class="flow"/>
   <path d="M600,130 L600,182" class="flow" marker-end="url(#a)"/>
 
   <rect x="30" y="44" width="256" height="74" rx="10" class="cardW"/>
@@ -164,29 +160,33 @@
   <text x="30" y="838" class="band">Внешние источники · api и mcp</text>
   <rect x="30" y="852" width="1140" height="94" rx="14" class="zone"/>
 
-  <rect x="48"  y="870" width="158" height="58" rx="10" class="card"/>
-  <text x="127" y="896" class="name" text-anchor="middle" font-size="15">Whoop</text>
-  <text x="127" y="914" class="sub"  text-anchor="middle" font-size="11.5">сон, нагрузка</text>
+  <rect x="48"  y="870" width="124" height="58" rx="10" class="card"/>
+  <text x="110" y="896" class="name" text-anchor="middle" font-size="14">Whoop</text>
+  <text x="110" y="914" class="sub"  text-anchor="middle" font-size="11">сон, нагрузка</text>
 
-  <rect x="216" y="870" width="176" height="58" rx="10" class="card"/>
-  <text x="304" y="896" class="name" text-anchor="middle" font-size="15">Google Sheets</text>
-  <text x="304" y="914" class="sub"  text-anchor="middle" font-size="11.5">финансы</text>
+  <rect x="183" y="870" width="124" height="58" rx="10" class="card"/>
+  <text x="245" y="896" class="name" text-anchor="middle" font-size="14">Почта</text>
+  <text x="245" y="914" class="sub"  text-anchor="middle" font-size="11">читает и пишет</text>
 
-  <rect x="402" y="870" width="186" height="58" rx="10" class="card"/>
-  <text x="495" y="896" class="name" text-anchor="middle" font-size="15">Google Calendar</text>
-  <text x="495" y="914" class="sub"  text-anchor="middle" font-size="11.5">встречи</text>
+  <rect x="318" y="870" width="152" height="58" rx="10" class="card"/>
+  <text x="394" y="896" class="name" text-anchor="middle" font-size="14">Google Sheets</text>
+  <text x="394" y="914" class="sub"  text-anchor="middle" font-size="11">финансы</text>
 
-  <rect x="598" y="870" width="196" height="58" rx="10" class="card"/>
-  <text x="696" y="896" class="name" text-anchor="middle" font-size="15">PubMed и статьи</text>
-  <text x="696" y="914" class="sub"  text-anchor="middle" font-size="11.5">исследования</text>
+  <rect x="481" y="870" width="170" height="58" rx="10" class="card"/>
+  <text x="566" y="896" class="name" text-anchor="middle" font-size="14">Google Calendar</text>
+  <text x="566" y="914" class="sub"  text-anchor="middle" font-size="11">встречи</text>
 
-  <rect x="804" y="870" width="150" height="58" rx="10" class="card"/>
-  <text x="879" y="896" class="name" text-anchor="middle" font-size="15">SearXNG</text>
-  <text x="879" y="914" class="sub"  text-anchor="middle" font-size="11.5">поиск</text>
+  <rect x="662" y="870" width="160" height="58" rx="10" class="card"/>
+  <text x="742" y="896" class="name" text-anchor="middle" font-size="14">PubMed и статьи</text>
+  <text x="742" y="914" class="sub"  text-anchor="middle" font-size="11">исследования</text>
 
-  <rect x="964" y="870" width="188" height="58" rx="10" class="cardA"/>
-  <text x="1058" y="896" class="name" text-anchor="middle" font-size="15">Любой сервис с api</text>
-  <text x="1058" y="914" class="sub"  text-anchor="middle" font-size="11.5">crm, github, mcp</text>
+  <rect x="833" y="870" width="132" height="58" rx="10" class="card"/>
+  <text x="899" y="896" class="name" text-anchor="middle" font-size="14">SearXNG</text>
+  <text x="899" y="914" class="sub"  text-anchor="middle" font-size="11">поиск</text>
+
+  <rect x="976" y="870" width="172" height="58" rx="10" class="cardA"/>
+  <text x="1062" y="896" class="name" text-anchor="middle" font-size="14">Любой сервис с api</text>
+  <text x="1062" y="914" class="sub"  text-anchor="middle" font-size="11">crm, github, mcp</text>
 
   <!-- ядро → источники, в обход справа -->
   <path d="M1170,347 L1208,347 L1208,899 L1158,899" class="flowD" marker-end="url(#a)"/>
