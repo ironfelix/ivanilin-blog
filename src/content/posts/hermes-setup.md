@@ -13,58 +13,62 @@ tags: [ai, инструменты, личное]
 
 ```mermaid
 graph TB
-    subgraph "Интерфейсы"
-        TG[Telegram]
-        CLI[Терминал]
+    subgraph top[" "]
+        TG["📱 Telegram"] ~~~ CLI["💻 Терминал"]
     end
 
-    subgraph "Hermes Agent на VPS"
-        CORE[Ядро агента<br/>маршрутизация • память • цикл]
-        MEMORY[(Память<br/>MEMORY + профиль)]
-        SKILLS[(Скиллы<br/>процедуры)]
-        CRON[Планировщик<br/>cron-задачи]
-        FS[Файловая система<br/>заметки • TODO • конспекты]
+    top --> CORE
+
+    subgraph middle["Hermes Agent на VPS"]
+        CORE["Ядро агента: маршрутизация · память · цикл"]
+        MEM["🗄 Память<br/>MEMORY + профиль"]
+        SKL["📋 Скиллы"]
+        CRN["⏰ Cron"]
+        FS["📂 Файлы"]
+        CORE --- MEM
+        CORE --- SKL
+        CORE --- CRN
+        CORE --- FS
     end
 
-    subgraph "Модели"
-        MAIN[DeepSeek V4 Pro<br/>основная модель]
-        FLASH[DeepSeek V4 Flash<br/>вспомогательные задачи]
-        GEMINI[Gemini 2.5 Flash<br/>через OpenRouter<br/>vision • изображения]
-        GROQ[Groq Llama 3.3 70B<br/>распознавание речи]
-        CODEX[GPT-5.6 Codex<br/>по подписке<br/>сложный код • рефакторинг]
+    middle --> models
+    middle --> integrations
+
+    subgraph models["Модели — маршрутизация по задаче"]
+        direction LR
+        M1["DeepSeek V4 Pro<br/>основная"]
+        M2["DeepSeek V4 Flash<br/>фон"]
+        M3["Gemini 2.5 Flash<br/>vision"]
+        M4["Groq Whisper<br/>голос"]
+        M5["GPT-5.6 Codex<br/>сложный код"]
     end
 
-    subgraph "Интеграции"
-        WHOOP[Whoop API<br/>strain • recovery • сон]
-        AIQ[AgentIQ API<br/>лиды каждый день]
-        GSHEETS[Google Sheets<br/>финансы • модели]
-        GCAL[Google Calendar<br/>встречи • напоминания]
-        PUBMED[PubMed<br/>исследования]
-        WEB[Веб-поиск<br/>SearXNG]
-        GITHUB[GitHub API<br/>деплой блога]
+    subgraph integrations["Внешние интеграции"]
+        direction LR
+        I1["Whoop<br/>strain · сон"]
+        I2["AgentIQ<br/>лиды"]
+        I3["Google Sheets<br/>финансы"]
+        I4["Google Calendar<br/>встречи"]
+        I5["PubMed<br/>статьи"]
+        I6["Web Search<br/>SearXNG"]
+        I7["GitHub<br/>деплой"]
     end
 
-    TG <--> CORE
-    CLI <--> CORE
-    CORE --> MAIN
-    CORE --> FLASH
-    CORE --> GEMINI
-    CORE --> GROQ
-    CORE -.-> CODEX
-    CORE <--> MEMORY
-    CORE <--> SKILLS
-    CORE <--> CRON
-    CORE <--> FS
-    CORE --> WHOOP
-    CORE --> AIQ
-    CORE --> GSHEETS
-    CORE --> GCAL
-    CORE --> PUBMED
-    CORE --> WEB
-    CORE --> GITHUB
+    CORE --> M1
+    CORE --> M2
+    CORE --> M3
+    CORE --> M4
+    CORE -.-> M5
+    CORE --> I1
+    CORE --> I2
+    CORE --> I3
+    CORE --> I4
+    CORE --> I5
+    CORE --> I6
+    CORE --> I7
 ```
 
-![Архитектура Hermes-сетапа — все компоненты и связи](/hermes-architecture.svg)
+![Архитектура Hermes-сетапа — все компоненты и связи](/hermes-architecture.png)
 
 ## Модели и зачем их несколько
 
