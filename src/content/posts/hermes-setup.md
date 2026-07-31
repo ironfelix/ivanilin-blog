@@ -13,54 +13,7 @@ tags: [ai, инструменты, личное]
 
 Устройство проще, чем кажется. Всё делится на четыре слоя, и каждый можно менять независимо от остальных.
 
-```mermaid
-graph TB
-    subgraph iface["Интерфейсы"]
-        direction LR
-        TG["Telegram"]
-        CLI["Терминал"]
-        WEB["Веб-дашборд"]
-    end
-
-    iface --> CORE
-
-    subgraph core["Ядро Hermes Agent на vps"]
-        CORE["Цикл агента: план, вызов инструмента, проверка, ответ"]
-        MEM["Память: MEMORY, профиль, сессии"]
-        SKL["Скиллы: процедурные знания"]
-        CRN["Cron: задачи по расписанию"]
-        FS["Файлы и конспекты"]
-        SUB["Субагенты для тяжёлых задач"]
-        CORE --- MEM
-        CORE --- SKL
-        CORE --- CRN
-        CORE --- FS
-        CORE --- SUB
-    end
-
-    core --> models
-    core --> integrations
-
-    subgraph models["Модели: маршрутизация по типу задачи"]
-        direction LR
-        M1["DeepSeek V4 Pro<br/>основная"]
-        M2["DeepSeek V4 Flash<br/>фон и субагенты"]
-        M3["Gemini 2.5 Flash<br/>картинки"]
-        M4["Groq Whisper<br/>голос"]
-        M5["GPT-5.6 Codex<br/>сложный код"]
-    end
-
-    subgraph integrations["Внешние источники"]
-        direction LR
-        I1["Whoop"]
-        I2["AgentIQ"]
-        I3["Google Sheets"]
-        I4["Google Calendar"]
-        I5["PubMed"]
-        I6["SearXNG"]
-        I7["GitHub"]
-    end
-```
+![Архитектура ассистента: интерфейсы, ядро на vps, модели и внешние источники](/hermes-arch.svg)
 
 **Слой интерфейсов.** Telegram как основной вход, терминал когда сижу за компьютером, веб-дашборд для настроек. Hermes из коробки умеет ещё Discord, Slack, WhatsApp, Signal и почту. Важное здесь не количество, а то, что память общая. Начал разговор голосом в машине, продолжил текстом с ноутбука, Майк помнит обе половины.
 
