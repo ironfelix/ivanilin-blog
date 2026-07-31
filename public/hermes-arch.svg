@@ -10,6 +10,10 @@
   .card  { fill: #ffffff; stroke: #dbe4e7; stroke-width: 1.5; }
   .cardA { fill: #e0f2f1; stroke: #4db6ac; stroke-width: 1.5; }
   .cardB { fill: #f7fafa; stroke: #cfdbdf; stroke-width: 1.5; }
+  .cardW { fill: #fff8e6; stroke: #e0a800; stroke-width: 2; }
+  .dot   { fill: #e0a800; }
+  .flowW { stroke: #e0a800; stroke-width: 2.5; fill: none; }
+  .watch { font-size: 11.5px; fill: #b58600; font-weight: 600; letter-spacing: .4px; }
   .zone  { fill: none; stroke: #cfdbdf; stroke-width: 1.5; stroke-dasharray: 6 5; }
   .flow  { stroke: #8fa3ac; stroke-width: 2; fill: none; }
   .flowD { stroke: #8fa3ac; stroke-width: 2; fill: none; stroke-dasharray: 5 4; }
@@ -19,6 +23,8 @@
     .card { fill: #1e2426; stroke: #38434a; }
     .cardA{ fill: #12312e; stroke: #4db6ac; }
     .cardB{ fill: #191f21; stroke: #333d43; }
+    .cardW { fill: #2a2415; stroke: #d9a520; }
+    .dot   { fill: #d9a520; } .flowW { stroke: #d9a520; } .watch { fill: #c79a2e; }
     .zone { stroke: #3a464d; } .flow, .flowD { stroke: #63757f; }
   }
 </style>
@@ -54,10 +60,12 @@
   <text x="600" y="241" class="core" text-anchor="middle">Цикл агента</text>
   <text x="600" y="262" class="sub" text-anchor="middle">план → вызов инструмента → проверка результата → ответ</text>
 
-  <rect x="990" y="214" width="152" height="60" rx="10" class="card"/>
-  <text x="1066" y="240" class="name" text-anchor="middle" font-size="15">Langfuse</text>
-  <text x="1066" y="259" class="sub"  text-anchor="middle" font-size="11.5">трейс каждого хода</text>
-  <path d="M970,244 L986,244" class="flowD"/>
+  <rect x="984" y="206" width="170" height="76" rx="10" class="cardW"/>
+  <circle cx="1004" cy="228" r="4.5" class="dot"/>
+  <text x="1069" y="232" class="name" text-anchor="middle" font-size="15">Langfuse</text>
+  <text x="1069" y="252" class="sub"  text-anchor="middle" font-size="11.5">смотрит за каждым ходом</text>
+  <text x="1069" y="268" class="sub"  text-anchor="middle" font-size="11.5">трейс и latency по шагам</text>
+  <path d="M972,244 L980,244" class="flowW"/>
 
   <path d="M600,274 L600,304" class="flow" marker-end="url(#a)"/>
 
