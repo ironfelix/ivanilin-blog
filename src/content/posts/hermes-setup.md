@@ -68,7 +68,7 @@ graph TB
     CORE --> I7
 ```
 
-![Архитектура Hermes-сетапа — все компоненты и связи](/hermes-architecture.png)
+![Архитектура Hermes-сетапа — все компоненты и связи](/hermes-architecture.png?v=2)
 
 ## Модели и зачем их несколько
 
