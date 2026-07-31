@@ -123,3 +123,52 @@ const hasToc = tocHeadings.some((h) => h.depth >= 1 && h.depth <= 4);
     </nav>
   )}
 </BaseLayout>
+
+<style is:global>
+  .post-content img { cursor: zoom-in; max-width: 100%; height: auto; }
+  .img-lightbox {
+    position: fixed; inset: 0; z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    padding: 2vh 2vw; background: rgba(0, 0, 0, 0.82);
+    cursor: zoom-out; overflow: auto;
+  }
+  .img-lightbox[hidden] { display: none; }
+  .img-lightbox img {
+    max-width: 100%; max-height: 96vh; width: auto; height: auto;
+    background: #ffffff; border-radius: 10px; padding: 12px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.45);
+  }
+  @media (prefers-color-scheme: dark) {
+    .img-lightbox img { background: #14181a; }
+  }
+  @media (max-width: 700px) {
+    .img-lightbox img { max-width: none; width: auto; max-height: none; height: 88vh; }
+  }
+</style>
+
+<script>
+  const initLightbox = () => {
+    const imgs = document.querySelectorAll(".post-content img");
+    if (!imgs.length || document.querySelector(".img-lightbox")) return;
+    const box = document.createElement("div");
+    box.className = "img-lightbox";
+    box.hidden = true;
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-modal", "true");
+    const big = document.createElement("img");
+    box.appendChild(big);
+    document.body.appendChild(box);
+    const close = () => { box.hidden = true; document.body.style.overflow = ""; };
+    imgs.forEach((im) => {
+      im.addEventListener("click", () => {
+        big.src = im.currentSrc || im.src;
+        big.alt = im.alt || "";
+        box.hidden = false;
+        document.body.style.overflow = "hidden";
+      });
+    });
+    box.addEventListener("click", close);
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+  };
+  document.addEventListener("DOMContentLoaded", initLightbox);
+</script>
