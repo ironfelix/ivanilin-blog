@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../site.config';
+import { siteHref } from '../utils/paths';
+
+const title = 'Материалы';
+const description = 'Рабочие материалы и ссылки для проектов Ивана Ильина.';
+const leadsSheetUrl = 'https://docs.google.com/spreadsheets/d/1SB8rY3wGArq4C-04b-2gJCcCSBLLPxklNEFWc4miTKM/edit';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  pageId="materials"
+  canonicalUrl={`${site.baseUrl}${siteHref('/materials/')}`}
+>
+  <div class="page-header">
+    <h1>{title}</h1>
+    <p class="page-description">Ссылки, которыми я пользуюсь в работе.</p>
+  </div>
+
+  <section class="post-list" aria-labelledby="mediium-leads-title">
+    <article class="post-card">
+      <h2 id="mediium-leads-title">
+        <a href={leadsSheetUrl} target="_blank" rel="noopener noreferrer">Лиды с форм сайта</a>
+      </h2>
+      <p>Таблица, куда попадают заявки с форм на mediium.ru.</p>
+      <p><a href={leadsSheetUrl} target="_blank" rel="noopener noreferrer">Открыть таблицу →</a></p>
+    </article>
+  </section>
+</BaseLayout>
