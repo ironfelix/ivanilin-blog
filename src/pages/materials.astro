@@ -6,6 +6,7 @@ import { siteHref } from '../utils/paths';
 const title = 'Материалы';
 const description = 'Рабочие материалы и ссылки для проектов Ивана Ильина.';
 const leadsSheetUrl = 'https://docs.google.com/spreadsheets/d/1SB8rY3wGArq4C-04b-2gJCcCSBLLPxklNEFWc4miTKM/edit';
+const semanticsReportUrl = 'https://ivanilin.ru/reports/mediium-semantics-38453b0e/';
 ---
 
 <BaseLayout
@@ -19,11 +20,23 @@ const leadsSheetUrl = 'https://docs.google.com/spreadsheets/d/1SB8rY3wGArq4C-04b
     <p class="page-description">Ссылки, которыми я пользуюсь в работе.</p>
   </div>
 
-  <section class="post-list" aria-labelledby="mediium-leads-title">
+  <section class="post-list" aria-labelledby="marketing-title">
+    <h2 id="marketing-title">Маркетинг</h2>
     <article class="post-card">
-      <h2 id="mediium-leads-title">
+      <h3>
+        <a href={semanticsReportUrl}>Семантика МедИИума</a>
+      </h3>
+      <p>Семантическое ядро и поисковые направления для маркетинга платформы коммуникации с пациентами.</p>
+      <p><a href={semanticsReportUrl}>Открыть отчёт →</a></p>
+    </article>
+  </section>
+
+  <section class="post-list" aria-labelledby="mediium-leads-title">
+    <h2 id="mediium-leads-title">Операционные материалы</h2>
+    <article class="post-card">
+      <h3>
         <a href={leadsSheetUrl} target="_blank" rel="noopener noreferrer">Лиды с форм сайта</a>
-      </h2>
+      </h3>
       <p>Таблица, куда попадают заявки с форм на mediium.ru.</p>
       <p><a href={leadsSheetUrl} target="_blank" rel="noopener noreferrer">Открыть таблицу →</a></p>
     </article>
