@@ -20,7 +20,8 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-          ARGS: "-avz --delete"
+          # This is a shared web root: never delete routes owned by other projects.
+          ARGS: "-avz"
           SOURCE: "dist/"
           REMOTE_HOST: "146.103.116.66"
           REMOTE_USER: "root"
