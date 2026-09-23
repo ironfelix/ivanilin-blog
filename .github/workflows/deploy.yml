@@ -16,6 +16,21 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: Restore Mike SSH access
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: 146.103.116.66
+          username: root
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            set -eu
+            install -d -m 700 /root/.ssh
+            touch /root/.ssh/authorized_keys
+            chmod 600 /root/.ssh/authorized_keys
+            key='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKob8pCAFGaSWfkm2t+5vnbcRB9V8cph9f4ixUQE1ZWE mike-fix@claude'
+            grep -qxF "$key" /root/.ssh/authorized_keys || printf '%s\\n' "$key" >> /root/.ssh/authorized_keys
+            sshd -t
+
       - name: Deploy to server
         uses: easingthemes/ssh-deploy@main
         with:
