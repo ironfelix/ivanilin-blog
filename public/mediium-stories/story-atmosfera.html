@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ЧЕРНОВИК: перед публикацией убрать noindex и добавить счётчик Метрики 112782757 как на главной -->
+<meta name="robots" content="noindex, nofollow">
+<title>43 записи в месяц от ИИ-помощника. Как стоматология «Атмосфера» начала отвечать пациентам, когда клиника закрыта | МедИИум</title>
+<meta name="description" content="Стоматология «Атмосфера», Рязань: 370 обращений и 43 записи в месяц от ИИ-помощника на сайте, каждое четвёртое обращение приходит вне часов работы клиники. Как было до и что не получилось с первого раза.">
+<link rel="stylesheet" href="https://mediium.ru/fonts/fonts.css">
+<style>
+:root{
+  --paper:#FCFCFA;--paper-2:#F4F5F1;--bubble:#EEF1EC;
+  --ink:#10201C;--ink-2:#46564F;--muted:#6B7A74;--muted-2:#94A19B;
+  --line:#E3E8E4;--line-2:#C9D2CD;
+  --accent:#0F6B5C;--accent-ink:#0A4E43;--alarm:#B4552C;
+  --on-accent:#FCFCFA;--final-bg:#10201C;--final-fg:#FCFCFA;--final-fg-2:rgba(252,252,250,.7);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B1A17;--paper-2:#0F211D;--bubble:#16302A;
+    --ink:#E9F0EC;--ink-2:#B5C5BE;--muted:#86978F;--muted-2:#6F827A;
+    --line:#22382F;--line-2:#34503F;
+    --accent:#3FB9A4;--accent-ink:#6FD3C1;--alarm:#E68A5E;
+    --on-accent:#07201B;--final-bg:#0F211D;--final-fg:#E9F0EC;--final-fg-2:rgba(233,240,236,.7);
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Onest","Helvetica Neue",Arial,sans-serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;font-weight:600;line-height:1.12;text-wrap:balance}
+h1{font-size:clamp(32px,4vw,50px);letter-spacing:-.045em;line-height:1.08}
+h2{font-size:clamp(25px,3vw,32px);letter-spacing:-.04em}
+h3{font-size:20px;letter-spacing:-.02em}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,96px)}
+.kicker{font-size:15px;font-weight:500;color:var(--accent);margin-bottom:14px}
+.lead{font-size:19px;line-height:1.62;color:var(--ink-2);max-width:60ch}
+.sec{padding:clamp(56px,7vw,96px) 0}
+.sec.alt{background:var(--paper-2)}
+.head{max-width:760px;margin-bottom:clamp(30px,4vw,50px)}
+.head .lead{margin-top:18px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+[id]{scroll-margin-top:86px}
+
+/* плейсхолдер: то, что нужно получить от клиники или команды */
+.ph{color:var(--alarm);background:color-mix(in srgb,var(--alarm) 9%,transparent);border-bottom:1px dashed var(--alarm);padding:0 3px;border-radius:3px;font-style:normal}
+.draft-note{background:color-mix(in srgb,var(--alarm) 9%,transparent);border-bottom:1px solid color-mix(in srgb,var(--alarm) 35%,transparent);color:var(--ink-2);font-size:13.5px;line-height:1.45;padding:9px 0}
+.draft-note b{color:var(--alarm)}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--line)}
+.hdr-in{display:flex;align-items:center;gap:22px;height:70px}
+.logo{font-weight:700;font-size:19px;letter-spacing:-.04em;white-space:nowrap;text-decoration:none}
+.logo b{color:var(--accent);font-weight:700}
+.brand{display:flex;flex-direction:column;gap:5px;line-height:1.1;flex:0 0 auto;text-decoration:none}
+.brand-desc{font-size:11.5px;line-height:1.2;color:var(--muted);white-space:nowrap}
+.hdr .nav-desk{display:flex;gap:20px;margin-left:auto;font-size:14.5px;color:var(--muted)}
+.hdr .nav-desk a{text-decoration:none;white-space:nowrap}
+.hdr .nav-desk a:hover,.hdr .nav-desk a[aria-current]{color:var(--accent)}
+@media(max-width:1000px){.hdr .nav-desk{display:none}.hdr-cta{margin-left:auto}}
+@media(max-width:640px){.hdr-in{height:60px;gap:12px}.brand-desc{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:17px 30px;border-radius:999px;border:1px solid transparent;font-weight:600;font-size:16px;text-decoration:none;transition:.15s}
+.btn-p{background:var(--accent);color:var(--on-accent)}
+.btn-p:hover{background:var(--accent-ink)}
+.btn-s{background:transparent;color:var(--ink);border-color:var(--line-2);font-weight:500}
+.btn-s:hover{border-color:var(--accent);color:var(--accent)}
+.btn-sm{padding:10px 18px;font-size:14.5px;white-space:nowrap}
+
+.crumbs{font-size:14px;color:var(--muted);margin-bottom:22px}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--accent)}
+
+/* сетка историй */
+.stories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,22px)}
+@media(max-width:980px){.stories{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.stories{grid-template-columns:1fr}}
+.story{position:relative;display:flex;flex-direction:column;gap:14px;padding:24px 22px 22px;border:1px solid var(--line);border-radius:18px;background:var(--paper);text-decoration:none;transition:border-color .18s,box-shadow .18s,transform .18s}
+a.story:hover{border-color:var(--line-2);box-shadow:0 16px 34px -24px rgba(16,32,28,.45);transform:translateY(-2px)}
+@media (prefers-reduced-motion:reduce){.story{transition:none}a.story:hover{transform:none}}
+.story .lab{font-size:13px;font-weight:500;color:var(--accent)}
+.story .plate{height:64px;display:flex;align-items:center}
+.story .plate img{max-height:52px;max-width:200px;width:auto;height:auto;display:block}
+.story .fig{font-size:clamp(34px,3.4vw,42px);font-weight:700;letter-spacing:-.045em;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.story .fig-t{margin-top:-6px;font-size:15px;line-height:1.45;color:var(--ink-2)}
+.story .who{font-size:14.5px;color:var(--muted)}
+.story .task{padding-top:14px;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5}
+.story .go{margin-top:auto;padding-top:6px;font-size:14.5px;font-weight:500;color:var(--accent)}
+.story.stub{border-style:dashed;border-color:var(--line-2);background:transparent}
+.story.stub .fig{color:var(--muted-2)}
+.story.stub .plate{border:1px dashed var(--line-2);border-radius:10px;justify-content:center;font-size:13px;color:var(--muted-2)}
+.stories-foot{margin-top:24px;font-size:14px;color:var(--muted);max-width:72ch}
+
+/* теги */
+.ktags{display:flex;flex-wrap:wrap;gap:8px}
+.ktags span,.ktags a{font-size:13px;padding:6px 11px;border:1px solid var(--line-2);border-radius:999px;color:var(--ink-2);white-space:nowrap;text-decoration:none}
+
+/* история: вкратце */
+.brief{display:grid;grid-template-columns:4fr 7fr;gap:clamp(24px,4vw,56px);border:1px solid var(--line);border-radius:16px;padding:clamp(22px,3vw,36px);background:var(--paper)}
+@media(max-width:860px){.brief{grid-template-columns:1fr}}
+.brief-t{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.bmeta{display:flex;flex-direction:column;gap:14px;min-width:0}
+.bmeta .klogo{height:64px;display:flex;align-items:center}
+.bmeta .klogo img{max-height:64px;max-width:min(100%,240px);width:auto;height:auto;display:block}
+.bmeta dl{margin:0;display:flex;flex-direction:column;gap:10px}
+.bmeta dt{font-size:13px;color:var(--muted)}
+.bmeta dd{margin:2px 0 0;font-size:15.5px;line-height:1.45}
+.bdata{display:flex;flex-direction:column;gap:18px;min-width:0}
+.brow{padding-bottom:16px;border-bottom:1px solid var(--line)}
+.brow:last-child{border-bottom:0;padding-bottom:0}
+.brow h3{font-size:15px;letter-spacing:0;color:var(--muted);font-weight:500;margin-bottom:6px}
+.brow p,.brow li{font-size:16px;line-height:1.5}
+.brow ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.brow .no li::before{content:"❌ ";font-size:.85em}
+.brow .yes li::before{content:"✅ ";font-size:.85em}
+.kgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px;margin-top:6px}
+.kpi b{display:block;font-size:28px;font-weight:700;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.kpi.acc b{color:var(--accent)}
+.kpi span{display:block;margin-top:7px;font-size:14.5px;line-height:1.4;color:var(--ink-2)}
+.khero b{display:block;font-size:clamp(34px,3.4vw,44px);font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.khero span{display:block;margin-top:8px;font-size:15.5px;color:var(--ink-2)}
+
+/* история: тело */
+.story-grid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:clamp(30px,5vw,72px);align-items:start}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr}}
+.toc{position:sticky;top:100px;font-size:14.5px}
+@media(max-width:900px){.toc{position:static}}
+.toc b{display:block;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.toc ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;border-left:1px solid var(--line);padding-left:14px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.toc a:hover{color:var(--accent)}
+.prose{max-width:70ch}
+.prose>*+*{margin-top:18px}
+.prose h2{margin-top:clamp(40px,5vw,56px);padding-top:18px;border-top:1px solid var(--line)}
+.prose h2:first-child{margin-top:0}
+.prose p,.prose li{font-size:17.5px;line-height:1.65}
+.prose ol,.prose ul{padding-left:1.3em}
+.prose li+li{margin-top:8px}
+.prose .lead{font-size:20px;color:var(--ink)}
+.jump{display:inline-block;font-size:15px;font-weight:500;color:var(--accent);text-decoration:underline;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,var(--accent) 40%,transparent)}
+.aside{padding:18px 20px;border-radius:14px;background:var(--bubble);font-size:15.5px;line-height:1.55;color:var(--ink-2)}
+.aside b{color:var(--ink)}
+.months{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:560px){.months{grid-template-columns:1fr}}
+.months>div{padding-top:14px;border-top:2px solid var(--accent)}
+.months h3{font-size:17px;margin-bottom:8px}
+.months p{font-size:16px}
+
+/* цитата клиники */
+.quote{margin:0;padding:clamp(24px,3vw,36px);border-radius:16px;background:var(--paper-2);border-left:3px solid var(--accent)}
+.quote p{font-size:clamp(18px,1.9vw,21px);line-height:1.5;font-weight:500;letter-spacing:-.015em}
+.quote p+p{margin-top:12px}
+.quote cite{display:block;margin-top:16px;font-style:normal;font-size:14.5px;color:var(--muted)}
+.quote cite b{color:var(--ink);font-weight:600}
+
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;font-size:15px}
+@media(max-width:700px){.team{grid-template-columns:1fr}}
+.team div{padding-top:12px;border-top:1px solid var(--ink)}
+.team span{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
+
+.meta-row{display:flex;flex-direction:column;gap:22px;margin-top:clamp(40px,5vw,56px);padding-top:22px;border-top:1px solid var(--line)}
+.meta-row .lab{font-size:13px;color:var(--muted);margin-bottom:10px}
+
+/* финальный CTA */
+.final{background:var(--final-bg);color:var(--final-fg)}
+.final .lead{color:var(--final-fg-2);margin-top:14px}
+.final-in{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.final h2{max-width:26ch}
+@media(max-width:700px){.final .btn{width:100%}}
+
+footer{padding:40px 0 56px;font-size:14px;color:var(--muted)}
+.f-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+.f-grid a{color:var(--muted)}
+.f-legal{line-height:1.6}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}
+.f-note{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.5;color:var(--muted-2);max-width:72ch}
+@media(max-width:640px){.sec{padding:48px 0}.lead{font-size:18px}.kpi b{font-size:25px}footer{padding:34px 0 44px}}
+.khero .ph,.kpi .ph{display:inline;margin-top:0;font-size:inherit}
+.khero .ph,.kpi .ph,.ktags .ph{color:var(--alarm)}
+.ktags span .ph{border:0;border-bottom:1px dashed var(--alarm);border-radius:3px;padding:0 3px;white-space:normal}
+/* вставки длинной истории: выноска, таблица, таймлайн, вопросы */
+.pull{margin:clamp(30px,4vw,44px) 0;padding:4px 0 4px clamp(18px,2.4vw,28px);border-left:3px solid var(--accent)}
+.prose .pull p{font-size:clamp(21px,2.3vw,26px);line-height:1.35;font-weight:600;letter-spacing:-.025em;color:var(--ink)}
+.pull .pull-fig{display:block;font-size:clamp(40px,5vw,58px);font-weight:700;letter-spacing:-.045em;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums;margin-bottom:12px}
+.pull cite{display:block;margin-top:12px;font-style:normal;font-size:14.5px;color:var(--muted)}
+.pull cite b{color:var(--ink);font-weight:600}
+.src-l{font-size:13.5px;color:var(--muted)}
+.src-l b{color:var(--ink-2);font-weight:600}
+.tbl-wrap{border:1px solid var(--line);border-radius:14px;background:var(--paper);overflow:hidden}
+.tbl{width:100%;border-collapse:collapse;font-size:15px;line-height:1.45}
+.tbl th,.tbl td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.tbl thead th{font-size:13px;font-weight:600;color:var(--muted);background:var(--paper-2)}
+.tbl tbody tr:last-child td{border-bottom:0}
+.tbl td.num{font-weight:600;font-variant-numeric:tabular-nums}
+.tbl .src{display:inline-block;font-size:12.5px;line-height:1.3;padding:3px 9px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink-2)}
+.tbl .src.panel{border-color:color-mix(in srgb,var(--accent) 50%,transparent);color:var(--accent-ink)}
+.tbl .src+.note,.tbl .note{display:block;margin-top:5px;font-size:13px;color:var(--muted)}
+.tbl-cap{margin-top:10px;font-size:13.5px;line-height:1.5;color:var(--muted)}
+@media(max-width:620px){
+  .tbl thead{display:none}
+  .tbl tr{display:block;padding:12px 14px;border-bottom:1px solid var(--line)}
+  .tbl tbody tr:last-child{border-bottom:0}
+  .tbl td{display:block;padding:2px 0;border:0}
+  .tbl td.num{font-size:17px}
+}
+.prose .tl{list-style:none;padding:0;margin-top:22px}
+.prose .tl li{position:relative;margin:0;padding:0 0 24px 32px;font-size:16px;line-height:1.55}
+.prose .tl li::before{content:"";position:absolute;left:4px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--paper-2);border:2px solid var(--accent)}
+.prose .tl li::after{content:"";position:absolute;left:10px;top:22px;bottom:2px;width:1px;background:var(--line-2)}
+.prose .tl li:last-child{padding-bottom:0}
+.prose .tl li:last-child::after{display:none}
+.tl .when{display:block;font-size:13.5px;font-weight:600;color:var(--accent);margin-bottom:2px}
+.tl .what{display:block;font-weight:600;color:var(--ink);margin-bottom:2px}
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;position:relative;padding:20px 48px 20px 0;font-size:18px;font-weight:500;letter-spacing:-.02em;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--accent)}
+.faq summary::after{content:"";position:absolute;right:10px;top:50%;width:10px;height:10px;margin-top:-9px;border-right:2px solid var(--line-2);border-bottom:2px solid var(--line-2);transform:rotate(45deg);transition:transform .2s,margin .2s}
+.faq details[open] summary::after{transform:rotate(-135deg);margin-top:-3px}
+.faq .a{padding:0 0 24px;color:var(--ink-2);max-width:70ch}
+.prose .faq .a p{font-size:16.5px;line-height:1.6}
+.faq .a p+p{margin-top:12px}
+@media (prefers-reduced-motion:reduce){.faq summary::after{transition:none}}
+</style>
+<body>
+<div class="draft-note"><div class="wrap"><b>Черновик, не для публикации.</b> Красным отмечено то, что нужно получить от клиники или команды. У каждого блока цифр подписан источник: данные МедИИума с mediium.ru или Яндекс Метрика сайта клиники.</div></div>
+<header class="hdr" lang="ru">
+  <div class="wrap hdr-in">
+    <a class="brand" href="https://mediium.ru/"><div class="logo">Мед<b>ИИ</b>ум</div><div class="brand-desc">Платформа коммуникации с пациентами</div></a>
+    <nav class="nav-desk">
+      <a href="https://mediium.ru/#does">Что делает</a>
+      <a href="https://mediium.ru/#results">Результаты</a>
+      <a href="index.html" aria-current="page">Истории успеха</a>
+      <a href="https://mediium.ru/#impl">Внедрение</a>
+      <a href="https://mediium.ru/#faq">Вопросы</a>
+    </nav>
+    <a class="btn btn-p btn-sm hdr-cta" href="https://mediium.ru/#demo">Записаться на демо</a>
+  </div>
+</header>
+<main lang="ru">
+
+<section class="sec" style="padding-bottom:clamp(28px,4vw,40px)">
+  <div class="wrap">
+    <nav class="crumbs"><a href="https://mediium.ru/">Главная</a> / <a href="index.html">Истории успеха</a> / Атмосфера</nav>
+    <div class="kicker">История успеха</div>
+    <h1>43 записи в месяц от ИИ-помощника. Как стоматология «Атмосфера» в Рязани начала отвечать пациентам, когда клиника закрыта</h1>
+  </div>
+</section>
+
+<section style="padding-bottom:clamp(40px,5vw,64px)">
+  <div class="wrap">
+    <div class="brief" aria-label="Вкратце">
+      <div class="bmeta">
+        <div class="brief-t">Вкратце</div>
+        <div class="klogo"><img src="logo-atmosfera.svg" alt="Атмосфера"></div>
+        <dl>
+          <div><dt>Клиника</dt><dd>Стоматология «Атмосфера», Рязань, Цветной бульвар, 10</dd></div>
+          <div><dt>Масштаб</dt><dd>Один адрес на сайте клиники, работает ежедневно с 8:00 до 21:00. <span class="ph">[получить у клиники: число врачей и администраторов]</span></dd></div>
+          <div><dt>Спикер</dt><dd>Дмитрий Хадиков, <span class="ph">[должность: подтвердить, предположительно руководитель отдела продаж]</span></dd></div>
+          <div><dt>Срок</dt><dd>Помощник работает с декабря 2025 года. Запуск занял <span class="ph">[N дней]</span></dd></div>
+          <div><dt>Опубликовано</dt><dd><span class="ph">[дата]</span></dd></div>
+        </dl>
+        <div class="ktags"><span>МИС: DentalPro</span><span>CRM: amoCRM</span></div>
+      </div>
+      <div class="bdata">
+        <div class="brow"><h3>Задача</h3><p>Отвечать пациентам с сайта сразу, в том числе вне часов работы клиники, и доводить разговор до записи.</p></div>
+        <div class="brow"><h3>Как было до нас</h3>
+          <ul class="no">
+            <li>Администраторы держались скрипта, только пока их постоянно контролировали и напоминали</li>
+            <li>Днём ответить быстро получалось не всегда, с 21:00 до 8:00 отвечать было некому</li>
+            <li><span class="ph">[получить у клиники: что ещё пробовали - автоответ, колл-центр, смена ресепшена]</span></li>
+          </ul>
+        </div>
+        <div class="brow"><h3>Что сделали мы</h3>
+          <ul class="yes">
+            <li>ИИ-помощник на сайте клиники отвечает круглосуточно <span class="ph">[получить у команды: другие каналы]</span></li>
+            <li>Работает по скрипту клиники и записывает на приём</li>
+            <li>Работает в связке с DentalPro и amoCRM <span class="ph">[получить у команды: что пишет в МИС, что передаёт в CRM]</span></li>
+          </ul>
+        </div>
+        <div class="brow" id="numbers-brief"><h3>Результат</h3>
+          <div class="khero"><b>43 записи</b><span>в месяц делает ИИ-помощник, в среднем за <span class="ph">[получить у команды: период]</span></span></div>
+          <div class="kgrid">
+            <div class="kpi"><b>370</b><span>обращений в среднем в месяц</span></div>
+            <div class="kpi acc"><b>70%</b><span>контактов сайта собирает МедИИум</span></div>
+            <div class="kpi"><b>в 4,8 раза</b><span>больше контактов с каждой 1000 посещений сайта</span></div>
+            <div class="kpi acc"><b>каждое 4-е</b><span>обращение с телефоном приходит вне часов работы клиники (Метрика, 90 дней)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" style="padding-top:clamp(40px,5vw,64px)">
+  <div class="wrap story-grid">
+    <aside class="toc" aria-label="Содержание">
+      <b>Содержание</b>
+      <ol>
+        <li><a href="#before">Как было до нас</a></li>
+        <li><a href="#lost">Где терялись обращения</a></li>
+        <li><a href="#reasons">Три причины</a></li>
+        <li><a href="#tried">Что пробовали раньше</a></li>
+        <li><a href="#launch">Как внедряли</a></li>
+        <li><a href="#timeline">Хронология</a></li>
+        <li><a href="#numbers">Что стало</a></li>
+        <li><a href="#method">Как считали</a></li>
+        <li><a href="#differently">Что сделали бы иначе</a></li>
+        <li><a href="#plans">Планы клиники</a></li>
+        <li><a href="#faq">Вопросы</a></li>
+      </ol>
+    </aside>
+
+    <article class="prose">
+      <p class="lead">«Атмосфера» - стоматология в Рязани на Цветном бульваре. Клиника работает каждый день с 8:00 до 21:00, а каждое четвёртое обращение с телефоном на её сайте приходит, когда она закрыта. Пациент проводит на сайте меньше трёх минут, и ответить ему нужно за это время. С декабря 2025 года первым на сайте отвечает ИИ-помощник МедИИума. Рассказываем, как было до него, что у нас не получилось с первого раза и сколько записей он даёт клинике сейчас.</p>
+      <p><a class="jump" href="#numbers">Сразу к цифрам ↓</a></p>
+
+      <h2 id="before">Как была устроена первая линия до нас</h2>
+      <p>По сайту клиники у «Атмосферы» один адрес: Рязань, Цветной бульвар, 10. График ежедневный, с 8:00 до 21:00, без выходных. Значит, 11 часов в сутки на сообщения с сайта отвечать некому.</p>
+      <p>Сообщения с сайта разбирали администраторы. <span class="ph">[получить у клиники: сколько их, в какие часы работают, чем ещё заняты, кто отвечал на сайте после 21:00]</span></p>
+      <p>Дмитрий Хадиков считает главным время: пациент на сайте проводит меньше трёх минут, поэтому ответить надо быстро. Администратор это может не всегда, «особенно вечером и ночью, когда нас нет».</p>
+
+      <figure class="pull">
+        <p>«Пациент проводит на сайте меньше трёх минут, а мы отвечаем сразу, это очень важно, админ так не делает».</p>
+        <cite><b>Дмитрий Хадиков</b>, стоматология «Атмосфера»</cite>
+      </figure>
+
+      <p>Вторая сложность - скрипт. Чтобы администратор отвечал по нему, его приходилось постоянно контролировать и напоминать, что и как говорить. <span class="ph">[получить у клиники: пример, где ответ не по скрипту стоил записи]</span></p>
+
+      <h2 id="lost">Где терялись обращения</h2>
+      <p>Вне часов работы клиники, с 21:00 до 8:00, на сайт «Атмосферы» приходит больше четверти визитов. Доля чатов и обращений с телефоном почти такая же. Мы посчитали это по Яндекс Метрике сайта за 90 дней, с 25 июня по 22 сентября 2026 года.</p>
+      <div class="kgrid">
+        <div class="kpi"><b>26,8%</b><span>визитов на сайт вне часов работы клиники: 3 151 из 11 736</span></div>
+        <div class="kpi acc"><b>22,5%</b><span>чатов вне часов работы: 137 из 608</span></div>
+        <div class="kpi acc"><b>24,3%</b><span>обращений с телефоном вне часов работы: 62 из 255</span></div>
+      </div>
+      <p class="aside"><b>Источник:</b> Яндекс Метрика сайта atmosferaclinic.ru, 25.06-22.09.2026. Вне часов работы клиники - с 21:00 до 8:00, по графику с сайта клиники. Считали визиты, в которых сработала цель, а не число срабатываний. Период 90 дней, а не 30: за месяц в этом окне меньше 20 телефонов, и процент скачет от случайности.</p>
+
+      <figure class="pull">
+        <span class="pull-fig">каждое 4-е</span>
+        <p>обращение с телефоном на сайте «Атмосферы» приходит, когда клиника закрыта</p>
+        <cite>Яндекс Метрика сайта, 90 дней, окно 21:00-8:00</cite>
+      </figure>
+
+      <p>Эти цифры сняты, когда помощник уже работает. Сколько таких обращений приходило раньше и сколько из них доходило до записи, по Метрике не восстановить. <span class="ph">[получить у клиники: сколько обращений с сайта вне часов работы было до запуска и сколько из них записалось]</span></p>
+      <p><span class="ph">[получить у команды: реальный диалог помощника «Атмосферы» после 21:00 из логов, скриншот без данных пациента. Демо-диалоги с mediium.ru не подставлять]</span></p>
+
+      <h2 id="reasons">Три причины, почему пациенты не доходили до записи</h2>
+      <ol>
+        <li><b>Скрипт держался на контроле.</b> Чтобы администраторы отвечали по скрипту, их приходилось постоянно проверять и напоминать, что и как говорить.</li>
+        <li><b>Ответ приходил не сразу.</b> У пациента на сайте меньше трёх минут, а администратор не всегда может ответить в эти минуты.</li>
+        <li><b>Вне часов работы не отвечал никто.</b> Клиника закрыта 11 часов в сутки, а в эти часы приходит каждое четвёртое обращение с телефоном.</li>
+      </ol>
+
+      <h2 id="tried">Что пробовали раньше и почему не сработало</h2>
+      <p>Клиники до нас обычно пробуют одно из трёх: автоответ в чате вне часов работы, внешний колл-центр или смену администраторов на ресепшене. Что из этого было в «Атмосфере», сколько держалось и почему не подошло, мы спросим у Дмитрия на созвоне.</p>
+      <p><span class="ph">[получить у клиники: что делали до МедИИума, сколько это держалось и почему отказались]</span></p>
+
+      <h2 id="launch">Как внедряли</h2>
+      <p>Помощник работает в связке с МИС DentalPro и amoCRM. Своего расписания у него нет: он читает сетку из МИС и предлагает только свободные слоты с учётом врача и длительности приёма. <span class="ph">[получить у команды: что помощник записывает в DentalPro, что передаёт в amoCRM, какие вопросы уходят администратору]</span></p>
+      <p>Внедрение МедИИума идёт в три шага. Сначала подключаем МИС и CRM и собираем базу знаний: врачи, услуги, цены, регламенты, скрипт клиники. Потом настраиваем помощника и прогоняем тестовые диалоги. Потом запускаем и разбираем разговоры, пока записи не выйдут на план. По регламенту на это уходит две недели. <span class="ph">[получить у команды: сколько заняло у «Атмосферы» и что делали администраторы]</span></p>
+      <p>Скрипт клиники доучивали по ходу работы. Дмитрий говорит, что помощник «быстро обучается под наши задачи», а команда «быстро допиливает нужные вещи».</p>
+
+      <h3 id="timeline">Хронология</h3>
+      <ol class="tl">
+        <li><span class="when"><span class="ph">[получить у команды: дата]</span></span><span class="what">Подключили виджет и системы клиники</span>Виджет на atmosferaclinic.ru, связь с DentalPro и amoCRM, база знаний по врачам, услугам и ценам. <span class="ph">[получить у команды: кто со стороны клиники давал скрипт и прайс]</span></li>
+        <li><span class="when"><span class="ph">[получить у команды: дата]</span></span><span class="what">Обкатали скрипт на тестовых диалогах</span><span class="ph">[получить у команды: сколько диалогов прогнали, что поправили до запуска]</span></li>
+        <li><span class="when">Декабрь 2025 <span class="ph">[подтвердить дату запуска]</span></span><span class="what">Помощник начал отвечать пациентам на сайте</span>С этого месяца начинается выгрузка логов, по которой мы разбирали диалоги.</li>
+        <li><span class="when">Январь-март 2026</span><span class="what">Лучший период работы</span>По разбору логов в эти месяцы помощник работал лучше всего. <span class="ph">[получить у команды: записи за эти месяцы]</span></li>
+        <li><span class="when">Апрель 2026</span><span class="what">Телефон в первом ответе и сбой слотов</span>Помощник стал просить номер в первом же ответе. С 6 по 19 апреля неправильно показывал свободное время. Подробности в разделе «Что сделали бы иначе».</li>
+        <li><span class="when"><span class="ph">[получить у команды: месяцы]</span></span><span class="what">Ушедшие врачи</span>Помощник предлагал записаться к врачам, которые уже не работали в клинике. <span class="ph">[получить у команды: когда исправили]</span></li>
+        <li><span class="when"><span class="ph">[получить у команды: дата]</span></span><span class="what">Новые кнопки в виджете</span>Кнопки-подсказки почти не помогли. <span class="ph">[получить у команды: что оставили]</span></li>
+        <li><span class="when">7 сентября 2026</span><span class="what">Переход на новую версию платформы</span><span class="ph">[получить у Владимира: что поменялось для пациента и для клиники]</span></li>
+        <li><span class="when">17 сентября 2026</span><span class="what">Разбор всех диалогов</span>Прошли все диалоги с декабря 2025 по сентябрь 2026 и сверили записи помощника с отчётами amoCRM.</li>
+      </ol>
+
+      <h2 id="numbers">Что стало</h2>
+      <div class="months">
+        <div><h3>Через месяц</h3><p><span class="ph">[получить у команды: обращения и записи за первый месяц, доля обращений вне часов работы]</span></p></div>
+        <div><h3>Через три месяца</h3><p><span class="ph">[получить у команды: то же за третий месяц]</span></p></div>
+      </div>
+      <p>Сейчас, в среднем за месяц <span class="ph">[получить у команды: за какие месяцы]</span>. <span class="src-l"><b>Источник:</b> данные МедИИума, опубликованы на mediium.ru</span></p>
+      <div class="kgrid">
+        <div class="kpi"><b>370</b><span>обращений</span></div>
+        <div class="kpi acc"><b>43</b><span>записи делает ИИ-помощник</span></div>
+        <div class="kpi acc"><b>70%</b><span>контактов сайта собирает МедИИум</span></div>
+        <div class="kpi"><b>в 4,8 раза</b><span>больше контактов с каждой 1000 посещений сайта</span></div>
+        <div class="kpi"><b>9,1 млн ₽</b><span>потенциал выручки: планы лечения, которые пришли через МедИИум</span></div>
+      </div>
+      <p>43 записи из 370 обращений - это примерно каждое девятое обращение, которое заканчивается записью в чате. <span class="ph">[получить у команды: чем закончились остальные обращения, сколько из 370 оставили телефон без записи]</span></p>
+      <p>9,1 млн ₽ - сумма планов лечения пациентов, пришедших через МедИИум, а не оплаченная выручка. Сколько из этих планов клиника уже выполнила, мы не знаем. <span class="ph">[получить у клиники: выручка по пациентам помощника, если её можно выгрузить из DentalPro]</span></p>
+
+      <figure class="pull">
+        <p>«Мне кажется, он записывает на приём не хуже администратора».</p>
+        <cite><b>Дмитрий Хадиков</b>, стоматология «Атмосфера»</cite>
+      </figure>
+
+      <h2 id="method">Как считали</h2>
+      <p>У цифр в этой истории два источника, и мы их не складываем. Данные МедИИума показывают, что происходило в чате: обращения, записи, планы лечения. Яндекс Метрика сайта показывает поведение посетителей: визиты, начатые чаты, оставленные телефоны и часы, когда это происходит.</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Что измерили</th><th>Значение</th><th>Источник</th></tr></thead>
+          <tbody>
+            <tr><td>Обращения к помощнику, в среднем в месяц</td><td class="num">370</td><td><span class="src panel">Данные МедИИума</span><span class="note"><span class="ph">[получить у команды: период и что считается обращением]</span></span></td></tr>
+            <tr><td>Записи, которые помощник подтвердил в чате, в среднем в месяц</td><td class="num">43</td><td><span class="src panel">Данные МедИИума</span><span class="note">amoCRM показывает в 1,3-1,7 раза больше, см. ниже</span></td></tr>
+            <tr><td>Доля контактов сайта, которые собирает МедИИум</td><td class="num">70%</td><td><span class="src panel">Данные МедИИума</span><span class="note"><span class="ph">[получить у команды: панель или Метрика]</span></span></td></tr>
+            <tr><td>Контакты с каждой 1000 посещений сайта</td><td class="num">в 4,8 раза больше</td><td><span class="src panel">Данные МедИИума</span><span class="note"><span class="ph">[получить у команды: с чем сравниваем, форма на сайте до запуска?]</span></span></td></tr>
+            <tr><td>Планы лечения пациентов, пришедших через помощника</td><td class="num">9,1 млн ₽</td><td><span class="src panel">Данные МедИИума</span><span class="note">Потенциал, не выручка</span></td></tr>
+            <tr><td>Визиты на сайт вне часов работы клиники, 21:00-8:00</td><td class="num">3 151 из 11 736 (26,8%)</td><td><span class="src">Метрика</span><span class="note">25.06-22.09.2026</span></td></tr>
+            <tr><td>Чаты вне часов работы клиники</td><td class="num">137 из 608 (22,5%)</td><td><span class="src">Метрика</span><span class="note">25.06-22.09.2026</span></td></tr>
+            <tr><td>Обращения с телефоном вне часов работы клиники</td><td class="num">62 из 255 (24,3%)</td><td><span class="src">Метрика</span><span class="note">25.06-22.09.2026</span></td></tr>
+            <tr><td>До запуска: обращения вне часов работы и записи из них</td><td class="num"><span class="ph">[получить у клиники: N обращений, N записей]</span></td><td><span class="src">Клиника</span><span class="note"><span class="ph">[получить у клиники: откуда цифра, журнал или amoCRM]</span></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-cap">Чаты в Метрике - визиты, в которых начался чат. На сайте идёт A/B-тест виджета, чаты посчитаны по обоим вариантам вместе. Телефоны - визиты, в которых пациент оставил номер в чате.</p>
+      <p><b>Почему записей в amoCRM больше.</b> Отчёты amoCRM показывают в 1,3-1,7 раза больше записей, чем помощник подтвердил в чате. В этой истории стоит нижняя цифра, 43. <span class="ph">[получить у Владимира: откуда разница, какую цифру берём по согласованию с клиникой]</span></p>
+
+      <h2 id="differently">Что не получилось с первого раза и что сделали бы иначе</h2>
+      <p class="aside"><span class="ph">[получить у Владимира и клиники: согласие публиковать этот раздел целиком]</span></p>
+      <p>Мы разобрали все диалоги помощника с декабря 2025 по сентябрь 2026. Лучше всего он работал с января по март. Потом были ошибки, и мы их показываем, потому что владельцу клиники они важнее красивых цифр.</p>
+      <ul>
+        <li><b>Просили телефон слишком рано.</b> С апреля помощник стал спрашивать номер в первом же ответе. Телефонов стало больше, а записей меньше. <span class="ph">[получить у команды: что сделали потом]</span></li>
+        <li><b>Сбой со свободным временем.</b> С 6 по 19 апреля помощник неправильно показывал свободные слоты. <span class="ph">[получить у команды: что именно видел пациент и как починили]</span></li>
+        <li><b>Ушедшие врачи.</b> Несколько месяцев помощник предлагал записаться к врачам, которые уже не работали в клинике. <span class="ph">[получить у команды: как исправили]</span></li>
+        <li><b>Новые кнопки в виджете</b> почти не помогли. <span class="ph">[получить у команды: что оставили, что убрали]</span></li>
+      </ul>
+
+      <figure class="pull">
+        <span class="pull-fig">2 недели</span>
+        <p>с 6 по 19 апреля помощник показывал пациентам неверные свободные слоты</p>
+        <cite>Разбор логов помощника «Атмосферы», сентябрь 2026</cite>
+      </figure>
+
+      <h3>Что мы сделали бы иначе</h3>
+      <ol>
+        <li><b>Сначала ответ, потом телефон.</b> Ранний запрос номера дал «Атмосфере» больше телефонов и меньше записей. Пациент пришёл с вопросом, и пока не получил ответ, запись ему не нужна. На новом запуске номер просим после ответа. <span class="ph">[получить у Владимира: подтвердить, что это теперь правило сценария]</span></li>
+        <li><b>Проверять слоты каждый день, а не по жалобе.</b> Сбой со свободным временем продержался две недели. <span class="ph">[получить у Владимира: как теперь ловим такие сбои]</span></li>
+        <li><b>Сверять врачей с МИС, а не с базой знаний.</b> Список врачей устаревает быстрее, чем кажется. Помощник должен видеть, кто работает сегодня, а не кто работал в день запуска. <span class="ph">[получить у Владимира: как это устроено после 07.09]</span></li>
+        <li><b>Договориться о подсчёте записей в первую неделю.</b> Расхождение с amoCRM в 1,3-1,7 раза выяснилось только на разборе в сентябре. С клиникой нужно сразу решить, что считаем записью помощника, и смотреть одну цифру.</li>
+      </ol>
+
+      <h2 id="plans">Планы клиники</h2>
+      <p>С 7 сентября помощник «Атмосферы» работает на новой версии платформы. Первые недели на ней мы сравниваем с январём-мартом, лучшим периодом по логам: доля чатов, которые доходят до записи, и доля записей вне часов работы клиники. <span class="ph">[получить у команды: первые цифры после 07.09]</span></p>
+      <p>Что клиника собирается делать дальше, спросим у Дмитрия. <span class="ph">[получить у клиники: планы на ближайшие полгода - новые направления, второй адрес, другие каналы для помощника (мессенджеры, карты), цель по записям]</span></p>
+      <p>До публикации с нашей стороны остаётся одно: договориться с клиникой, какую цифру записей мы оба считаем правильной, 43 из чата или цифру из amoCRM.</p>
+
+      <figure class="quote">
+        <p>Какую проблему решил МедИИум? В первую очередь работа по скрипту: не надо постоянно контролировать и напоминать. Второе, быстрый ответ. Пациент проводит на сайте меньше трёх минут, а мы отвечаем сразу, это очень важно, админ так не делает. И, конечно, вечерняя и ночная работа, когда нас нет.</p>
+        <p>Мне кажется, он записывает на приём не хуже администратора. А ещё вы очень быстро реагируете и быстро всё допиливаете, видно, что вы в нас вовлечены.</p>
+        <cite><b>Дмитрий Хадиков</b>, <span class="ph">[должность]</span>, стоматология «Атмосфера»</cite>
+      </figure>
+
+      <h2 id="faq">Вопросы об этой истории</h2>
+      <div class="faq">
+        <details>
+          <summary>Откуда цифры в этой истории?</summary>
+          <div class="a"><p>Из двух источников. Обращения, записи и планы лечения - данные МедИИума, они же опубликованы на mediium.ru. Визиты, чаты и телефоны вне часов работы клиники - Яндекс Метрика сайта atmosferaclinic.ru за 25.06-22.09.2026. У каждого блока цифр подписан источник, между собой мы их не складываем.</p><p>Каждая запись помощника видна в МИС клиники, поэтому клиника может перепроверить записи у себя.</p></div>
+        </details>
+        <details>
+          <summary>Почему в amoCRM записей больше, чем в истории?</summary>
+          <div class="a"><p>В истории стоят записи, которые помощник подтвердил в чате. amoCRM показывает в 1,3-1,7 раза больше. Мы взяли нижнюю цифру. <span class="ph">[получить у Владимира: согласованная с клиникой формулировка]</span></p></div>
+        </details>
+        <details>
+          <summary>Что считается «вне часов работы клиники»?</summary>
+          <div class="a"><p>Время, когда клиника закрыта по графику со своего сайта. У «Атмосферы» это с 21:00 до 8:00, каждый день. Час берём по часовому поясу счётчика Метрики. Условную «ночь» с полуночи до утра мы не используем: у каждой клиники своё окно, и цифра от этого сильно меняется.</p></div>
+        </details>
+        <details>
+          <summary>Что если клиника не ведёт CRM?</summary>
+          <div class="a"><p>Запись помощник делает в МИС: читает сетку расписания, предлагает свободный слот, и запись появляется там же, где её сделал бы администратор. В «Атмосфере» есть и МИС DentalPro, и amoCRM. У другой нашей клиники, 3D Gastro, одна система: Клиентикс работает и как МИС, и как CRM. <span class="ph">[получить у команды: подтвердить, что без отдельной CRM помощник работает только с МИС и куда тогда уходят телефоны без записи]</span></p></div>
+        </details>
+        <details>
+          <summary>Сколько занимает запуск?</summary>
+          <div class="a"><p>По регламенту две недели: подключаем МИС и CRM и собираем базу знаний, настраиваем и тестируем диалоги, запускаем и разбираем разговоры, пока записи не выйдут на план. У «Атмосферы» запуск занял <span class="ph">[получить у команды: N дней]</span>.</p></div>
+        </details>
+        <details>
+          <summary>Что происходит с персональными данными пациентов?</summary>
+          <div class="a"><p>Сервис не хранит персональные данные пациента и не передаёт их третьим лицам. Имя и телефон уходят только в МИС клиники и там остаются. В языковую модель текст уходит обезличенным: имя и телефон вырезаются до отправки.</p><p>Оператором персональных данных остаётся клиника, МедИИум выступает обработчиком по её поручению, это закреплено договором. Диагнозы помощник не собирает и карту не ведёт: всё про лечение остаётся в МИС.</p></div>
+        </details>
+      </div>
+
+      <div class="meta-row">
+        <div>
+          <div class="lab">Теги</div>
+          <div class="ktags"><span>Стоматология</span><span>Рязань</span><span class="ph">[размер клиники]</span><span>Сайт</span><span>DentalPro</span><span>amoCRM</span><span>Записи</span><span>Вне часов работы</span><span>кейс</span></div>
+        </div>
+        <div>
+          <div class="lab">Над историей работали</div>
+          <div class="team">
+            <div><span>Внедрение</span><span class="ph">[Имя, роль]</span></div>
+            <div><span>Со стороны клиники</span>Дмитрий Хадиков</div>
+            <div><span>Текст</span><span class="ph">[Имя, роль]</span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="head"><h2>Другие истории</h2></div>
+    <div class="stories">
+      <a class="story" href="story-3dgastro.html">
+        <div class="lab">История успеха</div>
+        <div class="plate"><img src="logo-3dgastro.png" alt="3D Gastro"></div>
+        <div class="fig">831 503 ₽</div>
+        <p class="fig-t">выручки от состоявшихся приёмов за июль</p>
+        <p class="who">Многопрофильная клиника 3D Gastro, Мариуполь</p>
+        <span class="go">Читать историю →</span>
+      </a>
+      <div class="story">
+        <div class="lab">История успеха · готовится</div>
+        <div class="plate"><img src="logo-crocodent.svg" alt="Crocodent"></div>
+        <div class="fig">46 записей</div>
+        <p class="fig-t">за первый месяц работы помощника на сайте</p>
+        <p class="who">Сеть стоматологий Crocodent, Москва</p>
+        <p class="task">389 обращений, 136 лидов с телефоном, 76% целевых диалогов заканчиваются телефоном пациента.</p>
+        <span class="go" style="color:var(--muted)">История готовится</span>
+      </div>
+      <div class="story stub">
+        <div class="lab">История успеха · заглушка</div>
+        <div class="plate">логотип клиники</div>
+        <div class="fig"><span class="ph">[ЦИФРА]</span></div>
+        <p class="who"><span class="ph">[Профиль клиники, город]</span></p>
+      </div>
+    </div>
+    <p class="stories-foot"><a href="index.html" style="color:var(--accent)">Все истории успеха →</a></p>
+  </div>
+</section>
+<section class="sec final">
+  <div class="wrap final-in">
+    <div>
+      <h2>Посчитаем то же самое для вашей клиники</h2>
+      <p class="lead">Покажем на ваших данных, сколько обращений приходит в нерабочее время и какая их доля не доходит до записи.</p>
+    </div>
+    <a class="btn btn-p" href="https://mediium.ru/#demo">Записаться на демо</a>
+  </div>
+</section>
+</main>
+<footer lang="ru">
+  <div class="wrap f-grid">
+    <div class="f-legal">
+      <div class="logo" style="margin-bottom:10px;color:var(--ink)">Мед<b>ИИ</b>ум</div>
+      ИП Зенина Анастасия Николаевна · ИНН 623412138820 · ОГРНИП 322623400035931
+    </div>
+    <div class="f-links">
+      <a href="https://mediium.ru/privacy.html">Политика конфиденциальности</a>
+      <a href="https://mediium.ru/terms.html">Пользовательское соглашение</a>
+    </div>
+  </div>
+  <div class="wrap f-note">* WhatsApp принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории Российской Федерации.</div>
+</footer>
+</body>
+</html>

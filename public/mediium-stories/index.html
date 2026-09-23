@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ЧЕРНОВИК: перед публикацией убрать noindex и добавить счётчик Метрики 112782757 как на главной -->
+<meta name="robots" content="noindex, nofollow">
+<title>Истории успеха клиник с ИИ-помощником | МедИИум</title>
+<meta name="description" content="Как клиники отвечают пациентам, когда закрыты, и получают больше записей с сайта. Истории с цифрами, спикерами и тем, что не сработало.">
+<link rel="stylesheet" href="https://mediium.ru/fonts/fonts.css">
+<style>
+:root{
+  --paper:#FCFCFA;--paper-2:#F4F5F1;--bubble:#EEF1EC;
+  --ink:#10201C;--ink-2:#46564F;--muted:#6B7A74;--muted-2:#94A19B;
+  --line:#E3E8E4;--line-2:#C9D2CD;
+  --accent:#0F6B5C;--accent-ink:#0A4E43;--alarm:#B4552C;
+  --on-accent:#FCFCFA;--final-bg:#10201C;--final-fg:#FCFCFA;--final-fg-2:rgba(252,252,250,.7);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B1A17;--paper-2:#0F211D;--bubble:#16302A;
+    --ink:#E9F0EC;--ink-2:#B5C5BE;--muted:#86978F;--muted-2:#6F827A;
+    --line:#22382F;--line-2:#34503F;
+    --accent:#3FB9A4;--accent-ink:#6FD3C1;--alarm:#E68A5E;
+    --on-accent:#07201B;--final-bg:#0F211D;--final-fg:#E9F0EC;--final-fg-2:rgba(233,240,236,.7);
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Onest","Helvetica Neue",Arial,sans-serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;font-weight:600;line-height:1.12;text-wrap:balance}
+h1{font-size:clamp(32px,4vw,50px);letter-spacing:-.045em;line-height:1.08}
+h2{font-size:clamp(25px,3vw,32px);letter-spacing:-.04em}
+h3{font-size:20px;letter-spacing:-.02em}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,96px)}
+.kicker{font-size:15px;font-weight:500;color:var(--accent);margin-bottom:14px}
+.lead{font-size:19px;line-height:1.62;color:var(--ink-2);max-width:60ch}
+.sec{padding:clamp(56px,7vw,96px) 0}
+.sec.alt{background:var(--paper-2)}
+.head{max-width:760px;margin-bottom:clamp(30px,4vw,50px)}
+.head .lead{margin-top:18px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+[id]{scroll-margin-top:86px}
+
+/* плейсхолдер: то, что нужно получить от клиники или команды */
+.ph{color:var(--alarm);background:color-mix(in srgb,var(--alarm) 9%,transparent);border-bottom:1px dashed var(--alarm);padding:0 3px;border-radius:3px;font-style:normal}
+.draft-note{background:color-mix(in srgb,var(--alarm) 9%,transparent);border-bottom:1px solid color-mix(in srgb,var(--alarm) 35%,transparent);color:var(--ink-2);font-size:13.5px;line-height:1.45;padding:9px 0}
+.draft-note b{color:var(--alarm)}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--line)}
+.hdr-in{display:flex;align-items:center;gap:22px;height:70px}
+.logo{font-weight:700;font-size:19px;letter-spacing:-.04em;white-space:nowrap;text-decoration:none}
+.logo b{color:var(--accent);font-weight:700}
+.brand{display:flex;flex-direction:column;gap:5px;line-height:1.1;flex:0 0 auto;text-decoration:none}
+.brand-desc{font-size:11.5px;line-height:1.2;color:var(--muted);white-space:nowrap}
+.hdr .nav-desk{display:flex;gap:20px;margin-left:auto;font-size:14.5px;color:var(--muted)}
+.hdr .nav-desk a{text-decoration:none;white-space:nowrap}
+.hdr .nav-desk a:hover,.hdr .nav-desk a[aria-current]{color:var(--accent)}
+@media(max-width:1000px){.hdr .nav-desk{display:none}.hdr-cta{margin-left:auto}}
+@media(max-width:640px){.hdr-in{height:60px;gap:12px}.brand-desc{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:17px 30px;border-radius:999px;border:1px solid transparent;font-weight:600;font-size:16px;text-decoration:none;transition:.15s}
+.btn-p{background:var(--accent);color:var(--on-accent)}
+.btn-p:hover{background:var(--accent-ink)}
+.btn-s{background:transparent;color:var(--ink);border-color:var(--line-2);font-weight:500}
+.btn-s:hover{border-color:var(--accent);color:var(--accent)}
+.btn-sm{padding:10px 18px;font-size:14.5px;white-space:nowrap}
+
+.crumbs{font-size:14px;color:var(--muted);margin-bottom:22px}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--accent)}
+
+/* фильтры: как у Mindbox, ряд выпадающих списков; на мобильном ряд скроллится */
+.filters{display:flex;gap:10px;margin-top:clamp(26px,3vw,36px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px}
+.filters::-webkit-scrollbar{display:none}
+.flt{flex:0 0 auto}
+.flt-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px 10px 16px;border:1px solid var(--line-2);border-radius:999px;background:var(--paper);color:var(--ink);font:inherit;font-size:14.5px;font-weight:500;cursor:pointer;white-space:nowrap;transition:border-color .15s,color .15s}
+.flt-btn:hover,.flt-btn[aria-expanded="true"]{border-color:var(--accent)}
+.flt.on .flt-btn{border-color:var(--accent);color:var(--accent)}
+.flt-val{color:var(--ink-2);font-weight:400}
+.flt.on .flt-val{color:inherit}
+.flt-cnt{min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--bubble);color:var(--ink-2);font-size:12.5px;line-height:22px;text-align:center;font-variant-numeric:tabular-nums}
+.flt.on .flt-cnt{background:var(--accent);color:var(--on-accent)}
+.flt-btn svg{width:12px;height:12px;flex:0 0 auto;transition:transform .15s}
+.flt-btn[aria-expanded="true"] svg{transform:rotate(180deg)}
+/* меню fixed: иначе его обрежет прокручиваемый ряд; координаты ставит скрипт */
+.flt-menu{position:fixed;z-index:50;min-width:230px;max-width:calc(100vw - 24px);padding:6px;border:1px solid var(--line);border-radius:14px;background:var(--paper);box-shadow:0 18px 40px -20px rgba(16,32,28,.45)}
+.flt-menu[hidden]{display:none}
+.flt-opt{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;padding:10px 12px;border:0;border-radius:9px;background:transparent;color:var(--ink);font:inherit;font-size:15px;text-align:left;cursor:pointer}
+.flt-opt:hover{background:var(--paper-2)}
+.flt-opt[aria-pressed="true"]{background:var(--bubble);color:var(--accent);font-weight:500}
+.flt-opt span{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.flt-opt:disabled{color:var(--muted-2);cursor:default;background:transparent}
+.flt-reset{flex:0 0 auto;padding:10px 6px;border:0;background:none;color:var(--muted);font:inherit;font-size:14.5px;cursor:pointer;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}
+.flt-reset:hover{color:var(--accent)}
+.flt-reset[hidden]{display:none}
+
+/* карточки историй: логотип, заголовок с цифрой, бейдж и дата */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,22px)}
+@media(max-width:980px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.cards{grid-template-columns:1fr}}
+.card{display:block;border:1px solid var(--line);border-radius:18px;background:var(--paper);text-decoration:none;color:var(--ink);transition:border-color .18s,box-shadow .18s,transform .18s}
+.card[hidden]{display:none}
+a.card:hover{border-color:var(--line-2);box-shadow:0 16px 34px -24px rgba(16,32,28,.45);transform:translateY(-2px)}
+a.card:hover .card-text{color:var(--accent)}
+@media (prefers-reduced-motion:reduce){.card{transition:none}a.card:hover{transform:none}}
+.card__wrapper{display:flex;flex-direction:column;gap:18px;height:100%;padding:24px 22px 20px}
+.card-logo{height:56px;display:flex;align-items:center}
+.card-logo img{max-height:48px;max-width:190px;width:auto;height:auto;display:block}
+.card-text{font-size:19px;font-weight:600;line-height:1.3;letter-spacing:-.02em;transition:color .15s}
+.card__info{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.card-badge{font-size:13px;font-weight:500;padding:5px 10px;border-radius:999px;background:var(--bubble);color:var(--accent);white-space:nowrap}
+.card-date{font-size:13.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.card.soon{border-style:dashed;border-color:var(--line-2);background:transparent;color:var(--ink-2)}
+.card.soon .card-logo,.card.soon .card-text{opacity:.55}
+.card.soon .card-badge{background:transparent;border:1px dashed var(--line-2);color:var(--muted)}
+.cards-empty{padding:28px 0;font-size:16px;color:var(--ink-2)}
+.cards-empty[hidden],.more[hidden]{display:none}
+.more{display:flex;justify-content:center;margin-top:clamp(24px,3vw,34px)}
+.stories-foot{margin-top:24px;font-size:14px;color:var(--muted);max-width:72ch}
+
+/* теги */
+.ktags{display:flex;flex-wrap:wrap;gap:8px}
+.ktags span,.ktags a{font-size:13px;padding:6px 11px;border:1px solid var(--line-2);border-radius:999px;color:var(--ink-2);white-space:nowrap;text-decoration:none}
+
+/* история: вкратце */
+.brief{display:grid;grid-template-columns:4fr 7fr;gap:clamp(24px,4vw,56px);border:1px solid var(--line);border-radius:16px;padding:clamp(22px,3vw,36px);background:var(--paper)}
+@media(max-width:860px){.brief{grid-template-columns:1fr}}
+.brief-t{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.bmeta{display:flex;flex-direction:column;gap:14px;min-width:0}
+.bmeta .klogo{height:64px;display:flex;align-items:center}
+.bmeta .klogo img{max-height:64px;max-width:min(100%,240px);width:auto;height:auto;display:block}
+.bmeta dl{margin:0;display:flex;flex-direction:column;gap:10px}
+.bmeta dt{font-size:13px;color:var(--muted)}
+.bmeta dd{margin:2px 0 0;font-size:15.5px;line-height:1.45}
+.bdata{display:flex;flex-direction:column;gap:18px;min-width:0}
+.brow{padding-bottom:16px;border-bottom:1px solid var(--line)}
+.brow:last-child{border-bottom:0;padding-bottom:0}
+.brow h3{font-size:15px;letter-spacing:0;color:var(--muted);font-weight:500;margin-bottom:6px}
+.brow p,.brow li{font-size:16px;line-height:1.5}
+.brow ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.brow .no li::before{content:"❌ ";font-size:.85em}
+.brow .yes li::before{content:"✅ ";font-size:.85em}
+.kgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px;margin-top:6px}
+.kpi b{display:block;font-size:28px;font-weight:700;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.kpi.acc b{color:var(--accent)}
+.kpi span{display:block;margin-top:7px;font-size:14.5px;line-height:1.4;color:var(--ink-2)}
+.khero b{display:block;font-size:clamp(34px,3.4vw,44px);font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.khero span{display:block;margin-top:8px;font-size:15.5px;color:var(--ink-2)}
+
+/* история: тело */
+.story-grid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:clamp(30px,5vw,72px);align-items:start}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr}}
+.toc{position:sticky;top:100px;font-size:14.5px}
+@media(max-width:900px){.toc{position:static}}
+.toc b{display:block;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.toc ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;border-left:1px solid var(--line);padding-left:14px}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.toc a:hover{color:var(--accent)}
+.prose{max-width:70ch}
+.prose>*+*{margin-top:18px}
+.prose h2{margin-top:clamp(40px,5vw,56px);padding-top:18px;border-top:1px solid var(--line)}
+.prose h2:first-child{margin-top:0}
+.prose p,.prose li{font-size:17.5px;line-height:1.65}
+.prose ol,.prose ul{padding-left:1.3em}
+.prose li+li{margin-top:8px}
+.prose .lead{font-size:20px;color:var(--ink)}
+.jump{display:inline-block;font-size:15px;font-weight:500;color:var(--accent);text-decoration:underline;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,var(--accent) 40%,transparent)}
+.aside{padding:18px 20px;border-radius:14px;background:var(--bubble);font-size:15.5px;line-height:1.55;color:var(--ink-2)}
+.aside b{color:var(--ink)}
+.months{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:560px){.months{grid-template-columns:1fr}}
+.months>div{padding-top:14px;border-top:2px solid var(--accent)}
+.months h3{font-size:17px;margin-bottom:8px}
+.months p{font-size:16px}
+
+/* цитата клиники */
+.quote{margin:0;padding:clamp(24px,3vw,36px);border-radius:16px;background:var(--paper-2);border-left:3px solid var(--accent)}
+.quote p{font-size:clamp(18px,1.9vw,21px);line-height:1.5;font-weight:500;letter-spacing:-.015em}
+.quote p+p{margin-top:12px}
+.quote cite{display:block;margin-top:16px;font-style:normal;font-size:14.5px;color:var(--muted)}
+.quote cite b{color:var(--ink);font-weight:600}
+
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;font-size:15px}
+@media(max-width:700px){.team{grid-template-columns:1fr}}
+.team div{padding-top:12px;border-top:1px solid var(--ink)}
+.team span{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
+
+.meta-row{display:flex;flex-direction:column;gap:22px;margin-top:clamp(40px,5vw,56px);padding-top:22px;border-top:1px solid var(--line)}
+.meta-row .lab{font-size:13px;color:var(--muted);margin-bottom:10px}
+
+/* финальный CTA */
+.final{background:var(--final-bg);color:var(--final-fg)}
+.final .lead{color:var(--final-fg-2);margin-top:14px}
+.final-in{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.final h2{max-width:26ch}
+@media(max-width:700px){.final .btn{width:100%}}
+
+footer{padding:40px 0 56px;font-size:14px;color:var(--muted)}
+.f-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+.f-grid a{color:var(--muted)}
+.f-legal{line-height:1.6}
+.f-links{display:flex;gap:20px;flex-wrap:wrap}
+.f-note{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.5;color:var(--muted-2);max-width:72ch}
+@media(max-width:640px){.sec{padding:48px 0}.lead{font-size:18px}.kpi b{font-size:25px}footer{padding:34px 0 44px}}
+.khero .ph,.kpi .ph{display:inline;margin-top:0;font-size:inherit}
+.khero .ph,.kpi .ph,.ktags .ph{color:var(--alarm)}
+.ktags span .ph{border:0;border-bottom:1px dashed var(--alarm);border-radius:3px;padding:0 3px;white-space:normal}
+.how{margin-top:22px;display:flex;flex-direction:column;gap:4px;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:var(--paper-2);font-size:15px;line-height:1.5;color:var(--ink-2)}
+.how b{color:var(--ink);font-weight:600}
+</style>
+<body>
+<div class="draft-note"><div class="wrap"><b>Черновик, не для публикации.</b> Красным отмечено то, что нужно получить от клиники или команды. Цифры без пометки взяты с mediium.ru.</div></div>
+<header class="hdr" lang="ru">
+  <div class="wrap hdr-in">
+    <a class="brand" href="https://mediium.ru/"><div class="logo">Мед<b>ИИ</b>ум</div><div class="brand-desc">Платформа коммуникации с пациентами</div></a>
+    <nav class="nav-desk">
+      <a href="https://mediium.ru/#does">Что делает</a>
+      <a href="https://mediium.ru/#results">Результаты</a>
+      <a href="index.html" aria-current="page">Истории успеха</a>
+      <a href="https://mediium.ru/#impl">Внедрение</a>
+      <a href="https://mediium.ru/#faq">Вопросы</a>
+    </nav>
+    <a class="btn btn-p btn-sm hdr-cta" href="https://mediium.ru/#demo">Записаться на демо</a>
+  </div>
+</header>
+<main lang="ru">
+
+<section class="sec" style="padding-bottom:clamp(28px,4vw,44px)">
+  <div class="wrap">
+    <div class="head">
+      <nav class="crumbs"><a href="https://mediium.ru/">Главная</a> / Истории успеха</nav>
+      <h1>Истории успеха</h1>
+      <p class="lead">Как у клиник меняется коммуникация с пациентами и что это даёт в цифрах: записи, доходимость до приёма, выручка. В каждой истории рассказываем, что было до нас и что сработало, и какие цифры клиника улучшила за конкретный период.</p>
+      </div>
+    <div class="filters" role="group" aria-label="Фильтры историй">
+      <div class="flt" data-key="profile">
+        <button class="flt-btn" type="button" aria-expanded="false"><span>Профиль клиники</span><span class="flt-val"></span><span class="flt-cnt"></span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="flt-menu" hidden>
+          <button class="flt-opt" type="button" data-value="dent" aria-pressed="false">Стоматология<span></span></button>
+          <button class="flt-opt" type="button" data-value="multi" aria-pressed="false">Многопрофильная клиника<span></span></button>
+        </div>
+      </div>
+      <div class="flt" data-key="mis">
+        <button class="flt-btn" type="button" aria-expanded="false"><span>МИС</span><span class="flt-val"></span><span class="flt-cnt"></span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="flt-menu" hidden>
+          <button class="flt-opt" type="button" data-value="dentalpro" aria-pressed="false">DentalPro<span></span></button>
+          <button class="flt-opt" type="button" data-value="klientiks" aria-pressed="false">Клиентикс<span></span></button>
+          <button class="flt-opt" type="button" data-value="ident" aria-pressed="false">Ident<span></span></button>
+        </div>
+      </div>
+      <div class="flt" data-key="metric">
+        <button class="flt-btn" type="button" aria-expanded="false"><span>Показатель</span><span class="flt-val"></span><span class="flt-cnt"></span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="flt-menu" hidden>
+          <button class="flt-opt" type="button" data-value="zapisi" aria-pressed="false">Записи<span></span></button>
+          <button class="flt-opt" type="button" data-value="offhours" aria-pressed="false">Обращения вне часов работы<span></span></button>
+          <button class="flt-opt" type="button" data-value="dohod" aria-pressed="false">Доходимость до приёма<span></span></button>
+        </div>
+      </div>
+      <button class="flt-reset" type="button" hidden>Сбросить</button>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" style="padding-top:clamp(40px,5vw,64px)">
+  <div class="wrap">
+    <!-- data-атрибуты: значения фильтров через пробел; показатели взяты из самих историй -->
+    <div class="cards">
+
+      <div class="card soon" data-profile="dent" data-mis="dentalpro" data-metric="zapisi offhours">
+        <div class="card__wrapper">
+          <div class="card-logo"><img src="logo-atmosfera.svg" alt="Атмосфера"></div>
+          <div class="card-text">831 503 ₽ за месяц от приёмов, на которые записал помощник. Клиника 3D Gastro принимает обращения с сайта и записывает пациентов на приём</div>
+          <div class="card__info"><div class="card-badge">История успеха</div><div class="card-date">Готовится</div></div>
+        </div>
+      </div>
+
+      <div class="card soon" data-profile="multi" data-mis="klientiks" data-metric="zapisi offhours dohod">
+        <div class="card__wrapper">
+          <div class="card-logo"><img src="logo-3dgastro.png" alt="3D Gastro"></div>
+          <div class="card-text">24% обращений приходят вне часов работы. Стоматология «Атмосфера» отвечает на них и доводит пациентов до приёма</div>
+          <div class="card__info"><div class="card-badge">История успеха</div><div class="card-date">Готовится</div></div>
+        </div>
+      </div>
+
+      <div class="card soon" data-profile="dent" data-mis="ident" data-metric="zapisi">
+        <div class="card__wrapper">
+          <div class="card-logo"><img src="logo-crocodent.svg" alt="Crocodent"></div>
+          <div class="card-text">46 записей в первый месяц и 30% диалогов с телефоном: в сети Crocodent помощник ведёт пациентов до приёма</div>
+          <div class="card__info"><div class="card-badge">История успеха</div><div class="card-date">Готовится</div></div>
+        </div>
+      </div>
+
+    </div>
+    <p class="cards-empty" role="status" hidden>Таких историй пока нет. Снимите один из фильтров.</p>
+    <div class="more" hidden><button class="btn btn-s" type="button">Показать ещё</button></div>
+    <p class="stories-foot">Все цифры в историях - данные конкретной клиники за указанный период. У другой клиники они будут другими: зависят от трафика, профиля и того, как устроена запись.</p>
+  </div>
+</section>
+
+<section class="sec final">
+  <div class="wrap final-in">
+    <div>
+      <h2>Посчитаем то же самое для вашей клиники</h2>
+      <p class="lead">Покажем на ваших данных, сколько обращений приходит в нерабочее время и какая их доля не доходит до записи.</p>
+    </div>
+    <a class="btn btn-p" href="https://mediium.ru/#demo">Записаться на демо</a>
+  </div>
+</section>
+</main>
+<footer lang="ru">
+  <div class="wrap f-grid">
+    <div class="f-legal">
+      <div class="logo" style="margin-bottom:10px;color:var(--ink)">Мед<b>ИИ</b>ум</div>
+      ИП Зенина Анастасия Николаевна · ИНН 623412138820 · ОГРНИП 322623400035931
+    </div>
+    <div class="f-links">
+      <a href="https://mediium.ru/privacy.html">Политика конфиденциальности</a>
+      <a href="https://mediium.ru/terms.html">Пользовательское соглашение</a>
+    </div>
+  </div>
+  <div class="wrap f-note">* WhatsApp принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории Российской Федерации.</div>
+</footer>
+<script>
+/* Фильтры и «Показать ещё». Внутри фильтра одно значение, между фильтрами И. */
+(function(){
+  var PAGE = 6;
+  var cards = [].slice.call(document.querySelectorAll('.cards .card'));
+  var flts = [].slice.call(document.querySelectorAll('.flt'));
+  var resetBtn = document.querySelector('.flt-reset');
+  var empty = document.querySelector('.cards-empty');
+  var more = document.querySelector('.more');
+  var sel = {};
+  var limit = PAGE;
+
+  function has(card, key, val){ return (card.dataset[key] || '').split(' ').indexOf(val) > -1; }
+  function match(card, s){
+    for (var k in s) if (s[k] && !has(card, k, s[k])) return false;
+    return true;
+  }
+  function countWith(key, val){
+    var s = Object.assign({}, sel); s[key] = val;
+    return cards.filter(function(c){ return match(c, s); }).length;
+  }
+
+  function render(){
+    var shown = cards.filter(function(c){ return match(c, sel); });
+    cards.forEach(function(c){ c.hidden = true; });
+    shown.forEach(function(c, i){ c.hidden = i >= limit; });
+    more.hidden = shown.length <= limit;
+    empty.hidden = shown.length > 0;
+    resetBtn.hidden = !Object.keys(sel).some(function(k){ return sel[k]; });
+
+    flts.forEach(function(f){
+      var key = f.dataset.key, cur = sel[key];
+      f.classList.toggle('on', !!cur);
+      var opts = [].slice.call(f.querySelectorAll('.flt-opt'));
+      opts.forEach(function(o){
+        var n = countWith(key, o.dataset.value);
+        o.querySelector('span').textContent = n;
+        o.setAttribute('aria-pressed', o.dataset.value === cur);
+        o.disabled = !n && o.dataset.value !== cur;
+      });
+      var on = opts.filter(function(o){ return o.dataset.value === cur; })[0];
+      f.querySelector('.flt-val').textContent = on ? ': ' + on.firstChild.textContent : '';
+      /* без выбора счётчик показывает, сколько историй есть по этому фильтру */
+      f.querySelector('.flt-cnt').textContent = cur ? shown.length : cards.filter(function(c){
+        var s = Object.assign({}, sel); delete s[key];
+        return match(c, s) && (c.dataset[key] || '').trim();
+      }).length;
+    });
+  }
+
+  function place(f){
+    var r = f.querySelector('.flt-btn').getBoundingClientRect(), m = f.querySelector('.flt-menu');
+    m.style.top = (r.bottom + 6) + 'px';
+    m.style.left = Math.max(12, Math.min(r.left, window.innerWidth - m.offsetWidth - 12)) + 'px';
+  }
+  function close(){
+    flts.forEach(function(f){
+      f.querySelector('.flt-menu').hidden = true;
+      f.querySelector('.flt-btn').setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  flts.forEach(function(f){
+    var btn = f.querySelector('.flt-btn'), menu = f.querySelector('.flt-menu');
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = menu.hidden;
+      close();
+      if (open){ menu.hidden = false; btn.setAttribute('aria-expanded', 'true'); place(f); }
+    });
+    menu.addEventListener('click', function(e){
+      var o = e.target.closest('.flt-opt'); if (!o) return;
+      e.stopPropagation();
+      var key = f.dataset.key;
+      sel[key] = sel[key] === o.dataset.value ? '' : o.dataset.value; /* повторный клик снимает */
+      limit = PAGE; close(); render(); btn.focus();
+    });
+  });
+  resetBtn.addEventListener('click', function(){ sel = {}; limit = PAGE; render(); });
+  more.querySelector('button').addEventListener('click', function(){ limit += PAGE; render(); });
+  document.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+  window.addEventListener('resize', close);
+  window.addEventListener('scroll', close, {passive: true});
+  document.querySelector('.filters').addEventListener('scroll', close, {passive: true});
+
+  render();
+})();
+</script>
+</body>
+</html>
