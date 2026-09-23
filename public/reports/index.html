@@ -1,0 +1,3134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МедИИум · разведка спроса и стратегия каналов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fafafa;
+  --card: #ffffff;
+  --text: #1a1a1a;
+  --text-soft: #333;
+  --muted: #6b6b6b;
+  --muted2: #9a9a9a;
+  --accent: #0E7C86;
+  --accent-soft: #eef0ff;
+  --border: #e5e5e5;
+  --border-soft: #f0f0f0;
+  --crit: #c01020;
+  --warn: #e89020;
+  --ok: #16a34a;
+  --hero-bg: #1a1a1a;
+  --font-h: 'Inter', 'Inter', system-ui, sans-serif;
+  --font-b: 'Inter', 'Inter', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-b);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'tnum', 'lnum';
+}
+.wrap { max-width: 820px; margin: 0 auto; padding: 0 28px; }
+
+/* Hero */
+.hero {
+  background: var(--hero-bg);
+  color: #fff;
+  padding: 48px 0 38px;
+}
+.hero-label {
+  font-family: var(--font-h);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: var(--font-h);
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+  margin-bottom: 10px;
+}
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  font-weight: 400;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.hero-meta > div { min-width: 120px; }
+.hero-meta .label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 3px;
+}
+.hero-meta .value {
+  font-size: 13px;
+  color: #fff;
+  font-weight: 500;
+}
+.hero-meta .value a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255,255,255,0.4);
+}
+
+/* TOC strip */
+.toc-strip {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.92);
+}
+.toc-strip ul {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.toc-strip a {
+  display: inline-block;
+  font-family: var(--font-h);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+.toc-strip a:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Content */
+.content { padding: 40px 0 48px; }
+
+.section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 34px 38px;
+  margin-bottom: 22px;
+  scroll-margin-top: 80px;
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.section-num {
+  font-family: var(--font-h);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.section h2.section-title {
+  font-family: var(--font-h);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  line-height: 1.25;
+  margin: 4px 0 18px;
+}
+
+/* Markdown content inside sections */
+.md { font-size: 14.5px; line-height: 1.7; color: var(--text-soft); }
+.md > *:first-child { margin-top: 0; }
+.md > *:last-child { margin-bottom: 0; }
+
+.md h1 { display: none; }
+.md h2 {
+  font-family: var(--font-h);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 32px 0 10px;
+  letter-spacing: -0.2px;
+  line-height: 1.3;
+}
+.md h3 {
+  font-family: var(--font-h);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 22px 0 8px;
+  letter-spacing: -0.1px;
+}
+.md h4 {
+  font-family: var(--font-h);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 18px 0 6px;
+}
+.md p { margin: 0 0 12px; }
+.md strong { font-weight: 700; color: var(--text); }
+.md em { font-style: italic; color: var(--muted); }
+
+.md ul, .md ol { margin: 0 0 14px; padding-left: 22px; }
+.md li { margin-bottom: 4px; }
+.md li::marker { color: var(--accent); }
+
+.md a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid;
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.md a:hover { border-color: var(--accent); }
+
+.md code {
+  font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  font-size: 0.87em;
+  background: #f4f4f4;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--text);
+}
+.md pre {
+  background: #1a1a1a;
+  color: #e0e0e0;
+  padding: 14px 18px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 14px 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+.md pre code { background: none; padding: 0; color: inherit; }
+
+.md blockquote {
+  margin: 14px 0;
+  padding: 12px 18px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--text-soft);
+  border-radius: 0 6px 6px 0;
+}
+.md blockquote p:last-child { margin-bottom: 0; }
+
+.md hr {
+  border: none;
+  border-top: 1px solid var(--border-soft);
+  margin: 28px 0;
+}
+
+.md table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 18px;
+  font-size: 13px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.md table th {
+  text-align: left;
+  padding: 10px 12px;
+  background: #f8f8f8;
+  font-family: var(--font-h);
+  border-bottom: 1px solid var(--border);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.md table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-soft);
+  vertical-align: top;
+}
+.md table tr:last-child td { border-bottom: none; }
+.md table tr:hover td { background: #fafbfc; }
+
+.md input[type="checkbox"] {
+  margin-right: 6px;
+  accent-color: var(--accent);
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 20px 0 40px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted2);
+  margin-top: 20px;
+}
+footer code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  background: #f0f0f0;
+  padding: 2px 7px;
+  border-radius: 3px;
+  color: var(--muted);
+}
+footer .files {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .wrap { padding: 0 18px; }
+  .hero h1 { font-size: 24px; }
+  .section { padding: 24px 20px; }
+  .section h2.section-title { font-size: 20px; }
+  .md table { font-size: 11.5px; }
+  .md table th, .md table td { padding: 7px 8px; }
+}
+
+/* Print */
+@media print {
+  body { background: #fff; font-size: 10.5pt; }
+  .hero {
+    background: var(--hero-bg) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    padding: 24px 0;
+  }
+  .hero h1 { font-size: 22pt; }
+  .toc-strip { display: none; }
+  .section {
+    break-inside: avoid-page;
+    border: none;
+    padding: 16px 0;
+    margin-bottom: 8px;
+    box-shadow: none;
+  }
+  .section h2.section-title { font-size: 16pt; }
+  .md h2 { font-size: 13pt; break-after: avoid; }
+  .md h3 { break-after: avoid; }
+  .md table, .md pre, .md blockquote { break-inside: avoid; }
+  footer { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-label">Разведка спроса</div>
+    <h1>МедИИум</h1>
+    <p class="hero-sub">Спрос, конкуренты, каналы · 272 запроса и 46 доменов в keys.so · ревизия 16.09.2026</p>
+    <div class="hero-meta">
+      <div><div class="label">URL</div><div class="value"><a href="https://ivanilin.ru/mediium/" target="_blank">https://ivanilin.ru/mediium/</a></div></div>
+      <div><div class="label">Ниша</div><div class="value">ИИ-администратор для медицинских клиник</div></div>
+      <div><div class="label">Регион</div><div class="value">Россия, Яндекс</div></div>
+      <div><div class="label">Дата</div><div class="value">2026-09-16</div></div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc-strip">
+  <div class="wrap"><ul><li><a href="#section-audit-summary">Вердикт</a></li><li><a href="#section-vocabulary-check">Словарь категории</a></li><li><a href="#section-keys-demand-20260915">Спрос: что показал keys.so</a></li><li><a href="#section-competitors-keywords">Конкуренты: что приносит им трафик</a></li><li><a href="#section-site-map">Карта страниц</a></li><li><a href="#section-direct-core">Ядро под Директ</a></li></ul></div>
+</nav>
+
+<main class="content">
+  <div class="wrap">
+    
+<section class="section" id="section-audit-summary">
+  <div class="section-head">
+    <span class="section-num">01 · ВЕРДИКТ</span>
+  </div>
+  <h2 class="section-title">Спрос по категории не фиксируется, входить надо обходом</h2>
+  <div class="md"><p><strong>Сбор данных:</strong> 15.09.2026. <strong>Ревизия:</strong> 16.09.2026.
+Проверено 272 запроса и 46 доменов через keys.so, база Яндекс Россия.
+Частотность везде <code>wsk</code> (оценка Яндекс.Директа), а не завышенный Вордстат.</p>
+<hr>
+<h2>Как читать этот отчёт</h2>
+<p>Главный вывод построен на отсутствии запросов в базе keys.so, поэтому сначала о том,
+что это доказывает, а что нет.</p>
+<p><strong>404 от API означает «запроса нет в индексе keys.so», а не «людям это не нужно».</strong>
+Индекс собирается из Вордстата и парсинга выдачи, порог попадания у сервиса свой.
+Практически 404 означает частоту около нуля, но математическим нулём не является.
+Дальше по тексту такие случаи названы «спрос не фиксируется».</p>
+<p><strong>Метод проверен контролем.</strong> В тот же прогон добавлены заведомо живые запросы:
+«ии» 486 368, «стоматология» 47 075, «отбеливание зубов» 8 676, «мис» 6 271,
+«запись к стоматологу» 815. Все вернули данные. Пустые ответы это свойство запроса,
+а не сбой выгрузки.</p>
+<p><strong>Что осталось непроверенным:</strong> Google, региональные базы, разговорный длинный хвост
+и, главное, запросы к ИИ-ассистентам. Если владелец клиники спрашивает у GPT или Алисы,
+чем заменить администратора, Вордстат этот спрос не видит в принципе. Полный список пробелов
+в разделе «Словарь категории».</p>
+<p><strong>Все суммы ниже это расчёты, а не замеры.</strong> Слагаемые показаны явно.</p>
+<hr>
+<h2>Главное</h2>
+<p><strong>1. Ни одна формулировка продукта спроса не показывает.</strong> Проверено 50 вариантов названия
+категории, все вернули 404: «ии администратор», «ии администратор клиники», «виртуальный администратор»,
+«цифровой администратор», «ai администратор», «ии ресепшн», «ai receptionist», «ии агент для клиники»,
+«ассистент администратора клиники», «нейросеть для клиники», «голосовой робот для клиники»,
+«робот для регистратуры», «умная регистратура», «чат бот для стоматологии» и далее по списку.</p>
+<p>Живые формулировки с нашим интентом набирают около 160 запросов в месяц, и почти все описывают
+функцию, а не продукт: «медицинский чат бот» 27, «ии секретарь» 44, «умный автоответчик» 25,
+«ии аналитика звонков» 18, «ии для колл центра» 6.</p>
+<p><strong>2. Крупные цифры рядом принадлежат чужим смыслам.</strong> «Электронная регистратура» 94 015 запросов
+это ЕМИАС и пациенты. «Ии помощник» 8 202 и «голосовой помощник» 8 155 это Алиса.
+«Voice ai» 2 089 это приложение смены голоса. Ни один из этих объёмов нам не достанется.</p>
+<p><strong>3. Спрос владельцев клиник живёт в брендах чужого софта.</strong> Медлок 24 250, Медеск 7 128,
+Клиентикс 3 734, Медэлемент 2 892, Айдент 1 126, Дентал Про 979 запросов в месяц.</p>
+<blockquote>
+<p><strong>Расчёт.</strong> Три системы из наших интеграций: клиентикс 3 734 + айдент 1 126 + дентал про 979
+= <strong>5 839 запросов в месяц</strong>. Слагаемые проверены напрямую через <code>keyword_dashboard</code>.</p>
+</blockquote>
+<p><strong>4. Конкуренты живут Директом, не органикой.</strong> Loyalmed, ближайший аналог, имеет видимость 3
+при 82 объявлениях. Medods при видимости 19 держит 1 227 рекламных ключей.
+Ни один игрок в нише не получает органический трафик с продуктовых страниц.</p>
+<hr>
+<h2>Четыре полки со спросом</h2>
+<table>
+<thead>
+<tr>
+<th>Полка</th>
+<th>Объём, запросов/мес</th>
+<th>Ставки ₽</th>
+<th>Кому подходит</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Бренды МИС из наших интеграций</td>
+<td>5 839</td>
+<td>43–291</td>
+<td>страницы «МедИИум для &lt;система&gt;»</td>
+</tr>
+<tr>
+<td>Софт для стоматологии</td>
+<td>493</td>
+<td>123–627</td>
+<td>коммерческий лендинг</td>
+</tr>
+<tr>
+<td>ЕГИСЗ и регуляторика</td>
+<td>727</td>
+<td>12–261</td>
+<td>статья, верх воронки</td>
+</tr>
+<tr>
+<td>Обзвон и ИИ для бизнеса</td>
+<td>4 306</td>
+<td>6–551</td>
+<td>Директ, лид дороже</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Расчёты.</strong>
+Стоматология: 193 + 157 + 63 + 43 + 33 + 4 = <strong>493</strong> (мис для стоматологии, программа для стоматологии,
+мис для стоматологии с егисз, crm для стоматологии, программа для стоматологической клиники,
+автоматизация стоматологии). Ещё 26 даёт «срм для стоматологии», но эта цифра взята
+из рекламного ядра конкурента, а не из прямой проверки, поэтому в сумму не включена.</p>
+<p>ЕГИСЗ: 613 + 63 + 30 + 13 + 8 = <strong>727</strong>.</p>
+<p>Обзвон и ИИ: 1 421 + 2 885 = <strong>4 306</strong>, суммы групп 8 и 9 из <code>direct-core.csv</code>.
+Группа 9 неотраслевая, приводит любой бизнес.</p>
+</blockquote>
+<p>Стоматология обгоняет остальные ниши в разы. Косметология и ветклиники дают по 12–14 запросов,
+отдельных лендингов пока не заслуживают.</p>
+<hr>
+<h2>Лучшая находка: ЕГИСЗ</h2>
+<p>Подключение к ЕГИСЗ обязательно для частных клиник, поэтому спрос устойчивый.</p>
+<table>
+<thead>
+<tr>
+<th>Запрос</th>
+<th>Частота</th>
+<th>Ставка ₽</th>
+<th>Объявлений</th>
+<th>KEI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>егисз что это такое в медицине</td>
+<td>613</td>
+<td>12</td>
+<td>5</td>
+<td>85</td>
+</tr>
+<tr>
+<td>мис для стоматологии с егисз</td>
+<td>63</td>
+<td>261</td>
+<td>16</td>
+<td>56</td>
+</tr>
+<tr>
+<td>интеграция с егисз</td>
+<td>30</td>
+<td>44</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td>регистрация в егисз частной стоматологии</td>
+<td>13</td>
+<td>79</td>
+<td>13</td>
+<td>72</td>
+</tr>
+<tr>
+<td>подключение к егисз</td>
+<td>8</td>
+<td>19</td>
+<td>6</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>Шестнадцать объявлений на запросе с частотой 63 показывают, что за клиента дерутся всерьёз.
+KEI 72–85 на соседних запросах означает слабую органику, туда легко зайти.</p>
+<p>Оговорка по интенту: человек ищет, как подключиться к ЕГИСЗ, а не ИИ-администратора.
+Это верх воронки, продавать в лоб нельзя.</p>
+<hr>
+<h2>Вторая находка: «бренд плюс программа»</h2>
+<p>Связка работает лучше голого бренда. Человек ищет софт, а не вход в личный кабинет.</p>
+<table>
+<thead>
+<tr>
+<th>Запрос</th>
+<th>Частота</th>
+<th>Ставка ₽</th>
+<th>KEI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>айдент программа для стоматологии</td>
+<td>197</td>
+<td>291</td>
+<td>66</td>
+</tr>
+<tr>
+<td>инфоклиника медицинская информационная система</td>
+<td>138</td>
+<td>56</td>
+<td>80</td>
+</tr>
+<tr>
+<td>инфодент программа для стоматологии</td>
+<td>123</td>
+<td>159</td>
+<td>67</td>
+</tr>
+<tr>
+<td>клиника онлайн программа</td>
+<td>80</td>
+<td>55</td>
+<td>59</td>
+</tr>
+<tr>
+<td>1с стоматология программа</td>
+<td>57</td>
+<td>136</td>
+<td>29</td>
+</tr>
+</tbody>
+</table>
+<p>KEI 49–80 значит, что топ берётся дёшево.</p>
+<hr>
+<h2>Что делать по порядку</h2>
+<table>
+<thead>
+<tr>
+<th>Шаг</th>
+<th>Что</th>
+<th>Почему так рано</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Техправки текущей страницы</td>
+<td>нет meta description, нет внутренних ссылок, стоит часы</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Лендинг под стоматологию</td>
+<td>493 запроса при ставках до 627 ₽, самая дорогая аудитория</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Статья про ЕГИСЗ</td>
+<td>KEI 72–85, устойчивый спрос, слабая выдача</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Страница «МедИИум для Клиентикс»</td>
+<td>3 734 запроса, крупнейший брендовый спрос среди наших интеграций</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Страницы для Ident и DentalPro</td>
+<td>тот же шаблон, дешёвое тиражирование</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Директ по группам 1–3</td>
+<td>лиды на старте берутся здесь, как у всех конкурентов</td>
+</tr>
+</tbody>
+</table>
+<p>Детали по страницам в разделе «Карта страниц», по рекламе в разделе «Ядро под Директ»
+и в файле <code>direct-core.csv</code> на 98 ключей с минус-словами.</p>
+<hr>
+<h2>Куда не ходить</h2>
+<p><strong>Пациентский спрос.</strong> «Электронная регистратура» 94 015, «запись на приём к врачу» 60 442,
+«электронная медицинская карта» 25 292, «личный кабинет пациента» 1 250. Выдачу держат ЕМИАС,
+mos.ru, Госуслуги и Минздрав. Ищут пациенты, а не клиники.</p>
+<p><strong>Интеграции как отдельный запрос.</strong> Проверено 12 формулировок, живых нет ни одной:
+«клиентикс интеграция», «медеск интеграция», «dentalpro api», «интеграция мис с amocrm».
+Интеграция работает аргументом внутри страницы и провальна как вход в неё.</p>
+<p><strong>Сравнения МИС.</strong> «Сравнение мис», «какую мис выбрать», «обзор мис», «лучшая мис»
+спроса не показывают, «рейтинг мис» равен двум.</p>
+<p><strong>Модель zvonobot.</strong> Их органика построена на общем интернет-глоссарии: Discord, дедлайн,
+скриншотеры, амбассадор. Трафик есть, клиник там нет.</p>
+<hr>
+<h2>Чего ждать по цифрам</h2>
+<p>Домен <code>ivanilin.ru</code> в базе keys.so отсутствует: ноль ключей в топ-50. Стартуем с нуля.</p>
+<blockquote>
+<p><strong>Оценка, а не расчёт.</strong> 200–500 визитов в месяц через полгода при выполнении шагов 1–5.
+Это суждение по аналогии с конкурентами сопоставимого размера (dental-pro.online vis 67,
+klientiks.ru vis 180), а не модель. Проверяемого основания под этой цифрой нет,
+относиться к ней как к ориентиру порядка величины.</p>
+</blockquote>
+<p>Почти весь объём придёт со страниц под бренды МИС. Продуктовые формулировки не дадут ничего,
+потому что спроса по ним не видно.</p>
+<p>Отдельное решение до начала работ: продвигать продукт в подпапке личного сайта тяжело.
+Тематика домена размыта, ссылочного веса под медицинский софт нет. Под серьёзную органику
+нужен отдельный домен.</p>
+<p>Дешёвый недооценённый канал: ответы Яндекс Нейро. Rechka.ai при видимости 43 собрал
+2 296 вхождений в AI-ответы, конкуренции за цитирование в теме почти нет.
+Там же лежит непроверенный спрос: вопросы к ИИ-ассистентам Вордстат не измеряет.</p></div>
+</section>
+<section class="section" id="section-vocabulary-check">
+  <div class="section-head">
+    <span class="section-num">02 · СЛОВАРЬ</span>
+  </div>
+  <h2 class="section-title">Словарь категории: проверено, живо, не проверялось</h2>
+  <div class="md"><p><strong>Ревизия 16.09.2026.</strong> Раздел добавлен после замечания, что отсутствие фразы в базе keys.so
+нельзя выдавать за отсутствие спроса. Здесь три состояния разведены явно.</p>
+<hr>
+<h2>Что означает каждое состояние</h2>
+<p><strong>Есть в базе.</strong> keys.so вернул частоту. Цифра <code>wsk</code> это оценка Яндекс.Директа,
+обновлялась в мае 2025. Надёжно.</p>
+<p><strong>Нет в базе.</strong> <code>keyword_dashboard</code> вернул 404. Это значит, что запроса нет в индексе keys.so.
+Индекс собирается из Вордстата и парсинга выдачи, порог попадания у сервиса свой и не опубликован.
+Практически это означает частоту около нуля, но доказательством нуля не является.
+Правильная формулировка: <strong>по этой формулировке спрос не фиксируется</strong>.</p>
+<p><strong>Не проверялось.</strong> Перечислено ниже отдельным списком, чтобы не выдавать пробел за результат.</p>
+<h3>Контроль метода</h3>
+<p>Чтобы отделить «404 из-за отсутствия спроса» от «404 из-за сбоя», в тот же прогон добавлены
+заведомо живые запросы. Все вернули данные:</p>
+<table>
+<thead>
+<tr>
+<th>Контрольный запрос</th>
+<th>wsk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ии</td>
+<td>486 368</td>
+</tr>
+<tr>
+<td>стоматология</td>
+<td>47 075</td>
+</tr>
+<tr>
+<td>отбеливание зубов</td>
+<td>8 676</td>
+</tr>
+<tr>
+<td>мис</td>
+<td>6 271</td>
+</tr>
+<tr>
+<td>запись к стоматологу</td>
+<td>815</td>
+</tr>
+</tbody>
+</table>
+<p>Метод работает. Пустые ответы это свойство запроса, а не техническая ошибка.</p>
+<hr>
+<h2>Проверено: есть спрос</h2>
+<p>Формулировки, описывающие сам продукт или близкие к нему роли.</p>
+<table>
+<thead>
+<tr>
+<th>Запрос</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+<th>Кто в топе</th>
+<th>Наш ли интент</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>электронная регистратура</td>
+<td>94 015</td>
+<td>22</td>
+<td>emias.info, emias.mos.ru</td>
+<td>нет, пациентский и госсектор</td>
+</tr>
+<tr>
+<td>ии помощник</td>
+<td>8 202</td>
+<td>43</td>
+<td>alice.yandex.ru</td>
+<td>нет, про Алису и общие ИИ</td>
+</tr>
+<tr>
+<td>голосовой помощник</td>
+<td>8 155</td>
+<td>82</td>
+<td>alice.yandex.ru</td>
+<td>нет, про Алису</td>
+</tr>
+<tr>
+<td>ии бот</td>
+<td>4 417</td>
+<td>25</td>
+<td>yandex.ru, giga.chat</td>
+<td>нет, общий</td>
+</tr>
+<tr>
+<td>voice ai</td>
+<td>2 089</td>
+<td>8</td>
+<td>voice.ai</td>
+<td>нет, приложение смены голоса</td>
+</tr>
+<tr>
+<td>ии ассистент</td>
+<td>1 222</td>
+<td>91</td>
+<td>timeweb.com, sber</td>
+<td>частично</td>
+</tr>
+<tr>
+<td>ии для бизнеса</td>
+<td>645</td>
+<td>234</td>
+<td>qsoft.ru</td>
+<td>частично, не медицина</td>
+</tr>
+<tr>
+<td>ai агент</td>
+<td>288</td>
+<td>45</td>
+<td>yandex.cloud</td>
+<td>частично</td>
+</tr>
+<tr>
+<td>ии помощник для бизнеса</td>
+<td>226</td>
+<td>271</td>
+<td>simpleone.ru, crafttalk.ru</td>
+<td><strong>да, смежный</strong></td>
+</tr>
+<tr>
+<td>ai ассистент</td>
+<td>224</td>
+<td>111</td>
+<td>timeweb.com, mymeet.ai</td>
+<td>частично</td>
+</tr>
+<tr>
+<td>ai agent</td>
+<td>207</td>
+<td>19</td>
+<td>yandex.cloud</td>
+<td>частично</td>
+</tr>
+<tr>
+<td>голосовой бот</td>
+<td>159</td>
+<td>10</td>
+<td>voicebot.su</td>
+<td><strong>да, смежный</strong></td>
+</tr>
+<tr>
+<td>ии секретарь</td>
+<td>44</td>
+<td>76</td>
+<td>mts-link.ru, 3cx.ru</td>
+<td><strong>да, смежный</strong></td>
+</tr>
+<tr>
+<td>чат бот запись к врачу</td>
+<td>34</td>
+<td>17</td>
+<td>minzdrav.gov.ru</td>
+<td>да, но выдача государственная</td>
+</tr>
+<tr>
+<td>медицинский чат бот</td>
+<td>27</td>
+<td>3</td>
+<td>medpedia.ru</td>
+<td><strong>да</strong></td>
+</tr>
+<tr>
+<td>чат бот врач</td>
+<td>25</td>
+<td>5</td>
+<td>phag-rostov.ru</td>
+<td><strong>да</strong></td>
+</tr>
+<tr>
+<td>виртуальная регистратура</td>
+<td>25</td>
+<td>0</td>
+<td>er.zdrav31.ru</td>
+<td>нет, госпорталы</td>
+</tr>
+<tr>
+<td>умный автоответчик</td>
+<td>25</td>
+<td>7</td>
+<td>sberdevices.ru, twin24.ai</td>
+<td><strong>да, смежный</strong></td>
+</tr>
+<tr>
+<td>ии аналитика звонков</td>
+<td>18</td>
+<td>225</td>
+<td>rechka.ai</td>
+<td><strong>да, смежный</strong></td>
+</tr>
+<tr>
+<td>регистратура клиники</td>
+<td>11</td>
+<td>9</td>
+<td>medicina.ru</td>
+<td>нет, ищут телефон своей клиники</td>
+</tr>
+<tr>
+<td>бот врач</td>
+<td>8</td>
+<td>2</td>
+<td>medpedia.ru</td>
+<td>да</td>
+</tr>
+<tr>
+<td>виртуальный секретарь</td>
+<td>8</td>
+<td>18</td>
+<td>calldirect.ru, mtt.ru</td>
+<td>да, смежный</td>
+</tr>
+<tr>
+<td>ии для колл центра</td>
+<td>6</td>
+<td>142</td>
+<td>chatapp.online, mtt.ru</td>
+<td><strong>да, смежный</strong></td>
+</tr>
+<tr>
+<td>ассистент администратора</td>
+<td>4</td>
+<td>2</td>
+<td>hh.ru, avito</td>
+<td>нет, вакансии</td>
+</tr>
+<tr>
+<td>ии для анализа звонков</td>
+<td>3</td>
+<td>100</td>
+<td>rechka.ai</td>
+<td>да, смежный</td>
+</tr>
+<tr>
+<td>робот регистратор</td>
+<td>2</td>
+<td>0</td>
+<td>i-teh.com</td>
+<td>нет, промышленная автоматика</td>
+</tr>
+<tr>
+<td>бот администратор</td>
+<td>1</td>
+<td>0</td>
+<td>pr-cy.ru</td>
+<td>нет, про админов сайтов</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Что отсюда следует.</strong> Спрос по категории существует, но распадается на три части.
+Крупные цифры принадлежат чужим смыслам: «электронная регистратура» это ЕМИАС и пациенты,
+«ии помощник» и «голосовой помощник» это Алиса, «voice ai» это приложение смены голоса.
+Формулировок с нашим интентом набирается около 160 запросов в месяц, и почти все они смежные,
+то есть описывают функцию (обработка звонков, чат-бот, секретарь), а не продукт целиком.</p>
+<hr>
+<h2>Проверено: спрос не фиксируется</h2>
+<p>Пятьдесят формулировок вернули 404, включая все, которыми описывает себя сам продукт.</p>
+<p><strong>Собственно категория:</strong>
+ии администратор · ии администратор клиники · виртуальный администратор · цифровой администратор ·
+автоматический администратор · ai администратор · ии ресепшн · ai receptionist · ии сотрудник ·
+ии агент · ии агент для клиники · ai агент для клиники · ассистент администратора клиники</p>
+<p><strong>Продукт под клинику:</strong>
+ии для клиники · ии для медицинского центра · нейросеть для клиники · виртуальный помощник для клиники ·
+ии для записи пациентов · автоответчик для клиники · автоматизация клиники · автоматизация медицинского центра ·
+автоматизация записи пациентов · автоматизация косметологии</p>
+<p><strong>Боты:</strong>
+чат бот для стоматологии · чат бот для медицинского центра · чат бот для косметологии ·
+чат бот для записи · чат бот для записи на приём · телеграм бот для записи на приём ·
+чат бот администратор · чат бот для бизнеса · бот с ии</p>
+<p><strong>Роботы и обзвон:</strong>
+голосовой робот · голосовой робот для клиники · робот обзвона · робот для записи на приём ·
+робот для регистратуры · колл центр регистратура · ии обработка звонков · ии для обработки заявок</p>
+<p><strong>Регистратура:</strong>
+умная регистратура · цифровая регистратура · автоматизация регистратуры</p>
+<p><strong>Прочее:</strong>
+нейросеть для бизнеса · автоматизация бизнеса ии · автоматизация продаж ии ·
+администратор стоматологии · администратор клиники обязанности · контроль качества администраторов ·
+работа с базой пациентов</p>
+<hr>
+<h2>Не проверялось</h2>
+<p>Честный список пробелов. Ни один из них не закрыт, и выводы отчёта их не учитывают.</p>
+<table>
+<thead>
+<tr>
+<th>Пробел</th>
+<th>Почему важен</th>
+<th>Чем закрыть</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Google</strong></td>
+<td><code>keyword_dashboard</code> игнорирует параметр <code>base</code> и всегда отдаёт Яндекс</td>
+<td>Search Console или сторонний сервис</td>
+</tr>
+<tr>
+<td><strong>Запросы к ИИ-ассистентам</strong></td>
+<td>если владелец клиники спрашивает у GPT или Алисы «чем заменить администратора», этот спрос Вордстат не видит в принципе</td>
+<td>замер цитирований в AI-ответах, не частот</td>
+</tr>
+<tr>
+<td><strong>Региональные варианты</strong></td>
+<td>«ии администратор москва» и подобное не проверялись</td>
+<td>базы <code>msk</code>, <code>spb</code> в keys.so</td>
+</tr>
+<tr>
+<td><strong>Свежие формулировки</strong></td>
+<td>частоты Вордстата в API обновлялись в мае 2025, новые слова рынка могли не попасть</td>
+<td>повторная выгрузка, когда keys.so обновит частоты</td>
+</tr>
+<tr>
+<td><strong>Разговорный длинный хвост</strong></td>
+<td>«как сделать чтобы клиника не теряла звонки» и похожее</td>
+<td>подсказки Вордстата, не API</td>
+</tr>
+<tr>
+<td><strong>Спрос на английском</strong></td>
+<td>проверены только <code>ai agent</code>, <code>ai assistant</code>, <code>ai receptionist</code></td>
+<td>отдельный прогон, если целимся не только в РФ</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Что требует повторной выгрузки</h2>
+<table>
+<thead>
+<tr>
+<th>Что</th>
+<th>Почему сейчас неполно</th>
+<th>Насколько</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Органика конкурентов</td>
+<td>глубокая пагинация keys.so 15.09 деградировала, страницы глубже двух тысяч строк отдавали пустоту после шести ретраев</td>
+<td>medesk.ru 42%, rechka.ai 41%, zvonobot.ru 25%, dental-pro.online 69%</td>
+</tr>
+<tr>
+<td>Суммы по кластерам конкурентов</td>
+<td>считать по <code>competitors_raw.json</code> нельзя, цифры занижены</td>
+<td>использовать <code>mediium_keys.json</code></td>
+</tr>
+<tr>
+<td>Позиции в выдаче</td>
+<td><code>serpf</code> показывает дату последней проверки SERP, может отставать</td>
+<td>при следующем заходе сверить</td>
+</tr>
+<tr>
+<td>Частоты</td>
+<td>Вордстат в ответах API от мая 2025</td>
+<td>пересчитать, когда обновится</td>
+</tr>
+</tbody>
+</table>
+<p>Выдача API при этом не отсортирована по трафику: у rechka.ai последние 500 собранных строк дали
+больше <code>superwsk</code>, чем первые 500. Значит пропуски случайные, а не в пользу топовых ключей.
+Для поиска формулировок неполнота терпима, для оценки объёма занижает.</p></div>
+</section>
+<section class="section" id="section-keys-demand-20260915">
+  <div class="section-head">
+    <span class="section-num">03 · СПРОС</span>
+  </div>
+  <h2 class="section-title">Спрос: что показал keys.so</h2>
+  <div class="md"><p><strong>Дата:</strong> 15.09.2026
+<strong>Метод:</strong> 195 запросов через <code>report/simple/keyword_dashboard</code>, 33 домена через <code>domain_dashboard</code>.
+База <code>ru</code> (Яндекс Россия). Частотность везде <code>wsk</code> (Директ Keyword Planner), не <code>ws</code>.
+Сырьё: <code>data/mediium_keys.json</code>, <code>data/mediium_domains.json</code>.</p>
+<p><strong>Ревизия 16.09.2026:</strong> формулировки уточнены. Отсутствие запроса в базе keys.so означает,
+что спрос по нему не фиксируется, а не что спроса нет вовсе. Полный разбор с контролем метода
+и списком непроверенного в разделе «Словарь категории».</p>
+<p><strong>Итог одной строкой:</strong> из 195 проверенных формулировок 95 отсутствуют в базе keys.so целиком.
+Среди них все до единой формулировки самого продукта.</p>
+<hr>
+<h2>1. По формулировкам продукта спрос не фиксируется</h2>
+<p>Этих запросов нет в индексе keys.so. Контрольные запросы в том же прогоне данные вернули,
+значит дело не в сбое выгрузки:</p>
+<p>ии администратор · ии администратор клиники · виртуальный администратор · нейросеть для клиники ·
+ии для клиники · ии для медицинского центра · ии сотрудник · нейросотрудник ·
+голосовой робот · голосовой робот для клиники · робот обзвона · робот для записи на приём ·
+автоматизация записи пациентов · автоматизация клиники · автоматизация медицинского центра ·
+автоматизация косметологии · чат бот для стоматологии · чат бот для медицинского центра ·
+чат бот для косметологии · чат бот для записи на приём · телеграм бот для записи на приём ·
+колл центр для клиники · медицинский колл центр · автообзвон пациентов · ip телефония для клиники ·
+запись пациентов · напоминание о приёме · смс напоминание пациентам · сбор отзывов пациентов ·
+работа с базой пациентов · доходимость пациентов · ии обработка звонков · ии для обработки заявок</p>
+<p>Ближайшее живое измеряется единицами в месяц:</p>
+<table>
+<thead>
+<tr>
+<th>Запрос</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+<th>Объявлений</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>автоматизация стоматологии</td>
+<td>4</td>
+<td>123</td>
+<td>18</td>
+</tr>
+<tr>
+<td>скрипты для администратора клиники</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+</tr>
+<tr>
+<td>обзвон пациентов</td>
+<td>1</td>
+<td>21</td>
+<td>4</td>
+</tr>
+<tr>
+<td>чат бот для клиники</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Восемнадцать объявлений Директа на запросе с частотой 4 говорят прямо: деньги в нише есть,
+слов для их поиска почти нет. Клиники не формулируют свою проблему как «мне нужен ИИ-администратор».</p>
+<p>Отдельная ловушка: «ии для стоматологии» (15) и «искусственный интеллект в стоматологии» (39)
+заняты Diagnocat. Это ИИ для чтения рентгеновских снимков. Встав туда, придётся сначала объяснять,
+что мы вообще про другое.</p>
+<hr>
+<h2>2. Четыре полки, где спрос реально есть</h2>
+<h3>Полка 1. Бренды систем для клиник</h3>
+<p>Владельцы клиник ищут не категорию, а систему по имени.</p>
+<table>
+<thead>
+<tr>
+<th>Бренд</th>
+<th>wsk/мес</th>
+<th>Интеграция МедИИум</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>медлок</td>
+<td>24 250</td>
+<td></td>
+</tr>
+<tr>
+<td>yclients</td>
+<td>23 077</td>
+<td>beauty</td>
+</tr>
+<tr>
+<td>медеск</td>
+<td>7 128</td>
+<td></td>
+</tr>
+<tr>
+<td>диагнокат</td>
+<td>4 163</td>
+<td>ИИ-рентген, смежный</td>
+</tr>
+<tr>
+<td><strong>клиентикс</strong></td>
+<td><strong>3 734</strong></td>
+<td>✅ есть</td>
+</tr>
+<tr>
+<td>медэлемент</td>
+<td>2 892</td>
+<td></td>
+</tr>
+<tr>
+<td>юклиентс</td>
+<td>2 586</td>
+<td>кириллицей</td>
+</tr>
+<tr>
+<td>барс мед</td>
+<td>1 761</td>
+<td></td>
+</tr>
+<tr>
+<td>клиника онлайн</td>
+<td>1 147</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>айдент</strong></td>
+<td><strong>1 126</strong></td>
+<td>✅ есть (Ident)</td>
+</tr>
+<tr>
+<td><strong>дентал про</strong></td>
+<td><strong>979</strong></td>
+<td>✅ есть (DentalPro)</td>
+</tr>
+<tr>
+<td>ветменеджер</td>
+<td>923</td>
+<td>ветклиники</td>
+</tr>
+<tr>
+<td>медмис</td>
+<td>821</td>
+<td></td>
+</tr>
+<tr>
+<td>инфоклиника</td>
+<td>621</td>
+<td></td>
+</tr>
+<tr>
+<td>медиалог</td>
+<td>315</td>
+<td></td>
+</tr>
+<tr>
+<td>1с стоматология</td>
+<td>314</td>
+<td></td>
+</tr>
+<tr>
+<td>renovatio</td>
+<td>296</td>
+<td></td>
+</tr>
+<tr>
+<td>инфодент</td>
+<td>234</td>
+<td></td>
+</tr>
+<tr>
+<td>medods</td>
+<td>168</td>
+<td></td>
+</tr>
+<tr>
+<td>universe soft</td>
+<td>64</td>
+<td></td>
+</tr>
+<tr>
+<td>ident стоматология</td>
+<td>34</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Три системы из списка интеграций собирают вместе около 5 800 запросов в месяц.
+Это готовая точка входа: человек уже платит за МИС и ищет её по имени.</p>
+<h3>Полка 2. «Программа / МИС / CRM для &lt;ниши&gt;»</h3>
+<p>Частота низкая, ставки высокие. Так выглядит рынок, где клиент дорогой.</p>
+<table>
+<thead>
+<tr>
+<th>Запрос</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+<th>Объявлений</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>медицинская информационная система</td>
+<td>202</td>
+<td>46</td>
+<td>8</td>
+</tr>
+<tr>
+<td>мис для стоматологии</td>
+<td>193</td>
+<td>507</td>
+<td>14</td>
+</tr>
+<tr>
+<td>программа для стоматологии</td>
+<td>157</td>
+<td>627</td>
+<td>8</td>
+</tr>
+<tr>
+<td>программа для салона красоты</td>
+<td>93</td>
+<td>406</td>
+<td>7</td>
+</tr>
+<tr>
+<td>crm для стоматологии</td>
+<td>43</td>
+<td>504</td>
+<td>18</td>
+</tr>
+<tr>
+<td>программа для стоматологической клиники</td>
+<td>33</td>
+<td>208</td>
+<td>9</td>
+</tr>
+<tr>
+<td>мис для частной клиники</td>
+<td>18</td>
+<td>140</td>
+<td>9</td>
+</tr>
+<tr>
+<td>программа для клиники</td>
+<td>16</td>
+<td>240</td>
+<td>5</td>
+</tr>
+<tr>
+<td>программа для ветеринарной клиники</td>
+<td>14</td>
+<td>65</td>
+<td>6</td>
+</tr>
+<tr>
+<td>мис для клиники</td>
+<td>12</td>
+<td>173</td>
+<td>5</td>
+</tr>
+<tr>
+<td>мис для косметологии</td>
+<td>12</td>
+<td>114</td>
+<td>2</td>
+</tr>
+<tr>
+<td>crm для клиники</td>
+<td>8</td>
+<td>182</td>
+<td>4</td>
+</tr>
+<tr>
+<td>программа для медицинского центра</td>
+<td>5</td>
+<td>89</td>
+<td>7</td>
+</tr>
+<tr>
+<td>crm для косметологии</td>
+<td>4</td>
+<td>26</td>
+<td>9</td>
+</tr>
+<tr>
+<td>программа для косметологии</td>
+<td>3</td>
+<td>9</td>
+<td>4</td>
+</tr>
+<tr>
+<td>программа для медцентра</td>
+<td>3</td>
+<td>44</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>Стоматология обгоняет остальные ниши в разы и по частоте, и по ставке.
+Косметология с ветеринарией дают по 12–14 запросов, отдельных лендингов пока не заслуживают.</p>
+<h3>Полка 3. Звонки и обзвон</h3>
+<table>
+<thead>
+<tr>
+<th>Запрос</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+<th>Объявлений</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>колл центр</td>
+<td>8 591</td>
+<td>198</td>
+<td>9</td>
+</tr>
+<tr>
+<td>оператор колл центра</td>
+<td>732</td>
+<td>20</td>
+<td>4</td>
+</tr>
+<tr>
+<td>контакт центр</td>
+<td>670</td>
+<td>113</td>
+<td>9</td>
+</tr>
+<tr>
+<td>звонобот</td>
+<td>415</td>
+<td>401</td>
+<td>3</td>
+</tr>
+<tr>
+<td>речевая аналитика</td>
+<td>331</td>
+<td>551</td>
+<td>9</td>
+</tr>
+<tr>
+<td>голосовой бот</td>
+<td>159</td>
+<td>10</td>
+<td>9</td>
+</tr>
+<tr>
+<td>обзвон клиентов</td>
+<td>120</td>
+<td>238</td>
+<td>13</td>
+</tr>
+<tr>
+<td>агрегатор мессенджеров</td>
+<td>72</td>
+<td>205</td>
+<td>8</td>
+</tr>
+<tr>
+<td>автообзвон</td>
+<td>32</td>
+<td>322</td>
+<td>22</td>
+</tr>
+<tr>
+<td>ии для колл центра</td>
+<td>6</td>
+<td>142</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p>«Колл центр» и «оператор колл центра» широкие и грязные: там сидят соискатели работы и зрители
+сериала «Колл-центр». В ядро брать только с минус-словами.</p>
+<h3>Полка 4. Общая ИИ-полка</h3>
+<table>
+<thead>
+<tr>
+<th>Запрос</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ии помощник</td>
+<td>8 202</td>
+<td>43</td>
+</tr>
+<tr>
+<td>ии бот</td>
+<td>4 417</td>
+<td>25</td>
+</tr>
+<tr>
+<td>ии ассистент</td>
+<td>1 222</td>
+<td>91</td>
+</tr>
+<tr>
+<td>ии для бизнеса</td>
+<td>645</td>
+<td>234</td>
+</tr>
+<tr>
+<td>ai агент</td>
+<td>288</td>
+<td>45</td>
+</tr>
+<tr>
+<td>ии помощник для бизнеса</td>
+<td>226</td>
+<td>271</td>
+</tr>
+<tr>
+<td>ии в медицине</td>
+<td>184</td>
+<td>19</td>
+</tr>
+<tr>
+<td>внедрение ии в бизнес</td>
+<td>114</td>
+<td>368</td>
+</tr>
+<tr>
+<td>искусственный интеллект в медицине</td>
+<td>90</td>
+<td>15</td>
+</tr>
+<tr>
+<td>ии менеджер по продажам</td>
+<td>34</td>
+<td>113</td>
+</tr>
+</tbody>
+</table>
+<p>Полка широкая и неотраслевая. Отсюда приходят не клиники, а любой бизнес,
+поэтому лид дороже и хуже квалифицирован.</p>
+<hr>
+<h2>3. Куда не ходить</h2>
+<p><strong>Пациентский спрос.</strong> «Запись на приём к врачу» даёт 60 442 в месяц, «записать к врачу» 937,
+«онлайн запись» 1 775. Это пациенты, а не клиники. Выдачу держат ЕМИАС, mos.ru и Госуслуги,
+конкурировать бессмысленно и незачем.</p>
+<p><strong>Интеграции.</strong> Проверено 12 формулировок, живых нет ни одной:
+клиентикс интеграция · клиентикс api (1) · медеск интеграция (0) · медэлемент api · dentalpro api ·
+инфоклиника интеграция · medods интеграция · yclients интеграция · интеграция мис с amocrm ·
+интеграция с мис · интеграция телефонии · интеграция whatsapp с amocrm.</p>
+<p>Клиники ищут систему, а не способ её соединить. Интеграция работает аргументом внутри страницы
+и провальна как вход в неё.</p>
+<p><strong>Сравнения и выбор.</strong> Отсутствуют: сравнение мис · какую мис выбрать · обзор мис · лучшая мис.
+«Рейтинг мис» = 2. Живёт только связка «бренд + отзывы», и она копеечная:</p>
+<table>
+<thead>
+<tr>
+<th>Запрос</th>
+<th>wsk</th>
+<th>KEI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>дентал про отзывы</td>
+<td>10</td>
+<td>4</td>
+</tr>
+<tr>
+<td>инфоклиника отзывы</td>
+<td>6</td>
+<td>35</td>
+</tr>
+<tr>
+<td>медеск отзывы</td>
+<td>5</td>
+<td>62</td>
+</tr>
+<tr>
+<td>клиентикс отзывы</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>KEI 35–62 означает, что топ берётся почти бесплатно. Частота смешная, но лид тёплый.</p>
+<p><strong>Маркетинговые запросы клиник.</strong> «Маркетинг клиники», «продвижение клиники»,
+«продвижение стоматологии», «привлечение клиентов в клинику», «маркетолог для клиники»
+отсутствуют полностью. Живут только «реклама стоматологии» (52) и «реклама клиники» (33),
+и там сидят рекламные агентства.</p>
+<hr>
+<h2>4. Кто уже стоит на этих полках</h2>
+<p>Прямые аналоги в органике почти отсутствуют. Те, кто продаёт, покупает трафик.</p>
+<table>
+<thead>
+<tr>
+<th>Домен</th>
+<th>vis</th>
+<th>Ключей в топ-50</th>
+<th>Реклама (ключей/объявл.)</th>
+<th>AI-ответы Яндекса</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>loyalmed.ru (чат-боты клиникам)</td>
+<td>3</td>
+<td>105</td>
+<td>132 / 82</td>
+<td>6</td>
+</tr>
+<tr>
+<td>crafttalk.ru</td>
+<td>7</td>
+<td>277</td>
+<td>0</td>
+<td>24</td>
+</tr>
+<tr>
+<td>max-osnova.ru</td>
+<td>8</td>
+<td>261</td>
+<td>0</td>
+<td>85</td>
+</tr>
+<tr>
+<td>sherpaai.ru</td>
+<td>9</td>
+<td>529</td>
+<td>0</td>
+<td>81</td>
+</tr>
+<tr>
+<td>nextbot.ru</td>
+<td>13</td>
+<td>267</td>
+<td>0</td>
+<td>190</td>
+</tr>
+<tr>
+<td>komanda.ai</td>
+<td>41</td>
+<td>881</td>
+<td>58 / 25</td>
+<td>210</td>
+</tr>
+<tr>
+<td>chatapp.online</td>
+<td>43</td>
+<td>976</td>
+<td>104 / 67</td>
+<td>83</td>
+</tr>
+<tr>
+<td>rechka.ai</td>
+<td>43</td>
+<td>5 294</td>
+<td>0</td>
+<td><strong>2 296</strong></td>
+</tr>
+<tr>
+<td>twin24.ai</td>
+<td>72</td>
+<td>1 625</td>
+<td>0</td>
+<td>881</td>
+</tr>
+<tr>
+<td>zvonobot.ru</td>
+<td>215</td>
+<td>20 780</td>
+<td>287 / 93</td>
+<td>1 450</td>
+</tr>
+</tbody>
+</table>
+<p>Вендоры МИС собирают больше, но тоже без чудес:</p>
+<table>
+<thead>
+<tr>
+<th>Домен</th>
+<th>vis</th>
+<th>Ключей в топ-50</th>
+<th>Реклама</th>
+<th>AI-ответы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>medelement.com</td>
+<td>673</td>
+<td>61 097</td>
+<td>0</td>
+<td>1 973</td>
+</tr>
+<tr>
+<td>medesk.ru</td>
+<td>451</td>
+<td>5 065</td>
+<td>0</td>
+<td>1 142</td>
+</tr>
+<tr>
+<td>klientiks.ru</td>
+<td>180</td>
+<td>870</td>
+<td>146 / 44</td>
+<td>40</td>
+</tr>
+<tr>
+<td>rnova.ru</td>
+<td>179</td>
+<td>670</td>
+<td>128 / 88</td>
+<td>61</td>
+</tr>
+<tr>
+<td>diagnocat.ru</td>
+<td>105</td>
+<td>163</td>
+<td>170 / 8</td>
+<td>22</td>
+</tr>
+<tr>
+<td>dental-pro.online</td>
+<td>67</td>
+<td>2 893</td>
+<td>392 / 127</td>
+<td>182</td>
+</tr>
+<tr>
+<td>infoclinica.ru</td>
+<td>25</td>
+<td>387</td>
+<td>145 / 75</td>
+<td>43</td>
+</tr>
+<tr>
+<td>medods.ru</td>
+<td>19</td>
+<td>2 407</td>
+<td><strong>1 227 / 257</strong></td>
+<td>150</td>
+</tr>
+<tr>
+<td>identcrm.ru</td>
+<td>14</td>
+<td>65</td>
+<td>0</td>
+<td>18</td>
+</tr>
+<tr>
+<td>yclients.com</td>
+<td>2 474</td>
+<td>12 467</td>
+<td>2 502 / 628</td>
+<td>2 513</td>
+</tr>
+</tbody>
+</table>
+<p>Три наблюдения:</p>
+<p>Medods при видимости 19 держит 1 227 рекламных ключей и 257 объявлений. Ниша окупает контекст,
+а органику всерьёз не пашет никто.</p>
+<p>Rechka.ai при видимости 43 собрал 2 296 вхождений в ответы Яндекс Нейро. Канал AI-ответов
+в этой теме почти пустой, заходить туда дёшево.</p>
+<p><code>ivanilin.ru</code> в базе keys.so отсутствует: ноль ключей в топ-50, стартуем с нуля.</p>
+<hr>
+<h2>5. Что из этого следует для МедИИума</h2>
+<p>Ставить SEO на категорию нельзя, её не ищут. Органика строится обходом:
+страницы под бренды МИС ловят чужой навигационный спрос, стоматологический лендинг
+закрывает единственную нишу с живыми ставками.</p>
+<p>Лиды на старте даёт Директ, ровно как у всех конкурентов.</p>
+<p>Дешёвый недооценённый канал: вопросные материалы под AI-ответы Яндекса.</p>
+<p>Разбор ядра по страницам лежит в <code>site-map.md</code>, группы под рекламу в <code>direct-core.md</code>.</p>
+<hr>
+<h2>Приложение. Оговорки по данным</h2>
+<ul>
+<li><code>keyword_dashboard</code> игнорирует параметр <code>base</code> и всегда отдаёт Яндекс. Google этим способом не проверить.</li>
+<li>Частоты Вордстата в ответах API обновлялись в мае 2025, позиции в выдаче свежие (начало сентября 2026).</li>
+<li>«Нет в базе» означает отсутствие запроса в индексе keys.so, а не сбой запроса: соседние формулировки
+  в тех же батчах отвечали нормально.</li>
+<li><code>ws</code> завышает объём кратно и в отчёте не используется. Пример: «онлайн запись на приём» даёт
+  ws 48 429 против wsk 209.</li>
+</ul></div>
+</section>
+<section class="section" id="section-competitors-keywords">
+  <div class="section-head">
+    <span class="section-num">04 · КОНКУРЕНТЫ</span>
+  </div>
+  <h2 class="section-title">Конкуренты: что приносит им трафик</h2>
+  <div class="md"><p><strong>Дата:</strong> 15.09.2026
+<strong>Метод:</strong> <code>organic/keywords</code> и <code>context/keywords</code> keys.so, группировка по <code>url</code>,
+оценка трафика <code>superwsk × CTR(pos)</code>. Сырьё: <code>data/competitors_raw.json</code>, скрипты <code>collect.py</code>,
+<code>resume.py</code>, <code>analyze.py</code>.</p>
+<p><strong>Покрытие сбора.</strong> Глубокая пагинация keys.so сейчас деградирует: страницы глубже
+двух тысяч строк систематически отдают пустоту даже после ретраев с прогревом.
+Собрано честно:</p>
+<table>
+<thead>
+<tr>
+<th>Домен</th>
+<th>Собрано</th>
+<th>Покрытие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>loyalmed.ru</td>
+<td>104 / 104</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>twin24.ai</td>
+<td>1 620 / 1 620</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>klientiks.ru</td>
+<td>874 / 874</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>komanda.ai</td>
+<td>880 / 880</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>chatapp.online</td>
+<td>962 / 977</td>
+<td>98%</td>
+</tr>
+<tr>
+<td>dental-pro.online</td>
+<td>2 000 / 2 884</td>
+<td>69%</td>
+</tr>
+<tr>
+<td>medesk.ru</td>
+<td>2 112 / 5 060</td>
+<td>42%</td>
+</tr>
+<tr>
+<td>rechka.ai</td>
+<td>2 143 / 5 291</td>
+<td>41%</td>
+</tr>
+<tr>
+<td>zvonobot.ru</td>
+<td>5 262 / 20 772</td>
+<td>25%</td>
+</tr>
+</tbody>
+</table>
+<p>Выдача API не отсортирована по трафику (проверено: у rechka.ai последние 500 строк дают больше
+<code>superwsk</code>, чем первые 500). Неполный пул смещает картину случайно, а не в пользу топовых ключей,
+поэтому выводы ниже надёжны по направлению и занижены по объёму.</p>
+<hr>
+<h2>1. Прямые аналоги трафика с продукта не получают</h2>
+<h3>loyalmed.ru, чат-боты для медклиник, собран целиком</h3>
+<table>
+<thead>
+<tr>
+<th>Страница</th>
+<th>Трафик/нед</th>
+<th>Ключи</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/lichnyy-kabinet-patsiyenta</code></td>
+<td>~49</td>
+<td>личный кабинет пациента (1 240)</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>~57</td>
+<td>гемохелп личный кабинет, лоял мед</td>
+</tr>
+<tr>
+<td><code>/chat-bot-dlya-meditsinskoy-kliniki</code></td>
+<td><strong>~4</strong></td>
+<td>чат бот врач (25), медицинский чат бот (18)</td>
+</tr>
+<tr>
+<td><code>/tsifrovykh-tekhnologiy-v-meditsine</code></td>
+<td>~1</td>
+<td>цифровизация в медицине</td>
+</tr>
+</tbody>
+</table>
+<p>Продуктовая страница про чат-бота для клиники даёт четыре визита в неделю.
+Весь остальной трафик приходит на чужой брендовый и пациентский спрос.</p>
+<h3>twin24.ai, голосовые ИИ-агенты</h3>
+<table>
+<thead>
+<tr>
+<th>Страница</th>
+<th>Трафик/нед</th>
+<th>На чём</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>~484</td>
+<td>бренд twin</td>
+</tr>
+<tr>
+<td><code>/company/articles/ishodyashhie-vyzovy…</code></td>
+<td>~194</td>
+<td>«исходящий звонок это» (662)</td>
+</tr>
+<tr>
+<td><code>/company/articles/chto-takoe-kontakt-czentr</code></td>
+<td>~60</td>
+<td>«контакт центр» (432)</td>
+</tr>
+<tr>
+<td><code>/company/articles/prozvon-chto-eto</code></td>
+<td>~35</td>
+<td>«прозвон» (107)</td>
+</tr>
+<tr>
+<td><code>/products/voice-ai-agent</code></td>
+<td><strong>~15</strong></td>
+<td>«умный автоответчик» (24)</td>
+</tr>
+</tbody>
+</table>
+<h3>rechka.ai, речевая аналитика</h3>
+<table>
+<thead>
+<tr>
+<th>Страница</th>
+<th>Трафик/нед</th>
+<th>На чём</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/blog/rukovoditel-otdela-prodazh</code></td>
+<td>~32</td>
+<td>«роп» (3 593)</td>
+</tr>
+<tr>
+<td><code>/blog/kak-poschitat-konversiyu</code></td>
+<td>~21</td>
+<td>«конверсия» (4 847)</td>
+</tr>
+<tr>
+<td><code>/blog/holodnye-zvonki</code></td>
+<td>~21</td>
+<td>«холодные звонки»</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>~14</td>
+<td>бренд, «ии аналитика звонков» (15)</td>
+</tr>
+<tr>
+<td><code>/blog/rechevaya-analitika-guide-2026</code></td>
+<td>~10</td>
+<td>«речевая аналитика» (331)</td>
+</tr>
+</tbody>
+</table>
+<h3>zvonobot.ru</h3>
+<p>Органика построена на общем интернет-глоссарии: Discord, GetCourse, скриншотеры, дедлайн,
+амбассадор, ошибка валидации. Единственная профильная страница «что такое колл центр» даёт ~66 в неделю
+при домашней странице на ~174. Ферма трафика, к продукту отношения не имеет.</p>
+<p><strong>Вывод по полке.</strong> Ни один игрок не получает органику с продуктовых страниц.
+Трафик берётся общим бизнес-глоссарием, который к покупке ИИ-агента не ведёт.
+Копировать эту модель бессмысленно.</p>
+<hr>
+<h2>2. Вендоры МИС: трафик даёт регуляторика и пациентские сервисы</h2>
+<h3>medesk.ru (vis 451)</h3>
+<table>
+<thead>
+<tr>
+<th>Страница</th>
+<th>Трафик/нед</th>
+<th>Ключ-локомотив</th>
+<th>superwsk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>~3 479</td>
+<td>медеск</td>
+<td>7 128</td>
+</tr>
+<tr>
+<td><code>/blog/elektronnaya-medicinskaya-karta-v-klinike</code></td>
+<td><strong>~1 068</strong></td>
+<td>электронная медицинская карта</td>
+<td>25 292</td>
+</tr>
+<tr>
+<td><code>/blog/zachem-nuzhna-egisz-i-kak-s-nei-rabotat</code></td>
+<td>~160</td>
+<td>егисз</td>
+<td>675</td>
+</tr>
+<tr>
+<td><code>/blog/kak-pravilno-sozdat-…-medkarty</code></td>
+<td>~110</td>
+<td>моя электронная медицинская карта</td>
+<td>18 229</td>
+</tr>
+<tr>
+<td><code>/blog/mis-v-meditsine</code></td>
+<td>~46</td>
+<td>что такое мис</td>
+<td>289</td>
+</tr>
+<tr>
+<td><code>/blog/ispolzovanie-nejrosetej-v-medicine</code></td>
+<td>~44</td>
+<td>медицинская нейросеть</td>
+<td>94</td>
+</tr>
+</tbody>
+</table>
+<p>Осторожно с ЭМК: «электронная медицинская карта» и «моя электронная медицинская карта» ищут пациенты,
+которым нужна своя карта. Трафик большой, лидов не даёт.</p>
+<h3>klientiks.ru (vis 180)</h3>
+<table>
+<thead>
+<tr>
+<th>Страница</th>
+<th>Трафик/нед</th>
+<th>На чём</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/login</code></td>
+<td>~2 219</td>
+<td>клиентикс вход (1 843)</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>~1 274</td>
+<td>клиентикс (3 734)</td>
+</tr>
+<tr>
+<td><code>/auto/egisz_chto_eto_i_zachem_podclyuchatsya</code></td>
+<td>~97</td>
+<td>егисз (11 433)</td>
+</tr>
+<tr>
+<td><code>/auto/mdlp-chestnyj-znak…</code></td>
+<td>~25</td>
+<td>мдлп (7 054)</td>
+</tr>
+<tr>
+<td><code>/smile</code></td>
+<td>~5</td>
+<td>мис для стоматологии (p12), программа для стоматологии (p23)</td>
+</tr>
+<tr>
+<td><code>/beauty</code></td>
+<td>~2</td>
+<td>программа для салона красоты (p18)</td>
+</tr>
+</tbody>
+</table>
+<p>Отраслевые лендинги <code>/smile</code> и <code>/beauty</code> стоят на нужных запросах, но на двенадцатой и восемнадцатой
+позиции. Ниша не защищена, туда можно зайти.</p>
+<h3>dental-pro.online (vis 67)</h3>
+<table>
+<thead>
+<tr>
+<th>Страница</th>
+<th>Трафик/нед</th>
+<th>На чём</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>~463</td>
+<td>дентал про (964)</td>
+</tr>
+<tr>
+<td><code>/blog/chto-takoe-meditsinskaya-informatsionnaya-sistema</code></td>
+<td>~37</td>
+<td>мис расшифровка</td>
+</tr>
+<tr>
+<td><code>/blog/egisz-v-stomatologii…</code></td>
+<td>~37</td>
+<td><strong>мис для стоматологии с егисз</strong> (63, CPC 288)</td>
+</tr>
+<tr>
+<td><code>/features/crm</code></td>
+<td>~25</td>
+<td>crm для стоматологии (43, CPC 407)</td>
+</tr>
+<tr>
+<td><code>/support/diagnocat-ai</code></td>
+<td>~18</td>
+<td>диагнокат (4 163)</td>
+</tr>
+</tbody>
+</table>
+<p>Страница <code>/support/diagnocat-ai</code> заслуживает отдельного внимания: вендор МИС сделал страницу
+под чужой ИИ-продукт, с которым интегрирован, и ловит его брендовый спрос 4 163 в месяц.
+Ровно та механика, которая нужна МедИИуму, только в обратную сторону.</p>
+<hr>
+<h2>3. ЕГИСЗ: главный недооценённый кластер</h2>
+<p>Подключение к ЕГИСЗ обязательно для частных клиник, и это единственная тема,
+которая одновременно даёт спрос, деньги и слабую выдачу.</p>
+<table>
+<thead>
+<tr>
+<th>Запрос</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+<th>Объявл.</th>
+<th>KEI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>егисз</td>
+<td>11 433</td>
+<td>16</td>
+<td>0</td>
+<td>17</td>
+</tr>
+<tr>
+<td>егисз что это такое в медицине</td>
+<td>613</td>
+<td>12</td>
+<td>5</td>
+<td><strong>85</strong></td>
+</tr>
+<tr>
+<td>мис для стоматологии с егисз</td>
+<td>63</td>
+<td><strong>261</strong></td>
+<td><strong>16</strong></td>
+<td>56</td>
+</tr>
+<tr>
+<td>интеграция с егисз</td>
+<td>30</td>
+<td>44</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td>регистрация в егисз частной стоматологии</td>
+<td>13</td>
+<td>79</td>
+<td><strong>13</strong></td>
+<td><strong>72</strong></td>
+</tr>
+<tr>
+<td>подключение к егисз</td>
+<td>8</td>
+<td>19</td>
+<td>6</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>Шестнадцать объявлений на «мис для стоматологии с егисз» при частоте 63 показывают,
+что за этого клиента дерутся всерьёз. KEI 72–85 на соседних запросах означает слабую органику.</p>
+<p>Рядом живёт МДЛП («честный знак» для лекарств) с частотой 7 054.</p>
+<hr>
+<h2>4. Формулировки, которых не было в нашем ядре</h2>
+<p>Проверены напрямую через <code>keyword_dashboard</code>, цифры авторитетные.</p>
+<h3>Бренд плюс слово «программа»: лучший вход на страницы под МИС</h3>
+<table>
+<thead>
+<tr>
+<th>Запрос</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+<th>Объявл.</th>
+<th>KEI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>айдент программа для стоматологии</td>
+<td><strong>197</strong></td>
+<td><strong>291</strong></td>
+<td>8</td>
+<td>66</td>
+</tr>
+<tr>
+<td>инфоклиника медицинская информационная система</td>
+<td>138</td>
+<td>56</td>
+<td>5</td>
+<td><strong>80</strong></td>
+</tr>
+<tr>
+<td>инфодент программа для стоматологии</td>
+<td>123</td>
+<td>159</td>
+<td>6</td>
+<td>67</td>
+</tr>
+<tr>
+<td>программа мис</td>
+<td>120</td>
+<td>70</td>
+<td>9</td>
+<td>7</td>
+</tr>
+<tr>
+<td>клиника онлайн программа</td>
+<td>80</td>
+<td>55</td>
+<td>6</td>
+<td>59</td>
+</tr>
+<tr>
+<td>1с стоматология программа</td>
+<td>57</td>
+<td>136</td>
+<td>7</td>
+<td>29</td>
+</tr>
+<tr>
+<td>медиалог программа для медицинского центра</td>
+<td>49</td>
+<td>26</td>
+<td>2</td>
+<td>49</td>
+</tr>
+<tr>
+<td>реновацио программа для клиник</td>
+<td>9</td>
+<td>15</td>
+<td>10</td>
+<td>74</td>
+</tr>
+<tr>
+<td>istom программа для стоматологии</td>
+<td>9</td>
+<td>17</td>
+<td>10</td>
+<td>21</td>
+</tr>
+</tbody>
+</table>
+<p>Связка «бренд + программа» работает лучше голого бренда: человек ищет не вход в личный кабинет,
+а софт. KEI 49–80 значит, что топ берётся дёшево.</p>
+<h3>Боты для клиник: спрос есть, но занят государством</h3>
+<table>
+<thead>
+<tr>
+<th>Запрос</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+<th>Кто в топе</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>чат бот запись к врачу</td>
+<td>34</td>
+<td>17</td>
+<td>minzdrav.gov.ru, mosreg</td>
+</tr>
+<tr>
+<td>медицинский чат бот</td>
+<td>27</td>
+<td>3</td>
+<td>medpedia.ru</td>
+</tr>
+<tr>
+<td>чат бот врач</td>
+<td>25</td>
+<td>5</td>
+<td>phag-rostov.ru</td>
+</tr>
+<tr>
+<td>бот врач</td>
+<td>8</td>
+<td>2</td>
+<td>medpedia.ru, zoya-ai.ru</td>
+</tr>
+<tr>
+<td>бот для стоматологии</td>
+<td>1</td>
+<td>10</td>
+<td>stoma1c.ru</td>
+</tr>
+</tbody>
+</table>
+<h3>Прочее</h3>
+<table>
+<thead>
+<tr>
+<th>Запрос</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+<th>Замечание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>коллтрекинг</td>
+<td>728</td>
+<td><strong>832</strong></td>
+<td>другая услуга, но полка соседняя</td>
+</tr>
+<tr>
+<td>приложение для записи клиентов</td>
+<td>339</td>
+<td>102</td>
+<td>beauty, держит YCLIENTS</td>
+</tr>
+<tr>
+<td>личный кабинет пациента</td>
+<td>1 250</td>
+<td>20</td>
+<td>пациентский, держит ЕМИАС</td>
+</tr>
+<tr>
+<td>программа для записи клиентов</td>
+<td>114</td>
+<td>143</td>
+<td>beauty</td>
+</tr>
+<tr>
+<td>журнал записи клиентов</td>
+<td>50</td>
+<td>61</td>
+<td>beauty</td>
+</tr>
+<tr>
+<td>программа для зуботехнической лаборатории</td>
+<td>34</td>
+<td>110</td>
+<td>15 объявлений, смежная ниша</td>
+</tr>
+<tr>
+<td>ии аналитика звонков</td>
+<td>18</td>
+<td>225</td>
+<td>ближайшая живая ИИ-формулировка</td>
+</tr>
+<tr>
+<td>программа для записи пациентов</td>
+<td>7</td>
+<td>109</td>
+<td>10 объявлений</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>5. Что конкуренты покупают в Директе</h2>
+<h3>dental-pro.online, 396 рекламных ключей</h3>
+<p>мис (6 271) · ассистент стоматолога (875) · мис барс (278) · <strong>мис для стоматологии</strong> (193, CPC 436, 14 объявл.) ·
+<strong>айдент программа для стоматологии</strong> (173, CPC 267) · администратор в стоматологию (177) ·
+<strong>программа для стоматологии</strong> (157, CPC 627) · инфоклиника мис (137) · инфодент программа для стоматологии (111) ·
+1с медицина поликлиника (113) · <strong>мис для стоматологии с егисз</strong> (63, CPC 288, 16 объявл.) ·
+2в стоматология программа (62) · стом икс стоматологическая программа (20, CPC 163)</p>
+<p>Половина бюджета уходит на чужие бренды МИС. Эту же тактику можно взять целиком.</p>
+<h3>loyalmed.ru, 129 рекламных ключей, ближайший аналог</h3>
+<p>чат бот запись к врачу (23) · медицинский чат бот (18) · ии в стоматологии (29) ·
+диана ии в стоматологии (55) · <strong>регистрация в егисз частной стоматологии</strong> (12, CPC 79, 13 объявл.) ·
+применение ии в стоматологии (5) · телеграмм бот запись к врачу (2) · 1с стоматология программа (11, CPC 111)</p>
+<h3>klientiks.ru, 142 ключа</h3>
+<p>программа мис (74) · клиника онлайн программа (74) · барс медицина (71) · мис для стоматологии с егисз (63) ·
+мис онлайн (46) · мис сайт (38) · медицинская crm (4, CPC 121) · программа для записи пациентов (7, CPC 109)</p>
+<h3>fdoc.ru и medialog.ru: ставка на регуляторику</h3>
+<p>fdoc.ru держит 28 462 рекламных ключа и покупает административные запросы персонала клиник:
+егисз личный кабинет (5 529) · клинические рекомендации минздрава (813) ·
+информированное добровольное согласие (794) · выписка из реестра лицензий (543) ·
+обработка рук медперсонала по санпин (425) · номенклатура должностей медработников (290).</p>
+<p>Медиалог добавляет: мис медиалог (82) · мис медлок (79) · мис купить (15, 12 объявлений) ·
+программа реновация для медцентров (10).</p>
+<p>Модель понятная: ловить администратора и главврача на ежедневной бюрократии, потом продавать софт.
+Дорогая и долгая, зато объём спроса реальный.</p>
+<hr>
+<h2>6. Конкуренты, которых не было в первом списке</h2>
+<table>
+<thead>
+<tr>
+<th>Домен</th>
+<th>vis</th>
+<th>Реклама</th>
+<th>Кто это</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>zoya-ai.ru</strong></td>
+<td>1</td>
+<td><strong>1 454 / 191</strong></td>
+<td>ИИ-доктор для пациентов, не наш конкурент: покупает «расшифровка анализов через ии», «диагноз с помощью ии»</td>
+</tr>
+<tr>
+<td><strong>dianapp.online</strong></td>
+<td>8</td>
+<td>0</td>
+<td>«Диана», ИИ в стоматологии, брендовый спрос 55, KEI 90</td>
+</tr>
+<tr>
+<td><strong>fdoc.ru</strong></td>
+<td>637</td>
+<td>28 462 / 133</td>
+<td>крупный медицинский софт, 2 565 вхождений в AI-ответы</td>
+</tr>
+<tr>
+<td><strong>mila.online</strong></td>
+<td>286</td>
+<td>0</td>
+<td>приложение записи к врачу</td>
+</tr>
+<tr>
+<td><strong>n3health.ru</strong></td>
+<td>247</td>
+<td>0</td>
+<td>интеграция с ЕГИСЗ, стоит в топе по «подключение к егисз»</td>
+</tr>
+<tr>
+<td><strong>sqns.ru</strong></td>
+<td>249</td>
+<td>221 / 99</td>
+<td>софт для клиник</td>
+</tr>
+<tr>
+<td><strong>subbota-inc.ru</strong></td>
+<td>136</td>
+<td>0</td>
+<td>агентство по стоматологиям, сидит в топе по «мис для стоматологии»</td>
+</tr>
+<tr>
+<td><strong>dent-it.ru / ident24.ru</strong></td>
+<td>40 / 28</td>
+<td>0 / 140</td>
+<td>Ident, наша интеграция</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>7. Три вывода для МедИИума</h2>
+<p><strong>Продуктовые страницы трафика не дают никому.</strong> Ни loyalmed, ни twin24, ни rechka.ai
+не получают органику с описания продукта. Значит, органика строится обходом,
+а не описанием ИИ-администратора.</p>
+<p><strong>Связка «бренд МИС + программа» дешевле и точнее голого бренда.</strong> «Айдент программа для стоматологии»
+даёт 197 запросов при KEI 66, тогда как навигационный «айдент» ведёт человека в личный кабинет.</p>
+<p><strong>ЕГИСЗ единственный кластер, где сходится всё:</strong> обязательность для клиник, шестнадцать объявлений
+на запросе, KEI 72–85 и слабая выдача. Это первая страница, которую стоит написать.</p></div>
+</section>
+<section class="section" id="section-site-map">
+  <div class="section-head">
+    <span class="section-num">05 · СТРАНИЦЫ</span>
+  </div>
+  <h2 class="section-title">Карта страниц</h2>
+  <div class="md"><p>Основано на <code>keys-demand-20260915.md</code> и <code>competitors-keywords.md</code>.
+Все частоты <code>wsk</code>, Яндекс Россия, сентябрь 2026.</p>
+<hr>
+<h2>Где мы сейчас</h2>
+<p><code>ivanilin.ru/mediium/</code> это одна страница без внутренних ссылок и без meta description.
+Домен <code>ivanilin.ru</code> в базе keys.so отсутствует: ни одного ключа в топ-50.</p>
+<p>Title сейчас: «МедИИум — ИИ-платформа коммуникаций с пациентами: больше записей и визитов
+без перегруза администраторов». Формулировка «ИИ-платформа коммуникаций с пациентами»
+в поиске не существует, ноль запросов. Title работает на узнавание, но не на трафик.</p>
+<p><strong>Отдельное решение до начала работ.</strong> Продвигать продукт в подпапке личного сайта тяжело:
+тематика домена размыта, ссылочного веса под медицинский софт нет. Если ставка на органику
+серьёзная, нужен отдельный домен. Если органика вторична, подпапка сойдёт, но ожидания надо снизить.</p>
+<hr>
+<h2>Главное ограничение, которое надо принять</h2>
+<p>Запросов с точным интентом «нужен ИИ-администратор для клиники» в Яндексе меньше сотни в месяц.
+Весь остальной трафик приходит на смежный интент: человек ищет МИС, ЕГИСЗ или программу записи.
+Он подходящий клиент, но пришёл не за нами, поэтому конверсия ниже.</p>
+<p>Поэтому страницы делятся на три тира, и их нельзя мерить одной меркой.</p>
+<hr>
+<h2>Тир 1. Точный интент: мало спроса, лучшая конверсия</h2>
+<h3>1.1 Медицинский чат-бот и запись через бота</h3>
+<p><strong>URL:</strong> <code>/mediium/chat-bot-dlya-kliniki/</code></p>
+<table>
+<thead>
+<tr>
+<th>Ключ</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+<th>Кто в топе</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>чат бот запись к врачу</td>
+<td>34</td>
+<td>17</td>
+<td>minzdrav.gov.ru, mosreg</td>
+</tr>
+<tr>
+<td>медицинский чат бот</td>
+<td>27</td>
+<td>3</td>
+<td>medpedia.ru</td>
+</tr>
+<tr>
+<td>чат бот врач</td>
+<td>25</td>
+<td>5</td>
+<td>phag-rostov.ru</td>
+</tr>
+<tr>
+<td>чат бот для клиники</td>
+<td>2</td>
+<td>2</td>
+<td>bothelp.io, sherpaai.ru</td>
+</tr>
+<tr>
+<td>бот врач</td>
+<td>8</td>
+<td>2</td>
+<td>medpedia.ru</td>
+</tr>
+<tr>
+<td>бот для стоматологии</td>
+<td>1</td>
+<td>10</td>
+<td>stoma1c.ru</td>
+</tr>
+</tbody>
+</table>
+<p>Суммарно около 97 запросов. В топе сидят госсайты и справочники, коммерческой защиты нет.
+Оценка при выходе в топ-3: 10–15 визитов в месяц. Мало, зато интент наш целиком.</p>
+<h3>1.2 ИИ-обработка звонков клиники</h3>
+<p><strong>URL:</strong> <code>/mediium/ii-obrabotka-zvonkov/</code></p>
+<table>
+<thead>
+<tr>
+<th>Ключ</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ии аналитика звонков</td>
+<td>18</td>
+<td>225</td>
+</tr>
+<tr>
+<td>ии для колл центра</td>
+<td>6</td>
+<td>142</td>
+</tr>
+<tr>
+<td>ии для анализа звонков</td>
+<td>3</td>
+<td>100</td>
+</tr>
+<tr>
+<td>обзвон пациентов</td>
+<td>1</td>
+<td>21</td>
+</tr>
+</tbody>
+</table>
+<p>Ставка 225 ₽ при частоте 18 говорит, что запрос покупают. Держит rechka.ai.</p>
+<hr>
+<h2>Тир 2. Полка МИС: основной объём трафика</h2>
+<p>Владелец клиники ищет свою систему по имени. Наша страница объясняет,
+что МедИИум к этой системе подключается. Связка «бренд + программа» работает лучше голого бренда:
+человек ищет софт, а не вход в личный кабинет.</p>
+<h3>2.1 Страницы под интеграции, которые уже есть</h3>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>Ключи</th>
+<th>wsk</th>
+<th>KEI</th>
+<th>Приоритет</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/mediium/dlya-klientiks/</code></td>
+<td>клиентикс (3 734), клиентикс crm (56)</td>
+<td>3 790</td>
+<td>41–67</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>/mediium/dlya-ident/</code></td>
+<td>айдент программа для стоматологии (197), айдент (1 126), айдент стоматология (76), ident стоматология (34)</td>
+<td>1 433</td>
+<td>14–66</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>/mediium/dlya-dentalpro/</code></td>
+<td>дентал про (979), dentalpro (123), дентал про стоматология (62), дентал про отзывы (10)</td>
+<td>1 174</td>
+<td>17–29</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Целиться надо в длинный хвост «бренд + программа / отзывы / для стоматологии», а не в голый бренд:
+по голому бренду первые две позиции держит сам вендор.</p>
+<p>Оценка при позициях 5–10 по хвостам и 8–15 по бренду: 80–250 визитов в месяц на страницу.</p>
+<h3>2.2 Задел под новые интеграции</h3>
+<p>Спрос уже есть, интеграции пока нет. Каждая новая интеграция открывает готовую страницу.</p>
+<table>
+<thead>
+<tr>
+<th>Система</th>
+<th>wsk бренда</th>
+<th>«бренд + программа»</th>
+<th>wsk</th>
+<th>KEI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Медеск</td>
+<td>7 128</td>
+<td></td>
+<td></td>
+<td>48</td>
+</tr>
+<tr>
+<td>Медэлемент</td>
+<td>2 892</td>
+<td></td>
+<td></td>
+<td>67</td>
+</tr>
+<tr>
+<td>Клиника Онлайн</td>
+<td>1 147</td>
+<td>клиника онлайн программа</td>
+<td>80</td>
+<td>59</td>
+</tr>
+<tr>
+<td>Медмис</td>
+<td>821</td>
+<td></td>
+<td></td>
+<td>38</td>
+</tr>
+<tr>
+<td>Инфоклиника</td>
+<td>621</td>
+<td>инфоклиника медицинская информационная система</td>
+<td>138</td>
+<td>80</td>
+</tr>
+<tr>
+<td>Инфодент</td>
+<td>234</td>
+<td>инфодент программа для стоматологии</td>
+<td>123</td>
+<td>67</td>
+</tr>
+<tr>
+<td>Медиалог</td>
+<td>315</td>
+<td>медиалог программа для медицинского центра</td>
+<td>49</td>
+<td>49</td>
+</tr>
+<tr>
+<td>1С Стоматология</td>
+<td>314</td>
+<td>1с стоматология программа</td>
+<td>57</td>
+<td>29</td>
+</tr>
+<tr>
+<td>Renovatio</td>
+<td>296</td>
+<td>реновацио программа для клиник</td>
+<td>9</td>
+<td>74</td>
+</tr>
+<tr>
+<td>Medods</td>
+<td>168</td>
+<td></td>
+<td></td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<p>Порядок по выгоде: Инфоклиника и Инфодент дают лучший баланс частоты и лёгкости (KEI 67–80).</p>
+<h3>2.3 Стоматологический лендинг</h3>
+<p><strong>URL:</strong> <code>/mediium/dlya-stomatologii/</code></p>
+<table>
+<thead>
+<tr>
+<th>Ключ</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+<th>Объявл.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>мис для стоматологии</td>
+<td>193</td>
+<td>507</td>
+<td>14</td>
+</tr>
+<tr>
+<td>программа для стоматологии</td>
+<td>157</td>
+<td>627</td>
+<td>8</td>
+</tr>
+<tr>
+<td>мис для стоматологии с егисз</td>
+<td>63</td>
+<td>261</td>
+<td>16</td>
+</tr>
+<tr>
+<td>crm для стоматологии</td>
+<td>43</td>
+<td>504</td>
+<td>18</td>
+</tr>
+<tr>
+<td>программа для стоматологической клиники</td>
+<td>33</td>
+<td>208</td>
+<td>9</td>
+</tr>
+<tr>
+<td>срм для стоматологии</td>
+<td>26</td>
+<td>409</td>
+<td>—</td>
+</tr>
+<tr>
+<td>автоматизация стоматологии</td>
+<td>4</td>
+<td>123</td>
+<td>18</td>
+</tr>
+</tbody>
+</table>
+<p>Суммарно 519 запросов при медианной ставке 356 ₽. Самая дорогая аудитория из всех найденных.</p>
+<p>Честная оговорка: человек ищет МИС, а МедИИум это надстройка над МИС. Страница обязана
+за первый экран объяснить разницу, иначе отказ. Ранжироваться будем хуже вендоров МИС,
+потому что интент совпадает частично.</p>
+<h3>2.4 Косметология и ветклиники</h3>
+<p>Отдельных страниц пока не заслуживают: 12–14 запросов на нишу.
+Делать блоками внутри общей страницы «Кому подходит», как сейчас.</p>
+<p>Пересмотреть, когда появится интеграция с YCLIENTS: там 23 077 брендового спроса
+и «программа для салона красоты» 93 при ставке 406 ₽.</p>
+<hr>
+<h2>Тир 3. Информационный трафик и AI-ответы</h2>
+<h3>3.1 ЕГИСЗ, первая статья к написанию</h3>
+<p><strong>URL:</strong> <code>/mediium/blog/egisz-dlya-chastnoy-kliniki/</code></p>
+<table>
+<thead>
+<tr>
+<th>Ключ</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+<th>Объявл.</th>
+<th>KEI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>егисз что это такое в медицине</td>
+<td>613</td>
+<td>12</td>
+<td>5</td>
+<td>85</td>
+</tr>
+<tr>
+<td>мис для стоматологии с егисз</td>
+<td>63</td>
+<td>261</td>
+<td>16</td>
+<td>56</td>
+</tr>
+<tr>
+<td>интеграция с егисз</td>
+<td>30</td>
+<td>44</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td>регистрация в егисз частной стоматологии</td>
+<td>13</td>
+<td>79</td>
+<td>13</td>
+<td>72</td>
+</tr>
+<tr>
+<td>подключение к егисз</td>
+<td>8</td>
+<td>19</td>
+<td>6</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>Подключение к ЕГИСЗ обязательно для частных клиник, поэтому спрос устойчивый.
+KEI 72–85 означает слабую выдачу. Шестнадцать объявлений на коммерческом хвосте
+показывают, что за этого клиента платят.</p>
+<p>Оговорка по интенту: человек ищет, как подключиться к ЕГИСЗ, а не ИИ-администратора.
+Это верх воронки. Ставить в статью честный переход на продукт, а не продавать в лоб.</p>
+<h3>3.2 Вопросные материалы под AI-ответы Яндекса</h3>
+<p>Канал почти пустой: rechka.ai при видимости 43 собрал 2 296 вхождений в Нейро.
+Форматы под цитирование, каждый закрывает реальный вопрос владельца клиники:</p>
+<ul>
+<li>сколько стоит администратор в клинике</li>
+<li>как считать доходимость пациентов до приёма</li>
+<li>почему пациенты не доходят после записи</li>
+<li>как вернуть пациентов из базы</li>
+<li>что делать с пропущенными звонками в клинике</li>
+<li>как считать конверсию обращения в запись</li>
+</ul>
+<p>По этим формулировкам частот в keys.so нет, и это нормально: AI-ответы работают
+на длинном хвосте, который Вордстат не видит. Мерить их надо вхождениями в Нейро, не позициями.</p>
+<h3>3.3 Перехват по «бренд + отзывы»</h3>
+<p>Дёшево и тепло, но капля по объёму. Делать не раньше, чем закроются тиры 1 и 2.</p>
+<table>
+<thead>
+<tr>
+<th>Ключ</th>
+<th>wsk</th>
+<th>KEI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>дентал про отзывы</td>
+<td>10</td>
+<td>4</td>
+</tr>
+<tr>
+<td>инфоклиника отзывы</td>
+<td>6</td>
+<td>35</td>
+</tr>
+<tr>
+<td>медеск отзывы</td>
+<td>5</td>
+<td>62</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Чего не делать</h2>
+<p><strong>Не идти в пациентский спрос.</strong> «Запись на приём к врачу» 60 442, «личный кабинет пациента» 1 250,
+«электронная медицинская карта» 25 292. Выдачу держат ЕМИАС, mos.ru, Госуслуги и Минздрав.
+Трафик чужой, лидов не даст.</p>
+<p><strong>Не делать страницы под интеграции как отдельный интент.</strong> «Клиентикс интеграция»,
+«медеск интеграция», «dentalpro api», «интеграция мис с amocrm» имеют ноль запросов.
+Интеграция это аргумент внутри страницы, а не вход в неё.</p>
+<p><strong>Не делать сравнения МИС.</strong> «Сравнение мис», «какую мис выбрать», «обзор мис», «лучшая мис»
+отсутствуют полностью, «рейтинг мис» равен двум.</p>
+<p><strong>Не повторять модель zvonobot.</strong> Их органика построена на общем интернет-глоссаре
+(Discord, дедлайн, скриншотеры). Трафик есть, клиник там нет.</p>
+<hr>
+<h2>Порядок запуска</h2>
+<table>
+<thead>
+<tr>
+<th>Шаг</th>
+<th>Что</th>
+<th>Почему первым</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Техправки текущей страницы</td>
+<td>стоит часы, а не недели</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>/dlya-stomatologii/</code></td>
+<td>самая дорогая аудитория, 519 запросов</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Статья про ЕГИСЗ</td>
+<td>KEI 72–85, слабая выдача, устойчивый спрос</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>/dlya-klientiks/</code></td>
+<td>крупнейший брендовый спрос среди наших интеграций</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>/dlya-ident/</code>, <code>/dlya-dentalpro/</code></td>
+<td>тот же шаблон, дешёвое тиражирование</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>/chat-bot-dlya-kliniki/</code></td>
+<td>точный интент, малый объём</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Вопросные материалы под Нейро</td>
+<td>длинный хвост, окупается позже</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Техправки текущей страницы</h2>
+<ol>
+<li>Добавить meta description, сейчас его нет вообще.</li>
+<li>Добавить внутренние ссылки: страница висит изолированно, ноль исходящих на свой же сайт.</li>
+<li>Сохранить в title слова, которые ищут, рядом с названием: «для стоматологий», «запись пациентов»,
+   «интеграция с МИС». Формулировку «ИИ-платформа коммуникаций с пациентами» оставить как позиционирование,
+   но не рассчитывать на неё в поиске.</li>
+<li>Проверить блок «Интеграции»: названия Ident, DentalPro, Клиентикс должны быть текстом,
+   а не только логотипами, иначе брендовые хвосты не зацепятся.</li>
+<li>Завести раздел <code>/mediium/blog/</code> под тир 3.</li>
+</ol>
+<hr>
+<h2>Как мерить</h2>
+<p>Трафик на подпапке считать отдельной целью в Метрике. Позиции по тиру 2 проверять
+через keys.so раз в месяц, по тиру 3 смотреть вхождения в AI-ответы Яндекса,
+а не позиции. Сравнивать с нулевой базой: сейчас у домена ноль ключей в топ-50.</p></div>
+</section>
+<section class="section" id="section-direct-core">
+  <div class="section-head">
+    <span class="section-num">06 · ДИРЕКТ</span>
+  </div>
+  <h2 class="section-title">Ядро под Директ</h2>
+  <div class="md"><p>Выгрузка по группам: <code>direct-core.csv</code> (разделитель <code>;</code>, 98 ключей).
+Частоты <code>wsk</code>, ставки <code>cpc</code> из keys.so, сентябрь 2026. Где keys.so ключа не знает, частота взята из ядер конкурентов
+(рекламных или органических) и помечена в колонке «источник».</p>
+<hr>
+<h2>Зачем Директ, а не органика</h2>
+<p>Органического спроса на категорию нет, и конкуренты это знают. Medods при видимости 19
+держит 1 227 рекламных ключей и 257 объявлений. Dental-pro при видимости 67 держит 392 ключа.
+Loyalmed, ближайший аналог МедИИума, вообще не имеет органики (vis 3), зато крутит 82 объявления.</p>
+<p>Ниша окупает контекст. Лиды на старте берутся здесь.</p>
+<hr>
+<h2>Группы</h2>
+<table>
+<thead>
+<tr>
+<th>Группа</th>
+<th>Ключей</th>
+<th>Суммарный wsk</th>
+<th>Медианный CPC ₽</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Стоматология, софт</td>
+<td>9</td>
+<td>493</td>
+<td>409</td>
+</tr>
+<tr>
+<td>2. Стоматология, бренды МИС</td>
+<td>16</td>
+<td>3 437</td>
+<td>134</td>
+</tr>
+<tr>
+<td>3. ЕГИСЗ и регуляторика</td>
+<td>5</td>
+<td>727</td>
+<td>44</td>
+</tr>
+<tr>
+<td>4. Клиника, софт общий</td>
+<td>15</td>
+<td>466</td>
+<td>72</td>
+</tr>
+<tr>
+<td>5. Клиника, бренды МИС</td>
+<td>20</td>
+<td>43 652</td>
+<td>51</td>
+</tr>
+<tr>
+<td>6. Косметология и beauty</td>
+<td>6</td>
+<td>211</td>
+<td>193</td>
+</tr>
+<tr>
+<td>7. Ветклиники</td>
+<td>3</td>
+<td>1 028</td>
+<td>65</td>
+</tr>
+<tr>
+<td>8. Обзвон и звонки</td>
+<td>10</td>
+<td>1 421</td>
+<td>215</td>
+</tr>
+<tr>
+<td>9. ИИ для бизнеса</td>
+<td>9</td>
+<td>2 885</td>
+<td>113</td>
+</tr>
+<tr>
+<td>10. Боты для клиник</td>
+<td>5</td>
+<td>72</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<h3>С чего начинать</h3>
+<p><strong>Группа 1, стоматология софт.</strong> Самая дорогая и самая точная аудитория.</p>
+<table>
+<thead>
+<tr>
+<th>Ключ</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+<th>Объявл.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>мис для стоматологии</td>
+<td>193</td>
+<td>507</td>
+<td>14</td>
+</tr>
+<tr>
+<td>программа для стоматологии</td>
+<td>157</td>
+<td>627</td>
+<td>8</td>
+</tr>
+<tr>
+<td>crm для стоматологии</td>
+<td>43</td>
+<td>504</td>
+<td>18</td>
+</tr>
+<tr>
+<td>программа для стоматологической клиники</td>
+<td>33</td>
+<td>208</td>
+<td>9</td>
+</tr>
+<tr>
+<td>срм для стоматологии</td>
+<td>26</td>
+<td>409</td>
+<td>5</td>
+</tr>
+<tr>
+<td>автоматизация стоматологии</td>
+<td>4</td>
+<td>123</td>
+<td>18</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Группа 2, бренды МИС стоматологий.</strong> Тактика dental-pro.online: половина их бюджета
+уходит на чужие бренды. Можно повторить дословно.</p>
+<table>
+<thead>
+<tr>
+<th>Ключ</th>
+<th>wsk</th>
+<th>CPC ₽</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>айдент</td>
+<td>1 126</td>
+<td>187</td>
+</tr>
+<tr>
+<td>1с стоматология</td>
+<td>314</td>
+<td>211</td>
+</tr>
+<tr>
+<td>инфодент</td>
+<td>234</td>
+<td>145</td>
+</tr>
+<tr>
+<td>айдент программа для стоматологии</td>
+<td>197</td>
+<td>291</td>
+</tr>
+<tr>
+<td>инфодент программа для стоматологии</td>
+<td>123</td>
+<td>159</td>
+</tr>
+<tr>
+<td>dentalpro</td>
+<td>123</td>
+<td>200</td>
+</tr>
+<tr>
+<td>дентал про</td>
+<td>979</td>
+<td>74</td>
+</tr>
+<tr>
+<td>стом икс стоматологическая программа</td>
+<td>20</td>
+<td>163</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Группа 3, ЕГИСЗ.</strong> Шестнадцать объявлений на «мис для стоматологии с егисз» при частоте 63.
+Дешевле остальных по ставке и точнее по боли.</p>
+<p><strong>Группа 8, обзвон.</strong> Ставки 194–551 ₽, двадцать два объявления на «автообзвоне».
+Интент не медицинский, лид дороже и хуже квалифицирован. Запускать после первых трёх.</p>
+<h3>Что не запускать сразу</h3>
+<p><strong>Группа 5, бренды МИС клиник.</strong> Суммарный wsk 43 652 обманывает: 24 250 из них это «медлок»,
+навигационный запрос людей, которым нужен вход в личный кабинет. Брать только коммерческие хвосты
+вида «бренд + программа», не голые бренды.</p>
+<p><strong>Группа 9, ИИ для бизнеса.</strong> Приводит любой бизнес, не клиники. Дорого квалифицировать.</p>
+<p><strong>Группа 10, боты для клиник.</strong> Ставки копеечные, объём 72 запроса, в выдаче госсайты.
+Скорее для органики, чем для рекламы.</p>
+<p>Из этой группы намеренно убраны «чат бот запись к врачу» (34) и «телеграмм бот запись к врачу» (2):
+формулировка выглядит коммерческой, но Яндекс держит по ней Минздрав и региональные порталы,
+то есть читает интент как пациентский. Для органики они годятся, для рекламы нет.</p>
+<hr>
+<h2>Минус-слова</h2>
+<p>Ставить на кампанию целиком, иначе половина бюджета уйдёт на чужой интент.</p>
+<p><strong>Вакансии и учёба.</strong> Критично для стоматологической группы: «администратор в стоматологию» 177,
+«ассистент стоматолога» 875, «что сдавать на стоматолога» 242. Это соискатели и абитуриенты,
+и dental-pro.online на них уже тратит деньги.</p>
+<pre><code>вакансии, вакансия, работа, зарплата, обязанности, резюме, hh, авито, курсы, обучение,
+учиться, поступить, сдавать, экзамен, профессия, колледж, реферат, диплом, гост,
+скачать, бесплатно, торрент, крякнут, взлом
+</code></pre>
+<p><strong>Пациентский интент.</strong> Самая большая дыра: «запись на приём к врачу» 60 442.</p>
+<pre><code>записаться, запись к врачу, к врачу, емиас, госуслуги, поликлиника, талон, регистратура,
+мои анализы, личный кабинет, вход, войти, расписание врачей, приём врача, вызвать врача
+</code></pre>
+<p><strong>Чужой ИИ.</strong> Отсекает Diagnocat и ИИ-диагностику, с которой нас будут путать.</p>
+<pre><code>рентген, снимок, снимки, кт, мрт, диагнокат, diagnocat, расшифровка анализов, диагноз,
+нейросеть рисует, генерация изображений
+</code></pre>
+<p><strong>Госсектор.</strong> Бюджетные учреждения покупают через торги, лид бесполезен.</p>
+<pre><code>минздрав, росминздрав, фомс, омс, бюджетное, муниципальное, департамент, госзакупки, 44-фз
+</code></pre>
+<hr>
+<h2>Куда вести</h2>
+<table>
+<thead>
+<tr>
+<th>Группа</th>
+<th>Посадочная</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1, 2</td>
+<td><code>/mediium/dlya-stomatologii/</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>статья про ЕГИСЗ со ссылкой на продукт</td>
+</tr>
+<tr>
+<td>4, 5</td>
+<td><code>/mediium/</code> либо страница под конкретную МИС</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>/mediium/</code> с якорем на блок «Косметологии»</td>
+</tr>
+<tr>
+<td>7</td>
+<td>не запускать до интеграции с Ветменеджером</td>
+</tr>
+<tr>
+<td>8, 9</td>
+<td><code>/mediium/</code></td>
+</tr>
+</tbody>
+</table>
+<p>Группы 1 и 2 без отдельной посадочной запускать не стоит: человек ищет МИС, попадает
+на описание ИИ-администратора и уходит. Сначала страница, потом бюджет.</p>
+<hr>
+<h2>Оговорки</h2>
+<p>Ставки <code>cpc</code> из keys.so это средняя ставка по запросу, а не наш будущий CPC.
+Реальная цена клика зависит от качества объявления и конкуренции в моменте,
+проверять надо в прогнозе бюджета Директа.</p>
+<p>Частота <code>wsk</code> отражает Яндекс. Google в keys.so через этот метод недоступен.</p>
+<p>Все 98 ключей имеют частоту. Колонка «источник» показывает, откуда она взята:
+<code>keys.so</code> это прямая проверка запроса, <code>Директ &lt;домен&gt;</code> и <code>органика &lt;домен&gt;</code> это данные
+из ядра конкурента, который по этому запросу уже работает.</p></div>
+</section>
+
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Сгенерировано автоматически из research/*.md · 2026-09-16</div>
+    <div class="files"><code>audit-summary.md</code> <code>competitors-keywords.md</code> <code>direct-core.md</code> <code>keys-demand-20260915.md</code> <code>site-map.md</code> <code>vocabulary-check.md</code></div>
+  </div>
+</footer>
+
+</body>
+</html>
