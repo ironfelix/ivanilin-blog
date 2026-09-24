@@ -6,49 +6,59 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>Материалы МедИИума</title>
   <style>
-    :root{--ink:#18232d;--muted:#68737c;--line:#dce3e6;--accent:#0b7285;--bg:#f6f8f8;--card:#fff}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,Arial,sans-serif}
-    .wrap{max-width:980px;margin:auto;padding:28px 20px 64px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:68px}
-    .brand{font-weight:800;letter-spacing:-.03em;font-size:21px}.brand span{display:block;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.02em}
+    :root{--paper:#FCFCFA;--paper-2:#F4F5F1;--ink:#10201C;--ink-2:#46564F;--muted:#6B7A74;--line:#E3E8E4;--line-2:#C9D2CD;--accent:#0F6B5C;--accent-ink:#0A4E43}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.wrap{max-width:1120px;margin:0 auto;padding:28px 24px 64px}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:58px}
+    .brand{font-weight:800;letter-spacing:-.04em;font-size:21px;line-height:1.1}.brand b{color:var(--accent)}
+    .brand span{display:block;margin-top:5px;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.02em}
     .back{color:var(--muted);text-decoration:none;font-size:14px}.back:hover{color:var(--accent)}
-    h1{font-size:clamp(34px,6vw,62px);line-height:1.02;letter-spacing:-.055em;max-width:720px;margin:0 0 18px}.intro{color:var(--muted);max-width:650px;margin:0 0 56px;font-size:18px}
-    section{margin:42px 0}h2{font-size:24px;letter-spacing:-.03em;margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-    .card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 19px;text-decoration:none;color:inherit;transition:.15s ease}.card:hover{border-color:#93bbc2;transform:translateY(-1px)}
-    .card h3{font-size:17px;line-height:1.25;margin:0 0 7px}.card p{color:var(--muted);font-size:14px;margin:0}.tag{display:inline-block;color:var(--accent);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
-    footer{border-top:1px solid var(--line);margin-top:64px;padding-top:18px;color:var(--muted);font-size:13px}@media(max-width:650px){.wrap{padding:20px 16px 45px}.top{margin-bottom:54px}.grid{grid-template-columns:1fr}.intro{font-size:16px;margin-bottom:40px}}
+    h1{font-size:clamp(34px,6vw,58px);line-height:1.03;letter-spacing:-.055em;max-width:720px;margin:0 0 18px}
+    .intro{color:var(--ink-2);max-width:720px;margin:0 0 52px;font-size:18px}
+    section{margin:46px 0}h2{font-size:24px;line-height:1.15;letter-spacing:-.035em;margin:0 0 14px}
+    .list{border-top:1px solid var(--line)}
+    .item{display:grid;grid-template-columns:150px minmax(220px,1fr) minmax(280px,1.4fr) 86px;gap:18px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}
+    .type{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .title{font-weight:700;letter-spacing:-.015em}.desc{color:var(--ink-2);font-size:14px}
+    .open{justify-self:end;color:var(--accent);font-size:14px;font-weight:700;text-decoration:none}.open:hover{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
+    footer{border-top:1px solid var(--line);margin-top:62px;padding-top:18px;color:var(--muted);font-size:13px}
+    @media(max-width:760px){.wrap{padding:22px 16px 48px}.top{align-items:flex-start;margin-bottom:44px}.intro{font-size:16px;margin-bottom:38px}.item{grid-template-columns:1fr;gap:5px;padding:16px 0}.open{justify-self:start;margin-top:4px}}
   </style>
 </head>
-<body><main class="wrap">
-  <header class="top"><div class="brand">МедИИум<span>Платформа коммуникации с пациентами</span></div><a class="back" href="https://mediium.ru/">mediium.ru →</a></header>
+<body>
+<main class="wrap">
+  <header class="top">
+    <div class="brand">Мед<b>ИИ</b>ум<span>Платформа коммуникации с пациентами</span></div>
+    <a class="back" href="https://mediium.ru/" rel="nofollow">mediium.ru</a>
+  </header>
   <h1>Материалы МедИИума</h1>
-  <p class="intro">Исследования, отчёты, рабочие таблицы и прототипы — в одном месте.</p>
+  <p class="intro">Рабочий навигатор по опубликованным отчётам, кейсам, таблицам и интерактивным экранам.</p>
 
-  <section><h2>Отчёты и кейсы</h2><div class="grid">
-    <a class="card" href="https://ivanilin.ru/reports/mediium-semantics-38453b0e/"><span class="tag">Отчёт</span><h3>Семантика МедИИума</h3><p>Спрос, поисковые формулировки и коммерческие кластеры.</p></a>
-    <a class="card" href="https://mediium.ru/cases/"><span class="tag">Кейсы</span><h3>Кейсы и практика</h3><p>Истории коммуникации клиник с пациентами.</p></a>
-    <a class="card" href="https://mediium.ru/calc/"><span class="tag">Инструмент</span><h3>Оценка потенциала</h3><p>Предварительная оценка потерь обращений и записей.</p></a>
-    <a class="card" href="https://ivanilin.ru/mediium-stories/"><span class="tag">Кейсы</span><h3>Истории МедИИума</h3><p>Материалы о внедрении и результатах.</p></a>
+  <section><h2>Отчёты и кейсы</h2><div class="list">
+    <div class="item"><div class="type">Кейс</div><div class="title">3D Gastro</div><div class="desc">История внедрения, работа с обращениями и подтверждённый аналитический контекст из Метрики.</div><a class="open" href="https://ivanilin.ru/mediium-stories/story-3dgastro.html" rel="nofollow">Открыть</a></div>
+    <div class="item"><div class="type">Кейс</div><div class="title">Атмосфера</div><div class="desc">Действующий клиент МедИИума: статистика, операционный контекст и материал для кейса.</div><a class="open" href="https://ivanilin.ru/mediium-stories/story-atmosfera.html" rel="nofollow">Открыть</a></div>
+    <div class="item"><div class="type">Кейсы</div><div class="title">Отзывы и истории успеха</div><div class="desc">Сводная страница с историями клиник, отзывами и будущими кейсовыми материалами.</div><a class="open" href="https://ivanilin.ru/mediium-stories/" rel="nofollow">Открыть</a></div>
+    <div class="item"><div class="type">Кейсы</div><div class="title">Кейсы на сайте МедИИума</div><div class="desc">Публичный раздел mediium.ru с историями внедрения и результатами клиник.</div><a class="open" href="https://mediium.ru/cases/" rel="nofollow">Открыть</a></div>
   </div></section>
 
-  <section><h2>Контакты и рабочие таблицы</h2><div class="grid">
-    <a class="card" href="https://docs.google.com/spreadsheets/d/1vb916_z6-AEzNd8iSWSHrinZ4r3rIJRJ71d4IfJBeCI/edit"><span class="tag">Google Таблица</span><h3>Агентства и ЛПР</h3><p>Партнёрские контакты и публичные каналы связи.</p></a>
-    <a class="card" href="https://docs.google.com/spreadsheets/d/1q6X3H92odS5LBlOcspNbfzUWXduqiN6nuBCwtr1gB9c/edit"><span class="tag">Google Таблица</span><h3>Реестр клиник</h3><p>Клиники, сайты и рабочие статусы.</p></a>
-    <a class="card" href="https://docs.google.com/spreadsheets/d/1a8U74PURcXpdBD0DCY29rWUK1XlxADv1XEuSJeTcelg/edit"><span class="tag">Google Таблица</span><h3>Рассылка</h3><p>Очередь и статусы исходящих контактов.</p></a>
-    <a class="card" href="https://docs.google.com/spreadsheets/d/1-BM1StcZUp25VKFHR7Yb6DBJGJnI2fyOH5uaoWlqUAE/edit"><span class="tag">Google Таблица</span><h3>Конференции и вебинары</h3><p>Партнёрский канал через медицинские мероприятия.</p></a>
+  <section><h2>Контакты и рабочие таблицы</h2><div class="list">
+    <div class="item"><div class="type">Google Sheet</div><div class="title">Медицинские агентства, ЛПР и второй проход Telegram</div><div class="desc">50 агентств, подтверждённые публичные каналы, персональные контакты ЛПР и повторная проверка Telegram.</div><a class="open" href="https://docs.google.com/spreadsheets/d/1vb916_z6-AEzNd8iSWSHrinZ4r3rIJRJ71d4IfJBeCI/edit" rel="nofollow">Открыть</a></div>
+    <div class="item"><div class="type">Google Sheet</div><div class="title">Реестр клиник</div><div class="desc">Рабочий реестр медицинских организаций, сайтов, статусов и источников для отбора.</div><a class="open" href="https://docs.google.com/spreadsheets/d/1q6X3H92odS5LBlOcspNbfzUWXduqiN6nuBCwtr1gB9c/edit" rel="nofollow">Открыть</a></div>
+    <div class="item"><div class="type">Google Sheet</div><div class="title">Очередь аутрича и рязанские клиники</div><div class="desc">Подготовленные строки рассылки, статусы касаний и рязанский стоматологический пул.</div><a class="open" href="https://docs.google.com/spreadsheets/d/1a8U74PURcXpdBD0DCY29rWUK1XlxADv1XEuSJeTcelg/edit" rel="nofollow">Открыть</a></div>
+    <div class="item"><div class="type">Google Sheet</div><div class="title">Конференции и вебинары</div><div class="desc">Партнёрский канал через профильные медицинские мероприятия и образовательные площадки.</div><a class="open" href="https://docs.google.com/spreadsheets/d/1-BM1StcZUp25VKFHR7Yb6DBJGJnI2fyOH5uaoWlqUAE/edit" rel="nofollow">Открыть</a></div>
   </div></section>
 
-  <section><h2>Исследования</h2><div class="grid">
-    <a class="card" href="https://ivanilin.ru/reports/mediium-semantics-38453b0e/"><span class="tag">Исследование</span><h3>Спрос и поисковые запросы</h3><p>Что клиники действительно ищут и как формулируют проблему.</p></a>
-    <a class="card" href="https://ivanilin.ru/konspekty/mediium-zarubezhnye-analogi/"><span class="tag">Исследование</span><h3>Зарубежные аналоги</h3><p>Artera, Luma, RevenueWell и другие patient communication платформы.</p></a>
-    <a class="card" href="https://ivanilin.ru/konspekty/2026-09-18-stomatologiya-kommunikacii-i-mediium/"><span class="tag">Исследование</span><h3>Коммуникация в стоматологии</h3><p>Рынок, процессы и точки потери пациента.</p></a>
-    <a class="card" href="https://ivanilin.ru/mediium/materials/"><span class="tag">Навигатор</span><h3>Все материалы</h3><p>Эта страница — основной список артефактов МедИИума.</p></a>
+  <section><h2>Исследования</h2><div class="list">
+    <div class="item"><div class="type">Отчёт</div><div class="title">Рынок, спрос и язык МедИИума</div><div class="desc">Публичный отчёт по семантике. Локально подтверждены связанные исследования: администраторы и ИИ, отзывы, Accenture, конкуренты, зарубежные аналоги и стоматология.</div><a class="open" href="https://ivanilin.ru/reports/mediium-semantics-38453b0e/" rel="nofollow">Открыть</a></div>
   </div></section>
 
-  <section><h2>Прототипы продукта</h2><div class="grid">
-    <a class="card" href="https://ivanilin.ru/mediium/"><span class="tag">Прототип</span><h3>Концепты продукта</h3><p>Варианты интерфейса и сценариев МедИИума.</p></a>
-    <a class="card" href="https://ivanilin.ru/mediium/widget.html"><span class="tag">Прототип</span><h3>Виджет</h3><p>Сценарий чата для сайта клиники.</p></a>
-    <a class="card" href="https://ivanilin.ru/mediium/"><span class="tag">Инструмент</span><h3>Рабочая панель аутрича</h3><p>Поток клиник и статусы контактов.</p></a>
-    <a class="card" href="https://mediium.ru/calc/"><span class="tag">Прототип</span><h3>Калькулятор</h3><p>Черновой сценарий оценки потенциала.</p></a>
+  <section><h2>Прототипы продукта</h2><div class="list">
+    <div class="item"><div class="type">Прототип</div><div class="title">Главный экран МедИИума</div><div class="desc">Интерактивная публичная страница продукта с позиционированием, сценариями и демо-виджетом.</div><a class="open" href="https://ivanilin.ru/mediium/" rel="nofollow">Открыть</a></div>
+    <div class="item"><div class="type">Прототип</div><div class="title">Виджет</div><div class="desc">Отдельный интерактивный экран чат-сценария для сайта клиники.</div><a class="open" href="https://ivanilin.ru/mediium/widget.html" rel="nofollow">Открыть</a></div>
+    <div class="item"><div class="type">Прототип</div><div class="title">Калькулятор потенциала</div><div class="desc">Интерактивная оценка потерь обращений, записей и потенциального эффекта внедрения.</div><a class="open" href="https://mediium.ru/calc/" rel="nofollow">Открыть</a></div>
   </div></section>
   <footer>Закрытая рабочая страница. Не индексируется поисковиками.</footer>
-</main></body></html>
+</main>
+</body>
+</html>
