@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Дизайн-материалы МедИИума: логотип, графика, визуальная система</title>
+<meta name="description" content="Рабочий каталог дизайн-материалов МедИИума за 27–28 сентября 2026: что на сайте, что на рассмотрении, что отбраковано.">
+<link rel="icon" href="https://mediium.ru/favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:"Onest";font-weight:100 900;font-display:swap;src:url(fonts/onest-cyrillic-8faa2f.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-weight:100 900;font-display:swap;src:url(fonts/onest-latin-5ac482.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+FEFF}
+@font-face{font-family:"Golos Text";font-weight:400 900;font-display:swap;src:url(fonts/golostext-cyrillic-d15932.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Golos Text";font-weight:400 900;font-display:swap;src:url(fonts/golostext-latin-4016a9.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+FEFF}
+:root{--paper:#FAFAF6;--paper-2:#F1F2EA;--ink:#171C16;--ink-2:#474D44;--muted:#5E655A;--line:#E2E4DA;--line-2:#C8CCBD;
+  --accent:#2F5A3C;--accent-ink:#22442D;--leaf:#B9D3A8;--alarm:#9A4524;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 "Onest","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+h1,h2,h3,h4{font-family:"Golos Text","Helvetica Neue",Arial,sans-serif;letter-spacing:-.02em;line-height:1.15}
+a{color:var(--accent)}a:hover{color:var(--accent-ink)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+img{display:block;max-width:100%;height:auto}
+code{font:inherit;font-size:.92em;color:var(--ink-2)}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:10;background:var(--paper);padding:8px 12px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0 0}
+.brand{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none}
+.brand img{height:22px;width:auto}
+.brand span{font-size:13px;color:var(--muted);line-height:1.3}
+.back{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap}.back:hover{color:var(--accent)}
+header.hero{padding:56px 0 8px}
+h1{font-size:clamp(32px,5.2vw,54px);margin:0 0 18px;max-width:17ch;letter-spacing:-.035em}
+.intro{font-size:18px;color:var(--ink-2);max-width:62ch;margin:0 0 24px}
+.meta{font-size:14px;color:var(--muted);margin:0 0 28px}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 24px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:8px}
+.legend div{display:flex;flex-direction:column;align-items:flex-start;gap:5px;font-size:14px;color:var(--ink-2);line-height:1.35}
+nav.toc{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.toc ul{display:flex;gap:4px;list-style:none;margin:0 auto;padding:8px 24px;max-width:1180px;overflow-x:auto;scrollbar-width:none}
+nav.toc ul::-webkit-scrollbar{display:none}
+nav.toc a{display:block;padding:6px 12px;border-radius:999px;font-size:14px;color:var(--ink-2);text-decoration:none;white-space:nowrap}
+nav.toc a:hover{background:var(--paper-2);color:var(--ink)}
+nav.toc a[aria-current="true"]{background:var(--accent);color:var(--paper)}
+main section{padding:56px 0 8px;border-top:1px solid var(--line)}
+main section:first-of-type{border-top:0}
+h2{font-size:clamp(26px,3.2vw,36px);margin:0 0 12px}
+h3{font-size:21px;margin:40px 0 16px}
+h4{font-size:17px;margin:0}
+.lead{font-size:17px;color:var(--ink-2);max-width:70ch;margin:0 0 24px}
+.small{font-size:14px;color:var(--muted);margin:14px 0 0;max-width:70ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.grid-4{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.grid-5{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
+.card .pic{background:var(--paper-2);border-bottom:1px solid var(--line)}
+.card .pic img{width:100%}
+.strip{display:flex;height:120px}.strip i{flex:1}
+.logo-pic{display:grid;place-items:center;padding:28px 22px;min-height:120px;background:#fff!important}
+.logo-pic img{width:auto!important;max-width:100%;max-height:52px}
+.card .txt{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 10px}
+.card p{margin:0;font-size:15px;line-height:1.55;color:var(--ink-2)}
+.card .note{font-size:14px;color:var(--muted);border-left:2px solid var(--line-2);padding-left:10px}
+.more{margin-top:auto;padding-top:4px;font-size:14px;font-weight:500}
+.st{display:inline-block;max-width:100%;font-size:12px;font-weight:600;line-height:1.2;padding:4px 8px;border-radius:999px;border:1px solid transparent}
+.st-prod{background:var(--accent);color:#fff}
+.st-review{border-color:var(--accent);color:var(--accent)}
+.st-reserve{border-color:var(--line-2);color:var(--ink-2);border-style:dashed}
+.st-no{background:var(--paper-2);color:var(--muted);border-color:var(--line)}
+.st-rej{background:#F6E9E2;color:var(--alarm)}
+.combo{margin:20px 0 0;padding:22px;border:1px solid var(--line);border-radius:10px;background:#fff;display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:24px;align-items:center}
+.combo img{width:100%;max-width:300px}
+.combo figcaption{font-size:15px;color:var(--ink-2)}
+.combo .st{margin:0 4px}
+.rule{margin-top:20px;padding:18px 20px;background:var(--paper-2);border-radius:10px}
+.rule p{margin:8px 0 0;color:var(--ink-2);font-size:15px}
+.logos-r1{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.dropped{margin-top:16px;font-size:15px;color:var(--ink-2)}
+.dropped summary{cursor:pointer;font-weight:500;color:var(--ink)}
+.dropped ul{margin:8px 0 0;padding-left:20px}
+.links{display:flex;flex-wrap:wrap;gap:8px 20px;margin:20px 0 0;font-size:15px;font-weight:500}
+.links a::after{content:" →"}
+.rejected{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.rejected li{display:grid;grid-template-columns:minmax(200px,280px) 1fr;gap:6px 24px;padding:14px 0;border-bottom:1px solid var(--line)}
+.rej-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.rejected b{text-decoration:line-through;text-decoration-color:var(--line-2);font-weight:600}
+.rejected span:not(.st){color:var(--ink-2);font-size:15px}
+.timeline{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.timeline li{display:grid;grid-template-columns:130px 1fr;gap:4px 24px;padding:12px 0;border-bottom:1px solid var(--line)}
+.timeline time{font-size:14px;color:var(--muted);padding-top:2px}
+.timeline b{display:block;font-weight:600}
+.timeline span{color:var(--ink-2);font-size:15px}
+.swatches{list-style:none;padding:0;margin:0 0 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px}
+.swatches li{display:flex;flex-direction:column;gap:2px;font-size:14px}
+.swatches i{display:block;height:64px;border-radius:8px;border:1px solid var(--line);margin-bottom:6px}
+.swatches code{color:var(--muted);font-size:13px}
+.swatches span{color:var(--muted);font-size:13px;line-height:1.35}
+.type-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.type-sample{padding:20px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.type-sample p{margin:0 0 12px}
+.type-sample span{font-size:13px;color:var(--muted)}
+.ts-h{font-family:"Golos Text",sans-serif;font-weight:600;font-size:26px;line-height:1.15;letter-spacing:-.025em}
+.ts-b{font-size:17px;line-height:1.6;color:var(--ink-2)}
+.principles,.nolist,.yeslist{margin:0;padding-left:20px;color:var(--ink-2);max-width:75ch}
+.principles li,.nolist li,.yeslist li{margin:6px 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.two-col h4{margin-bottom:8px}
+footer.foot{margin-top:64px;padding:20px 0 40px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+@media(max-width:760px){
+  .wrap{padding:0 16px}
+  nav.toc ul{padding:8px 16px}
+  header.hero{padding-top:36px}
+  .intro{font-size:16.5px}
+  .brand span{display:none}
+  main section{padding-top:40px}
+  .grid,.grid-4,.grid-5,.logos-r1{grid-template-columns:1fr}
+  .combo{grid-template-columns:1fr}
+  .rejected li,.timeline li{grid-template-columns:1fr}
+  .type-grid,.two-col{grid-template-columns:1fr}
+  .ts-h{font-size:22px}
+}
+@media(min-width:761px) and (max-width:1024px){
+  .grid-5{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">К содержанию</a>
+<div class="wrap">
+  <div class="top">
+    <a class="brand" href="https://mediium.ru/" rel="nofollow"><img src="img/logo/r2-n2-wordmark-light.svg" width="431" height="95" alt="медииум" decoding="async"><span>Платформа коммуникации<br>с пациентами</span></a>
+    <a class="back" href="../">← Все материалы</a>
+  </div>
+  <header class="hero">
+    <h1>Дизайн-материалы: логотип, графика, визуальная система</h1>
+    <p class="intro">Всё, что показывали вечером 27 и ночью 28 сентября 2026 года: варианты логотипа, декоративную графику, фоны и визуальный язык. У каждого варианта отмечено, стоит ли он на сайте, ждёт решения или отбракован — и почему.</p>
+    <p class="meta">Рабочая страница, не индексируется. Обновлено 28.09.2026.</p>
+    
+<div class="legend" role="note" aria-label="Что значат статусы">
+  <div><span class="st st-prod">В production</span><span>стоит на mediium.ru</span></div>
+  <div><span class="st st-review">На рассмотрении</span><span>рекомендовано, ждёт решения</span></div>
+  <div><span class="st st-reserve">Запасной</span><span>держим про запас, в рекомендацию не входит</span></div>
+  <div><span class="st st-no">Не выбрано</span><span>показывали, выбрали другое; прямо не браковали</span></div>
+  <div><span class="st st-rej">Отбраковано</span><span>Иван посмотрел и отказался, или сняли как слабое</span></div>
+</div>
+  </header>
+</div>
+<nav class="toc" aria-label="Разделы страницы"><ul><li><a href="#now">Итог</a></li><li><a href="#chrono">Хронология</a></li><li><a href="#logo">Логотип</a></li><li><a href="#decor">Декор</a></li><li><a href="#home">Главная A/B</a></li><li><a href="#early">Ранние направления</a></li><li><a href="#system">Система</a></li><li><a href="#more">Смежное</a></li></ul></nav>
+<main id="content" class="wrap">
+
+<section id="now" aria-labelledby="now-h">
+  <h2 id="now-h">Что сейчас на mediium.ru</h2>
+  <p class="lead">Из всего, что показывали вечером и ночью, на боевой сайт попали четыре визуальных решения. Всё остальное на этой странице — черновики: часть ещё обсуждается, часть отбракована.</p>
+  <div class="grid grid-4"><article class="card">
+  <div class="pic"><div class="strip" role="img" aria-label="Палитра «Лес»: бумага, лес, лист, чернила"><i style="background:#FAFAF6"></i><i style="background:#F1F2EA"></i><i style="background:#B9D3A8"></i><i style="background:#2F5A3C"></i><i style="background:#22442D"></i><i style="background:#171C16"></i></div></div>
+  <div class="txt">
+    <div class="card-top"><h4>Палитра «Лес»</h4><span class="st st-prod">В production</span></div>
+    <p>Бирюзовый <code>#0F6B5C</code> заменён на лесной <code>#2F5A3C</code>, фон и линии стали теплее. Бирюза читалась как шаблон ИИ-продукта. Утверждена для всего сайта.</p><a class="more" href="#system">Палитра подробно ↓</a>
+  </div>
+</article>
+<article class="card">
+  <div class="pic logo-pic"><img src="img/logo/r2-n2-wordmark-light.svg" width="431" height="95" alt="Вордмарк «медииум» строчными с дужкой под двумя «и»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Вордмарк «Дужка»</h4><span class="st st-prod">В production</span></div>
+    <p>«медииум» строчными, под двумя «и» типографская дужка «читать слитно». Стоит в шапке и футере всех страниц. Знак рядом не ставили, фавикон не меняли.</p><a class="more" href="#logo">Все варианты логотипа ↓</a>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/prod-impl-horizon.webp" width="960" height="510" alt="Секция «Внедрение» на mediium.ru: три шага и под ними пологие дуги «Горизонта»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>«Горизонт» во «Внедрении»</h4><span class="st st-prod">В production</span></div>
+    <p>Пологие дуги-слои под тремя шагами внедрения. Стоит в обычном потоке под текстом и не заходит под строки. Для телефона нарисован отдельный вариант.</p><a class="more" href="#horizon">Почему «Горизонт» ↓</a>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/prod-header-mobile.webp" width="750" height="144" alt="Шапка mediium.ru на телефоне: бургер, вордмарк и кнопка «Демо»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Шапка: бургер, «Дужка», «Демо»</h4><span class="st st-prod">В production</span></div>
+    <p>Порядок как у Mindbox на всех ширинах: бургер, вордмарк с подписью, справа короткая кнопка «Демо». Вся навигация в меню.</p><a class="more" href="https://mediium.ru/" rel="nofollow">Открыть mediium.ru</a>
+  </div>
+</article></div>
+</section>
+
+<section id="chrono" aria-labelledby="chrono-h">
+  <h2 id="chrono-h">Хронология решений</h2>
+  <p class="lead">Вечер 27 сентября и ночь на 28 сентября 2026 года. Ночью логотип и декор шли параллельно, поэтому порядок внутри ночи примерный.</p>
+  <ol class="timeline"><li><time>27.09 · вечер</time><div><b>Палитра «Лес»</b><span>Утверждена вместо бирюзы. Заодно показан макет раздела «Журнал» в новой палитре.</span></div></li>
+<li><time>27.09 · вечер</time><div><b>Аудит «сгенерированного» вида</b><span>Правки ниже hero: меньше одинаковых карточек, без звуковой волны и фильтров на /cases/. Hero не трогали.</span></div></li>
+<li><time>27.09 · вечер</time><div><b>Графика-схемы и пять фонов</b><span>Точечная диаграмма, воронка, схема интеграций; фоны «Маршрут», «Каналы», «Расписание», «Контуры клиники», «Пульс».</span></div></li>
+<li><time>27.09 · поздно</time><div><b>Визуальный язык, 8 направлений</b><span>Ввели «правило штриха»: у каждого вида линии одно значение. Первым кандидатом были «Сутки клиники».</span></div></li>
+<li><time>28.09 · ночь</time><div><b>Поворот к декору</b><span>Иван: получилось слишком смыслово, нужен не разбор продукта схемами, а декоративный фон. Сделали 8 декоративных направлений.</span></div></li>
+<li><time>28.09 · ночь</time><div><b>Третья итерация декора</b><span>«Время крупно» и «Контур реплики» отбракованы: образы продукта в декоре выглядят буквально. Добавлены арки, пересечение фигур, веер, полудиск.</span></div></li>
+<li><time>28.09 · ночь</time><div><b>Финальная чистка декора</b><span>Отбракована «Шкала суток». Сняты «Сетка слотов», «Горизонт», «Штриховка-подложка». Рекомендация: арки, пересечение фигур, веер.</span></div></li>
+<li><time>28.09 · ночь</time><div><b>Главная в двух системах</b><span>Полные версии главной: A «Контур» и B «Форма». К обсуждению первым предложен A.</span></div></li>
+<li><time>28.09 · ночь</time><div><b>Логотип, раунд 1</b><span>Пять направлений. Ивану понравились «Сдвиг» и «Шов», остальные показались страшными.</span></div></li>
+<li><time>28.09 · ночь</time><div><b>Логотип, раунд 2</b><span>«Нить», «Дужка», «Проём», «Вывеска» и правило «название / знак / оба».</span></div></li>
+<li><time>28.09 · ночь</time><div><b>«Горизонт» на сайт</b><span>Иван прямо попросил «Горизонт» во «Внедрение», хотя в preview его сняли. Переделан без наложения на текст.</span></div></li>
+<li><time>28.09 · ночь</time><div><b>«Дужка» на сайт</b><span>Иван выбрал «Дужку». Вордмарк в шапке и футере всех страниц.</span></div></li>
+<li><time>28.09 · ночь</time><div><b>Шапка по Mindbox</b><span>Бургер, вордмарк и кнопка «Демо» на всех ширинах.</span></div></li>
+<li><time>28.09 · ночь</time><div><b>Ссылка «сюжет»</b><span>В тёмном блоке «Почему мы это делаем» ссылка стала светло-зелёной с подчёркиванием: раньше сливалась с фоном.</span></div></li></ol>
+</section>
+
+<section id="logo" aria-labelledby="logo-h">
+  <h2 id="logo-h">Логотип и вордмарк</h2>
+  <p class="lead">Исходная точка: «Мед<b>ИИ</b>ум» с цветным «ИИ». Такой приём повторяют сотни ИИ-продуктов, он говорит «у нас ИИ», а не «мы помогаем клинике разговаривать с пациентами». Буквы во всех вариантах переведены в контуры, живого текста в SVG нет.</p>
+
+  <h3>Раунд 2 — выбор</h3>
+  <div class="grid"><article class="card logo-card">
+  <div class="pic logo-pic"><img src="img/logo/r2-n2-wordmark-light.svg" width="431" height="95" alt="Логотип «Дужка»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Дужка</h4><span class="st st-prod">В production · вордмарк</span></div>
+    <p>Слово строчными, под двумя «и» дужка — настоящий типографский знак «читать слитно». «ИИ» не подсвечено и не увеличено, обе буквы целые.</p><p class="note">В production только название без знака. Риск, который держим в голове: дужку могут прочитать как улыбку Amazon; тогда запасной ход — чистое строчное слово.</p>
+  </div>
+</article>
+<article class="card logo-card">
+  <div class="pic logo-pic"><img src="img/logo/r2-n1-logo-light.svg" width="548" height="89" alt="Логотип «Нить»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Нить</h4><span class="st st-review">На рассмотрении · знак</span></div>
+    <p>Знак — строчная «м» одной линией без отрыва: две вершины как две реплики. От «Сдвига» — две стороны разговора, от «Шва» — нить, которой они сшиты.</p><p class="note">Рекомендация раунда: знак «Нити» для фавикона и аватарок, в паре со словом из «Дужки». На сайт не ставили, фавикон прежний.</p>
+  </div>
+</article>
+<article class="card logo-card">
+  <div class="pic logo-pic"><img src="img/logo/r2-n3-logo-light.svg" width="537" height="94" alt="Логотип «Проём»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Проём</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Арка входа и человек в проёме: клиника открыта, пациент на пороге. Голая арка рядом со словом читается как «п», поэтому в связке она стоит в плитке.</p>
+  </div>
+</article>
+<article class="card logo-card">
+  <div class="pic logo-pic"><img src="img/logo/r2-n4-logo-light.svg" width="518" height="146" alt="Логотип «Вывеска»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Вывеска</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Слово вырезано в плашке, плашка разрезана между «и» и «и» со сдвигом. «ИИ» стало местом стыка, а не цветным акцентом.</p>
+  </div>
+</article></div>
+  <figure class="combo">
+    <img src="img/logo/r2-rec-logo-light.svg" width="560" height="101" alt="Связка: знак «Нити» и слово из «Дужки»" loading="lazy" decoding="async">
+    <figcaption>Рекомендованная раундом 2 связка «знак + название»: знак «Нити» и слово «Дужки». <span class="st st-review">На рассмотрении</span> В шапке сайта по правилу раунда стоит только название.</figcaption>
+  </figure>
+  <div class="rule">
+    <h4>Правило «название / знак / оба»</h4>
+    <p>Главный логотип — название строчными шрифтом сайта: в шапке только оно и подпись «Платформа коммуникации с пациентами». Знак — там, где слово не влезает: фавикон, аватар в мессенджере. Знак и название вместе — только когда знак надо «познакомить» с именем.</p>
+  </div>
+
+  <h3>Раунд 1 — пять направлений</h3>
+  <div class="grid logos-r1"><article class="card logo-card">
+  <div class="pic logo-pic"><img src="img/logo/v2-logo-light.svg" width="529" height="92" alt="Логотип «Сдвиг»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Сдвиг</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Круг из двух половин со сдвигом: клиника и пациент говорят по очереди.</p><p class="note">Понравился, идея ушла в раунд 2. Взяли две стороны и смещение. Не взяли разрезанный круг: читается как «S» и инь-ян.</p>
+  </div>
+</article>
+<article class="card logo-card">
+  <div class="pic logo-pic"><img src="img/logo/v5-logo-light.svg" width="511" height="97" alt="Логотип «Шов»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Шов</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Два «и» с общей штамбой: «ИИ» сделано конструкцией буквы, а не цветом.</p><p class="note">Понравился, идея ушла в раунд 2. Взяли мысль «ИИ в конструкции». Не взяли слияние двух «и»: слово начинает читаться как «медиум».</p>
+  </div>
+</article>
+<article class="card logo-card">
+  <div class="pic logo-pic"><img src="img/logo/v1-logo-light.svg" width="451" height="82" alt="Логотип «Книжный»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Книжный</h4><span class="st st-rej">Отбраковано</span></div>
+    <p>Только слово строчными в антикве Literata, без выделения «ИИ».</p>
+  </div>
+</article>
+<article class="card logo-card">
+  <div class="pic logo-pic"><img src="img/logo/v3-logo-light.svg" width="746" height="96" alt="Логотип «Замок»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Замок</h4><span class="st st-rej">Отбраковано</span></div>
+    <p>Модульная «М» из двух опор и клина-замка, капитель с разрядкой.</p>
+  </div>
+</article>
+<article class="card logo-card">
+  <div class="pic logo-pic"><img src="img/logo/v4-logo-light.svg" width="542" height="95" alt="Логотип «Опора»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Опора</h4><span class="st st-rej">Отбраковано</span></div>
+    <p>Жирная капитель, ножка «Д» продолжена линией под словом.</p>
+  </div>
+</article></div>
+  <p class="small">«Книжный», «Замок» и «Опора» Ивану не понравились («страшные»), дальше не развивались.</p>
+  <details class="dropped">
+    <summary>Что ещё отбросили по ходу раунда 2</summary>
+    <ul>
+      <li>Знаки с крупным «ИИ» — снова заявка «у нас ИИ».</li>
+      <li>Ступенька в слове — выглядит как баг вёрстки.</li>
+      <li>Галька — читается как пузырь мыслей.</li>
+      <li>Пустой разрезанный квадрат — кнопка «пауза».</li>
+    </ul>
+  </details>
+  <p class="links"><a href="https://ivanilin.ru/mediium-logo-variants/" rel="nofollow">Preview раунда 2</a><a href="https://ivanilin.ru/mediium-logo-variants/round-1.html" rel="nofollow">Preview раунда 1</a></p>
+</section>
+
+<section id="decor" aria-labelledby="decor-h">
+  <h2 id="decor-h">Декоративная графика</h2>
+  <p class="lead">Третья итерация: декор без сюжета. Никаких шкал, цифр, реплик, чатов, схем интерфейса и KPI — только фигуры из циркуля и линейки, обрезанные краем секции. Декор не заходит под строки текста, центр композиции за краем, не больше одного приёма на экран.</p>
+
+  <h3 id="horizon">В production</h3>
+  <div class="grid"><article class="card">
+  <div class="pic"><img src="img/prod-impl-horizon.webp" width="960" height="510" alt="«Горизонт» на mediium.ru, desktop: пологие дуги под тремя шагами внедрения" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>04 · Горизонт</h4><span class="st st-prod">В production · секция «Внедрение»</span></div>
+    <p>Плоские пологие дуги-слои. На финальной чистке preview его сняли: холмы могут читаться как пейзаж или восход. Потом Иван прямо попросил поставить его во «Внедрение», и он ушёл на сайт.</p><p class="note">На сайте полоса вынесена под шаги, со своим отступом, и не накрывает текст. В тёмной теме свои цвета.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/prod-horizon-mobile.webp" width="750" height="302" alt="«Горизонт» на mediium.ru в мобильной версии" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Горизонт, телефон</h4><span class="st st-prod">В production</span></div>
+    <p>Для 375 px нарисован отдельный SVG, а не сжатая desktop-картинка.</p>
+  </div>
+</article></div>
+
+  <h3>Рекомендованы — ждут решения</h3>
+  <div class="grid"><article class="card">
+  <div class="pic"><img src="img/deco-arches.webp" width="960" height="531" alt="Анфилада арок: пять вложенных арочных проёмов справа от шагов внедрения" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>11 · Анфилада арок</h4><span class="st st-review">На рассмотрении · 1-й выбор</span></div>
+    <p>Пять арочных проёмов один за другим, каждый уже и ниже. Глубина без перспективы и 3D. Если брать только одно направление, то это.</p><p class="note">Риск: больше пяти арок или одинаковый шаг — выйдет туннель или мишень.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/deco-overlap.webp" width="960" height="396" alt="Пересечение фигур: контур круга и штрихованный квадрат у финальной формы" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>09 · Пересечение фигур</h4><span class="st st-review">На рассмотрении · 2-й выбор</span></div>
+    <p>Круг и квадрат, угол квадрата в центре круга, общая четверть залита салатовым. Тяжёлый правый край у финальной формы.</p><p class="note">Первая версия с осями через центр читалась как прицел или круговая диаграмма — оси убрали.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/deco-fan.webp" width="960" height="457" alt="Модуль-веер: поле из квадратных модулей с дугами в секции «Кому подходит»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>10 · Модуль-веер</h4><span class="st st-review">На рассмотрении · 3-й выбор</span></div>
+    <p>Один квадрат с тремя четвертями окружности, чётные ряды зеркальны. Складывается в чешую, а не в таблицу.</p>
+  </div>
+</article></div>
+
+  <h3>Запасные</h3>
+  <div class="grid grid-4"><article class="card">
+  <div class="pic"><img src="img/deco-editorial.webp" width="960" height="442" alt="Полудиск и линейки: плоский полудиск цвета бренда в блоке «Почему мы это делаем»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>12 · Полудиск и линейки</h4><span class="st st-reserve">Запасной</span></div>
+    <p>Журнальный, громкий. Если нужна одна громкая точка — вместо «Пересечения фигур», две тяжёлые формы подряд не ставить.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/deco-frames.webp" width="960" height="458" alt="Сдвинутые рамки: асимметричные вложенные рамки в углу секции" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>13 · Сдвинутые рамки</h4><span class="st st-reserve">Запасной</span></div>
+    <p>Хорошо держат угол, но вложенные скругления напоминают угол экрана и дублируют арки.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/deco-rings.webp" width="960" height="397" alt="Концентрические дуги из-за угла секции" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>03 · Концентрические дуги</h4><span class="st st-reserve">Запасной</span></div>
+    <p>Чистые, но делают то же, что круг в «Пересечении фигур».</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/deco-bundle.webp" width="960" height="370" alt="Пучок тонких параллельных линий в секции «Интеграции»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>06 · Пучок линий</h4><span class="st st-reserve">Запасной</span></div>
+    <p>Движение без стрелок, но заметнее, чем нужно спокойному B2B-лендингу.</p>
+  </div>
+</article></div>
+
+  <h3>Отбраковано</h3>
+  <ul class="rejected">
+    <li><div class="rej-top"><b>08 · Время крупно</b><span class="st st-rej">Отбраковано</span></div><span>Иван: визуально не работает. Контурные цифры спорят с настоящими цифрами главной и читаются как недоделанный KPI.</span></li>
+    <li><div class="rej-top"><b>05 · Контур реплики</b><span class="st st-rej">Отбраковано</span></div><span>Иван: визуально не работает. Силуэт реплики, даже обрезанный, читается как иконка чата.</span></li>
+    <li><div class="rej-top"><b>02 · Шкала суток</b><span class="st st-rej">Отбраковано</span></div><span>Иван: шкала и засечки не заходят. Читается как ось времени и измерительный прибор. Не используется и как «связка» между секциями.</span></li>
+    <li><div class="rej-top"><b>01 · Сетка слотов</b><span class="st st-rej">Отбраковано · снято</span></div><span>Снята на чистке: даже прореженные ячейки читаются как расписание или клавиатура.</span></li>
+    <li><div class="rej-top"><b>07 · Штриховка-подложка</b><span class="st st-rej">Отбраковано · снято</span></div><span>Снята как отдельное направление: без формы это фактура, а не композиция. Осталась ингредиентом в арках, фигурах и веере.</span></li>
+  </ul>
+  <p class="small">Макеты отбракованных направлений намеренно не показываем, чтобы их не принимали за кандидатов.</p>
+  <p class="links"><a href="https://ivanilin.ru/mediium-decorative-visual-language/" rel="nofollow">Preview декоративной графики</a></p>
+</section>
+
+<section id="home" aria-labelledby="home-h">
+  <h2 id="home-h">Главная в двух визуальных системах</h2>
+  <p class="lead">Полные версии главной с декором из рекомендации. Тексты, цифры, hero и форма — из текущей главной без изменений. <span class="st st-review">На рассмотрении</span></p>
+  <div class="grid grid-4"><article class="card">
+  <div class="pic"><img src="img/home-a-impl.webp" width="960" height="513" alt="Вариант A: анфилада арок в секции «Внедрение»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>A · Контур: арки во «Внедрении»</h4><span class="st st-review">На рассмотрении</span></div>
+    <p>Тонкие линии: модуль-веер, анфилада арок, круг и квадрат одной линией. Ближе к тому, что на сайте уже есть; к обсуждению предложен первым.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/home-a-fit.webp" width="960" height="417" alt="Вариант A: модуль-веер в правом верхнем углу секции «Кому подходит»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>A · Контур: веер в «Кому подходит»</h4><span class="st st-review">На рассмотрении</span></div>
+    <p>Три приёма стоят в трёх разных местах второй половины страницы и переносятся по одному.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/home-b-team.webp" width="960" height="528" alt="Вариант B: плоский полудиск в тёмном блоке «Почему мы это делаем»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>B · Форма: полудиск</h4><span class="st st-review">На рассмотрении</span></div>
+    <p>Штрихованная плоскость, плоский полудиск, фигуры с заливкой. Полудиск — самая громкая точка, его можно добавить к A одним акцентом.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/home-b-does.webp" width="960" height="592" alt="Вариант B: диагональная штриховка в секции «Что делает платформа»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>B · Форма: штриховка</h4><span class="st st-review">На рассмотрении</span></div>
+    <p>Большая плоскость диагональной штриховки, обрезанная углом.</p>
+  </div>
+</article></div>
+  <p class="small">«Внедрение» на сайте в итоге получило «Горизонт», а не арки из варианта A. Остальные места A и B пока не решены.</p>
+  <p class="links"><a href="https://ivanilin.ru/mediium-home-visual-variants/" rel="nofollow">Preview двух систем</a><a href="https://ivanilin.ru/mediium-header-variants/" rel="nofollow">Preview вариантов шапки</a></p>
+</section>
+
+<section id="early" aria-labelledby="early-h">
+  <h2 id="early-h">Ранние направления: схемы и смысловые фоны</h2>
+  <p class="lead">Первая волна вечера 27 сентября. Графика здесь объясняет продукт: маршрут пациента, каналы, расписание, данные. Иван посмотрел и сказал, что получилось слишком смыслово: для лендинга нужен декоративный фон, а не разбор продукта схемами. Поэтому ни одно из этих направлений в работу не пошло. <span class="st st-no">Не выбрано</span></p>
+
+  <h3>Визуальный язык: 8 направлений</h3>
+  <p>Общее «правило штриха»: сплошная нейтральная линия — структура, лесная — действие помощника, пунктир — передача человеку или в МИС, штриховка — занято или закрыто, заливка — запись.</p>
+  <div class="grid grid-4"><article class="card">
+  <div class="pic"><img src="img/research-day.webp" width="960" height="436" alt="Сутки клиники: 24 ячейки суток с отметками обращений" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>01 · Сутки клиники</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Сутки как ось, отметки — реальное время со страницы. Был первым кандидатом.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/research-slice.webp" width="960" height="441" alt="Срез расписания, обрезанный правым краем секции" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>02 · Срез расписания</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Сетка расписания без ФИО и логотипов МИС.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/research-bus.webp" width="960" height="396" alt="Шина каналов: каналы сходятся к помощнику и дальше в МИС и CRM" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>03 · Шина каналов</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Ортогональная схема каналов. Риск — заезженный «хаб с лучами».</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/research-route.webp" width="960" height="518" alt="Линия маршрута одного диалога от обращения до визита" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>04 · Линия маршрута</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Реальные времена одного диалога вместо нумерации шагов.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/research-data.webp" width="960" height="535" alt="Контур данных: что остаётся в МИС клиники" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>05 · Контур данных</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Схема — это юридическое утверждение, рисовать можно только то, что есть в тексте.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/research-dim.webp" width="960" height="431" alt="Размерные линии под цифрами исследования отзывов" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>06 · Размерные линии</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Линейка с делениями по числу отзывов, одна выделенная группа.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/research-plan.webp" width="960" height="448" alt="Три маленьких плана площадок в секции «Кому подходит»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>07 · Планы площадок</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Одна площадка, филиалы, сеть. Риск — архитектурный декор ради декора.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/research-log.webp" width="960" height="474" alt="Журнал обращений: строки реплик рядом с формой заявки" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>08 · Журнал обращений</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Строки реальных реплик. Риск — клише «бегущих логов».</p>
+  </div>
+</article></div>
+  <p class="links"><a href="https://ivanilin.ru/mediium-visual-language-research/" rel="nofollow">Preview визуального языка</a></p>
+
+  <h3>Пять фоновых вариантов</h3>
+  <div class="grid grid-5"><article class="card">
+  <div class="pic"><img src="img/bg-v1.webp" width="960" height="402" alt="Фон «Маршрут пациента»: тонкая линия с узлами в нижней трети секции" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>1 · Маршрут пациента</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Линия «обращение → ответ → запись → визит» в нижней трети секции.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/bg-v2.webp" width="960" height="402" alt="Фон «Карта каналов»: три пучка линий сходятся справа от текста" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>2 · Карта каналов</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Три пучка линий сходятся в одну точку справа от текста.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/bg-v3.webp" width="960" height="402" alt="Фон «Расписание»: сетка ячеек в правом верхнем углу" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>3 · Расписание</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Пустые ячейки и выделенные слоты в углу секции.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/bg-v4.webp" width="960" height="402" alt="Фон «Контуры клиники»: план кабинетов и коридора" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>4 · Контуры клиники</h4><span class="st st-no">Не выбрано</span></div>
+    <p>План кабинетов, пунктир от входа до кабинета.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/bg-v5.webp" width="960" height="402" alt="Фон «Пульс коммуникации»: плавная линия по нижнему краю секции" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>5 · Пульс коммуникации</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Плавная линия ритма обращений, холмы без пиков.</p>
+  </div>
+</article></div>
+  <p class="links"><a href="https://ivanilin.ru/mediium-background-variants/" rel="nofollow">Preview фоновых вариантов</a></p>
+
+  <h3>Пять вариантов графики-схем</h3>
+  <p>Не фон, а иллюстрации с данными для отдельных блоков. В работу не брали, но цифры в них сверены с главной и кейсами.</p>
+  <div class="grid grid-5"><article class="card">
+  <div class="pic"><img src="img/graphics-v1.webp" width="960" height="454" alt="Точечная диаграмма: 73 из 284 негативных отзывов про администраторов" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>1 · Точечная диаграмма</h4><span class="st st-no">Не выбрано</span></div>
+    <p>73 из 284 негативных отзывов — администраторы, запись, дозвон.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/graphics-v2.webp" width="960" height="435" alt="Схема потоков: три канала сходятся в коммуникацию клиники" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>2 · Схема потоков</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Три канала и пунктиром — обращения, которые могут остаться без ответа.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/graphics-v3.webp" width="960" height="484" alt="Воронка кейса 3D Gastro: 886 обращений, 237 записей, 178 приёмов" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>3 · Воронка</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Кейс 3D Gastro за июль: 886 → 237 → 178.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/graphics-v4.webp" width="960" height="194" alt="Горизонтальный путь пациента из шести шагов" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>4 · Путь пациента</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Шесть шагов от обращения до визита.</p>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/graphics-v5.webp" width="960" height="439" alt="Архитектурная схема: каналы, платформа, МИС и CRM клиники" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>5 · Схема интеграций</h4><span class="st st-no">Не выбрано</span></div>
+    <p>Каналы → платформа → МИС и CRM в контуре клиники.</p>
+  </div>
+</article></div>
+  <p class="links"><a href="https://ivanilin.ru/mediium-graphics-variants/" rel="nofollow">Preview графики-схем</a></p>
+</section>
+
+<section id="system" aria-labelledby="system-h">
+  <h2 id="system-h">Текущая визуальная система</h2>
+  <p class="lead">То, что уже работает на mediium.ru и на что опираются все варианты выше. <span class="st st-prod">В production</span></p>
+
+  <h3>Лесная палитра</h3>
+  <p>Светлая тема — тёплая «бумага», лесной акцент и салатовый «лист» для заливок. Тёмные блоки («Почему мы это делаем», финальная форма) — на цвете чернил, кнопки на них салатовые.</p>
+  <ul class="swatches"><li><i style="background:#FAFAF6" aria-hidden="true"></i><b>Бумага</b><code>#FAFAF6</code><span>фон</span></li><li><i style="background:#F1F2EA" aria-hidden="true"></i><b>Бумага 2</b><code>#F1F2EA</code><span>чередование секций</span></li><li><i style="background:#2F5A3C" aria-hidden="true"></i><b>Лес</b><code>#2F5A3C</code><span>акцент, кнопки</span></li><li><i style="background:#22442D" aria-hidden="true"></i><b>Лес тёмный</b><code>#22442D</code><span>наведение</span></li><li><i style="background:#B9D3A8" aria-hidden="true"></i><b>Лист</b><code>#B9D3A8</code><span>заливки, кнопки на тёмном</span></li><li><i style="background:#171C16" aria-hidden="true"></i><b>Чернила</b><code>#171C16</code><span>текст, тёмные блоки</span></li><li><i style="background:#474D44" aria-hidden="true"></i><b>Чернила 2</b><code>#474D44</code><span>второстепенный текст</span></li><li><i style="background:#C8CCBD" aria-hidden="true"></i><b>Линия</b><code>#C8CCBD</code><span>разделители</span></li></ul>
+  <p class="small">Тёмная тема сайта:</p>
+  <ul class="swatches dark"><li><i style="background:#0E130E" aria-hidden="true"></i><b>Фон</b><code>#0E130E</code></li><li><i style="background:#131A13" aria-hidden="true"></i><b>Фон 2</b><code>#131A13</code></li><li><i style="background:#9CC28A" aria-hidden="true"></i><b>Акцент</b><code>#9CC28A</code></li><li><i style="background:#E8EBE3" aria-hidden="true"></i><b>Текст</b><code>#E8EBE3</code></li></ul>
+
+  <h3>Типографика</h3>
+  <div class="type-grid">
+    <div class="type-sample"><p class="ts-h">Превращаем обычную стоматологию в технологичную клинику</p><span>Golos Text — заголовки и вордмарк</span></div>
+    <div class="type-sample"><p class="ts-b">Помощник отвечает пациентам днём и ночью, подбирает врача и время из расписания и ставит запись в МИС.</p><span>Onest — основной текст</span></div>
+  </div>
+
+  <h3>Принцип декоративной графики</h3>
+  <ul class="principles">
+    <li>Один простой модуль или крупная фигура из циркуля и линейки — не иллюстрация и не схема продукта.</li>
+    <li>Фигура обрезана краем секции, её центр за кадром.</li>
+    <li>Декор никогда не заходит под строки текста и элементы формы. Если места рядом с текстом нет, секция получает полосу под декор сверху или снизу.</li>
+    <li>Не больше одного декоративного приёма на экран, каждый приём — один раз на странице.</li>
+    <li>Цвета только из палитры, тёмная тема — через те же переменные.</li>
+  </ul>
+
+  <h3>Ограничения anti-slop</h3>
+  <div class="two-col">
+    <div>
+      <h4>Не делаем</h4>
+      <ul class="nolist">
+        <li>Свечение, размытые пятна, градиентный туман, частицы.</li>
+        <li>Медицинские иконки: кресты, стетоскопы, кардиограммы.</li>
+        <li>Сток, 3D, AI-арт, стеклянные плавающие карточки.</li>
+        <li>Цветное «ИИ» в логотипе и заявку «у нас ИИ» в знаке.</li>
+        <li>Моноширинный шрифт на маркетинговых цифрах.</li>
+        <li>Сетки из шести одинаковых карточек, декор, который ничего не сообщает.</li>
+        <li>Образы продукта в декоре: шкалы, цифры, реплики, чаты, KPI.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Делаем</h4>
+      <ul class="yeslist">
+        <li>Меньше пунктов, больше одной конкретной сцены или цифры.</li>
+        <li>Тонкие линии-разделители и строки вместо карточек.</li>
+        <li>Контур, штриховка и одна плоская заливка.</li>
+        <li>Реальные цифры и тексты со страницы, никаких выдуманных.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="more" aria-labelledby="more-h">
+  <h2 id="more-h">Смежные макеты</h2>
+  <div class="grid"><article class="card">
+  <div class="pic"><img src="img/antislop-home.webp" width="912" height="560" alt="Главная после правок против «сгенерированного» вида: секция «Что делает платформа»" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Пример anti-slop правок</h4></div>
+    <p>Визуальный пример правок после аудита «сгенерированного» вида: главная ниже hero, /cases/, /calc/. Hero сохранён. Это preview, а не текущая версия сайта.</p><a class="more" href="https://ivanilin.ru/mediium-anti-slop/" rel="nofollow">Открыть preview</a>
+  </div>
+</article>
+<article class="card">
+  <div class="pic"><img src="img/journal-top.webp" width="960" height="570" alt="Макет раздела «Журнал» в лесной палитре" loading="lazy" decoding="async"></div>
+  <div class="txt">
+    <div class="card-top"><h4>Макет раздела «Журнал»</h4></div>
+    <p>Раздел с рубриками: Исследования, Истории клиник, Мнения, Практика, Медмаркетинг. Иван утвердил раздел, на сайт он пока не выложен. Макет сделан до смены логотипа, в шапке старый «МедИИум».</p><a class="more" href="https://ivanilin.ru/mediium-journal/" rel="nofollow">Открыть макет</a>
+  </div>
+</article></div>
+</section>
+</main>
+<div class="wrap"><footer class="foot"><span>Закрытая рабочая страница. Не индексируется поисковиками.</span><a href="../">← Все материалы МедИИума</a></footer></div>
+<script>
+(() => {
+  const links = [...document.querySelectorAll('nav.toc a')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(a => a.removeAttribute('aria-current'));
+      const a = map.get(e.target.id);
+      if (a) { a.setAttribute('aria-current', 'true'); a.scrollIntoView({block: 'nearest', inline: 'nearest'}); }
+    });
+  }, {rootMargin: '-45% 0px -50% 0px'});
+  map.forEach((_, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
+})();
+</script>
+</body>
+</html>
